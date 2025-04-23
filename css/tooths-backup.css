@@ -1,0 +1,163 @@
+.tooth-boxes .toothbox .tooth SVG { cursor:pointer; }
+.tooth-boxes .toothbox .tooth #fracture_root, .tooth-boxes .toothbox .tooth #fracture_crown { display:none; }
+.tooth-boxes .toothbox .tooth #plan_extraction_root, .tooth-boxes .toothbox .tooth #plan_extraction_crown { display:none; }
+.tooth-boxes .toothbox .tooth #crown_stroke, .tooth-boxes .toothbox .tooth #crown_fill, .tooth-boxes .toothbox .tooth #root_implant { display:none; }
+.tooth-boxes .toothbox .tooth #root_tooth { display:none; }
+/* ADULT - DEFAULT */
+.tooth-boxes .toothbox .tooth[data-type='adult'] #tooth_pulp { fill:#faaab4; }
+.tooth-boxes .toothbox .tooth[data-type='adult'] G.tooth-adult { display:block !important; }
+.tooth-boxes .toothbox .tooth[data-type='adult'] G.tooth-child { display:none !important; }
+/* CHILD */
+.tooth-boxes .toothbox .tooth[data-type='child'] #tooth_pulp { fill:#80dbf6 !important; }
+.tooth-boxes .toothbox .tooth[data-type='child'] G.tooth-adult { display:none !important; }
+.tooth-boxes .toothbox .tooth[data-type='child'] G.tooth-child { display:block !important; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='6'] #tooth_stroke { fill:#cdd4db; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='6'] #tooth_pulp { fill:transparent; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='7'] #tooth_stroke { fill:#cdd4db; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='7'] #tooth_pulp { fill:transparent; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='8'] #tooth_stroke { fill:#cdd4db; }
+.tooth-boxes .toothbox .tooth[data-type='child'][data-n='8'] #tooth_pulp { fill:transparent; }
+/* EXTRA */
+.tooth-boxes .toothbox .tooth[data-tooth*='crown'] #tooth_stroke { display:none; }
+.tooth-boxes .toothbox .tooth[data-tooth*='crown'] #root_tooth, .tooth-boxes .toothbox .tooth[data-tooth*='crown'] #crown_stroke, .tooth-boxes .toothbox .tooth[data-tooth*='crown'] #crown_fill { display:block; }
+.tooth-boxes .toothbox .tooth[data-tooth*='crown'] #crown_fill { fill:#ffffff; }
+.tooth-boxes .toothbox .tooth[data-tooth='crown-ex'] #root_tooth, .tooth-boxes .toothbox .tooth[data-tooth*='crown-ex'] #tooth_pulp { display:none; }
+.tooth-boxes .toothbox .tooth[data-tooth='implant'] #tooth_pulp, .tooth-boxes .toothbox .tooth[data-tooth='implant'] #tooth_stroke { display:none; }
+.tooth-boxes .toothbox .tooth[data-tooth='implant'] #root_implant, .tooth-boxes .toothbox .tooth[data-tooth='implant'] #crown_stroke, .tooth-boxes .toothbox .tooth[data-tooth='implant'] #crown_fill { display:block; }
+.tooth-boxes .toothbox .tooth[data-tooth='extract'] #tooth_pulp { display:none; }
+.tooth-boxes .toothbox .tooth[data-tooth='extract'] #tooth_stroke { fill:#cdd4db; }
+/* POS FILL */
+.item-icon .icon.seal { background-color:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='seal'] #surface_o { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='seal'] #surface_v { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='seal'] #surface_p { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='seal'] #surface_d { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='seal'] #surface_m { fill:#000; }
+.item-icon .icon.carrie { background-color:#f00; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='carrie'] #surface_o { fill:#f00; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='carrie'] #surface_v { fill:#f00; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='carrie'] #surface_p { fill:#f00; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='carrie'] #surface_d { fill:#f00; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='carrie'] #surface_m { fill:#f00; }
+.item-icon .icon.seal-carrie { background-color:#c00000; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='seal-carrie'] #surface_o { fill:#c00000; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='seal-carrie'] #surface_v { fill:#c00000; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='seal-carrie'] #surface_p { fill:#c00000; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='seal-carrie'] #surface_d { fill:#c00000; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='seal-carrie'] #surface_m { fill:#c00000; }
+.item-icon .icon.frectur { background-color:#800040; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='frectur'] #surface_o { fill:#800040; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='frectur'] #surface_v { fill:#800040; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='frectur'] #surface_p { fill:#800040; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='frectur'] #surface_d { fill:#800040; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='frectur'] #surface_m { fill:#800040; }
+.item-icon .icon.inlay { background-color:#e714ee; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='inlay'] #surface_o { fill:#e714ee; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='inlay'] #surface_v { fill:#e714ee; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='inlay'] #surface_p { fill:#e714ee; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='inlay'] #surface_d { fill:#e714ee; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='inlay'] #surface_m { fill:#e714ee; }
+.item-icon .icon.x-carrie { background-color:#ff1494; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='x-carrie'] #surface_o { fill:#ff1494; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='x-carrie'] #surface_v { fill:#ff1494; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='x-carrie'] #surface_p { fill:#ff1494; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='x-carrie'] #surface_d { fill:#ff1494; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='x-carrie'] #surface_m { fill:#ff1494; }
+.item-icon .icon.seal { background-color:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='seal'] #surface_o { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='seal'] #surface_v { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='seal'] #surface_p { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='seal'] #surface_d { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='seal'] #surface_m { fill:#000; }
+.item-icon .icon.seal { background-color:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='seal'] #surface_o { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='seal'] #surface_v { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='seal'] #surface_p { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='seal'] #surface_d { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='seal'] #surface_m { fill:#000; }
+.item-icon .icon.fisur { background-color:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='fisur'] #surface_o { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='fisur'] #surface_v { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='fisur'] #surface_p { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='fisur'] #surface_d { fill:#000; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='fisur'] #surface_m { fill:#000; }
+/* ROOT */
+.tooth-boxes .toothbox .tooth[data-root~='normal'] #tooth_pulp { fill:#FFC2D4; }
+.tooth-boxes .toothbox .tooth[data-root~='endodontic'] #tooth_pulp { fill:#AD91DB; }
+.tooth-boxes .toothbox .tooth[data-root~='necrosis'] #tooth_pulp { fill:#8C8C8C; }
+.tooth-boxes .toothbox .tooth[data-root~='rootfill'] #tooth_pulp { fill:#0DD90D; }
+.tooth-boxes .toothbox .tooth[data-root~='rootfillD'] #tooth_pulp { fill:#FF0000; }
+/* SEAL FILL */
+.item-icon .icon.seal.sx { background-color:#21421F; }
+.item-icon .icon.seal-carrie.sx { background-color:#21421F; }
+#tooth-bookmarks .tf-sx { display:block !important; background-color:#21421F; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='sx'] #surface_o { fill:#21421F; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='sx'] #surface_v { fill:#21421F; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='sx'] #surface_p { fill:#21421F; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='sx'] #surface_d { fill:#21421F; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='sx'] #surface_m { fill:#21421F; }
+.item-icon .icon.seal.sf { background-color:#869700; }
+.item-icon .icon.seal-carrie.sf { background-color:#869700; }
+#tooth-bookmarks .tf-sf { display:block !important; background-color:#869700; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='sf'] #surface_o { fill:#869700; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='sf'] #surface_v { fill:#869700; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='sf'] #surface_p { fill:#869700; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='sf'] #surface_d { fill:#869700; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='sf'] #surface_m { fill:#869700; }
+.item-icon .icon.seal.sa { background-color:#3A3638; }
+.item-icon .icon.seal-carrie.sa { background-color:#3A3638; }
+#tooth-bookmarks .tf-sa { display:block !important; background-color:#3A3638; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='sa'] #surface_o { fill:#3A3638; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='sa'] #surface_v { fill:#3A3638; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='sa'] #surface_p { fill:#3A3638; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='sa'] #surface_d { fill:#3A3638; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='sa'] #surface_m { fill:#3A3638; }
+.item-icon .icon.seal.si { background-color:#82484F; }
+.item-icon .icon.seal-carrie.si { background-color:#82484F; }
+#tooth-bookmarks .tf-si { display:block !important; background-color:#82484F; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='si'] #surface_o { fill:#82484F; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='si'] #surface_v { fill:#82484F; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='si'] #surface_p { fill:#82484F; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='si'] #surface_d { fill:#82484F; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='si'] #surface_m { fill:#82484F; }
+.item-icon .icon.seal.sk { background-color:#0C4B77; }
+.item-icon .icon.seal-carrie.sk { background-color:#0C4B77; }
+#tooth-bookmarks .tf-sk { display:block !important; background-color:#0C4B77; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='sk'] #surface_o { fill:#0C4B77; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='sk'] #surface_v { fill:#0C4B77; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='sk'] #surface_p { fill:#0C4B77; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='sk'] #surface_d { fill:#0C4B77; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='sk'] #surface_m { fill:#0C4B77; }
+.item-icon .icon.seal.sg { background-color:#775C0C; }
+.item-icon .icon.seal-carrie.sg { background-color:#775C0C; }
+#tooth-bookmarks .tf-sg { display:block !important; background-color:#775C0C; }
+.tooth-boxes .toothbox .tooth[data-pos_o~='sg'] #surface_o { fill:#775C0C; }
+.tooth-boxes .toothbox .tooth[data-pos_v~='sg'] #surface_v { fill:#775C0C; }
+.tooth-boxes .toothbox .tooth[data-pos_l~='sg'] #surface_p { fill:#775C0C; }
+.tooth-boxes .toothbox .tooth[data-pos_d~='sg'] #surface_d { fill:#775C0C; }
+.tooth-boxes .toothbox .tooth[data-pos_m~='sg'] #surface_m { fill:#775C0C; }
+/* CROWN */
+.item-icon .icon.crown.cz { background-color:#677B66; }
+#tooth-bookmarks .tc-cz { display:block !important; background-color:#677B66; }
+.tooth-boxes .toothbox .tooth[data-crown~='cz'] #crown_fill { fill:#677B66; }
+.item-icon .icon.crown.cc { background-color:#5F7577; }
+#tooth-bookmarks .tc-cc { display:block !important; background-color:#5F7577; }
+.tooth-boxes .toothbox .tooth[data-crown~='cc'] #crown_fill { fill:#5F7577; }
+.item-icon .icon.crown.cm { background-color:#5F6677; }
+#tooth-bookmarks .tc-cm { display:block !important; background-color:#5F6677; }
+.tooth-boxes .toothbox .tooth[data-crown~='cm'] #crown_fill { fill:#5F6677; }
+.item-icon .icon.crown.cf { background-color:#7B7767; }
+#tooth-bookmarks .tc-cf { display:block !important; background-color:#7B7767; }
+.tooth-boxes .toothbox .tooth[data-crown~='cf'] #crown_fill { fill:#7B7767; }
+.item-icon .icon.crown.cv { background-color:#838300; }
+#tooth-bookmarks .tc-cv { display:block !important; background-color:#838300; }
+.tooth-boxes .toothbox .tooth[data-crown~='cv'] #crown_fill { fill:#838300; }
+.item-icon .icon.crown.ck { background-color:#820E5D; }
+#tooth-bookmarks .tc-ck { display:block !important; background-color:#820E5D; }
+.tooth-boxes .toothbox .tooth[data-crown~='ck'] #crown_fill { fill:#820E5D; }
+.item-icon .icon.crown.cp { background-color:#864B00; }
+#tooth-bookmarks .tc-cp { display:block !important; background-color:#864B00; }
+.tooth-boxes .toothbox .tooth[data-crown~='cp'] #crown_fill { fill:#864B00; }
+.item-icon .icon.crown.cmv { background-color:#5F6677; }
+#tooth-bookmarks .tc-cmv { display:block !important; background-color:#5F6677; }
+.tooth-boxes .toothbox .tooth[data-crown~='cmv'] #crown_fill { fill:#5F6677; }

@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>DentistMax</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700&subset=latin-ext&_v=20250423162905">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/fontAwesome/font-awesome.min.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/bootstrap/bootstrap.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/material/material.blue-orange.min.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/jQuery/jquery-libs.css?t=25031620&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/dialog-polyfill/dialog-polyfill.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/dropzone/dropzone.css?_v=20250423162905">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css?_v=20250423162905">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/summernote/summernote.css?t=250316&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/selectize/selectize.css?_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/css/style.css?t=250316200403&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/css/style-dentmax.css?t=250316200403&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/lib/multiselect-widget/jquery.multiselect.css?t=2503162004&_v=20250423162905">
+    <link rel="stylesheet" href="/DentistMax/dist/css/main.min.css?_v=20250423162905">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/DentistMax/dist/img/favicon-dentmax/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/DentistMax/dist/img/favicon-dentmax/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/DentistMax/dist/img/favicon-dentmax/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="/DentistMax/dist/img/favicon-dentmax/safari-pinned-tab.svg" color="#03b8ec">
+    <meta name="apple-mobile-web-app-title" content="DentMax">
+    <meta name="application-name" content="DentMax">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/DentistMax/dist/img/favicon-dentmax/mstile-144x144.png">
+    <meta name="theme-color" content="#03b8ec">
+    <meta name="msapplication-navbutton-color" content="#03b8ec">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#03b8ec">
+
+    <script src="/DentistMax/dist/lib/cache.js?t=25031620&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/jQuery/jquery.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/moment/moment.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/moment/moment-with-locales.min.js?_v=20250423162905"></script>
+    <script type="text/javascript">
+      var IS_presenter = 'Dashboard';
+      var IS_action = 'default';
+      var IS_codepage = '';
+      var IS_lang = 'de';
+      var IS_url = 'https://isde.navstevalekara.sk';
+      var str_today = '2025-03-16';
+      var APPSC_URL = 'https://local.dentistmax.de:3378';
+      var APPWS_URL = 'wss://local.dentistmax.de:3378/wss';
+      var APP_version = '';
+      var APP_state = {
+        run: false,
+        cmx: false,
+        updt: false,
+        erp: false,
+        card: false,
+        vpn: false,
+        alog: false,
+        apps: false,
+        tu: false,
+      };
+      var keysDown = {};
+      var locale = {};
+      /*  */
+      var IS_user = 9;
+      var IS_dr = '1';
+      /*  */
+    </script>
+  </head>
+  <body class="p-dashboard m-default">
+    <div id="snippet--flashMessagesGlobal"></div>
+    <header class="bar">
+      <a href="javascript:;" class="logo">DentMax</a>
+      <h1>Max Huber</h1>
+      <button id="mobile-menu" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul for="mobile-menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mobile-menu">
+        <li class="mdl-menu__item active">
+          <a class="mdl-navigation__link" href="/">
+            <i class="material-icons">home</i>
+            <span class="label">Start</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">today</i>
+            <span class="label">Terminkalender</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="/patients/list/">
+            <i class="material-icons">group</i>
+            <span class="label">Patienten </span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">backup</i>
+            <span class="label">Krankenversicherungsgesellschaften</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">payment</i>
+            <span class="label">Barkasse</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">ring_volume</i>
+            <span class="label">Marketing</span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">insights</i>
+            <span class="label">Statistiken</span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item has-sub">
+          <a class="mdl-navigation__link" href="/setup/">
+            <i class="material-icons">settings</i>
+            <span class="label">Einstellungen </span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item has-sub">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <i class="material-icons">vpn_key</i>
+            <span class="label">Verwaltung</span>
+          </a>
+        </li>
+      </ul>
+      <div id="supportMenu">
+        <span id="supportMenuBtn"><span class="supportMenuBtnIcon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.95 18C12.3 18 12.5958 17.8792 12.8375 17.6375C13.0792 17.3958 13.2 17.1 13.2 16.75C13.2 16.4 13.0792 16.1042 12.8375 15.8625C12.5958 15.6208 12.3 15.5 11.95 15.5C11.6 15.5 11.3042 15.6208 11.0625 15.8625C10.8208 16.1042 10.7 16.4 10.7 16.75C10.7 17.1 10.8208 17.3958 11.0625 17.6375C11.3042 17.8792 11.6 18 11.95 18ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM12 20C14.2333 20 16.125 19.225 17.675 17.675C19.225 16.125 20 14.2333 20 12C20 9.76667 19.225 7.875 17.675 6.325C16.125 4.775 14.2333 4 12 4C9.76667 4 7.875 4.775 6.325 6.325C4.775 7.875 4 9.76667 4 12C4 14.2333 4.775 16.125 6.325 17.675C7.875 19.225 9.76667 20 12 20ZM12.1 7.7C12.5167 7.7 12.8792 7.83333 13.1875 8.1C13.4958 8.36667 13.65 8.7 13.65 9.1C13.65 9.46667 13.5375 9.79167 13.3125 10.075C13.0875 10.3583 12.8333 10.625 12.55 10.875C12.1667 11.2083 11.8292 11.575 11.5375 11.975C11.2458 12.375 11.1 12.825 11.1 13.325C11.1 13.5583 11.1875 13.7542 11.3625 13.9125C11.5375 14.0708 11.7417 14.15 11.975 14.15C12.225 14.15 12.4375 14.0667 12.6125 13.9C12.7875 13.7333 12.9 13.525 12.95 13.275C13.0167 12.925 13.1667 12.6125 13.4 12.3375C13.6333 12.0625 13.8833 11.8 14.15 11.55C14.5333 11.1833 14.8625 10.7833 15.1375 10.35C15.4125 9.91667 15.55 9.43333 15.55 8.9C15.55 8.05 15.2042 7.35417 14.5125 6.8125C13.8208 6.27083 13.0167 6 12.1 6C11.4667 6 10.8625 6.13333 10.2875 6.4C9.7125 6.66667 9.275 7.075 8.975 7.625C8.85833 7.825 8.82083 8.0375 8.8625 8.2625C8.90417 8.4875 9.01667 8.65833 9.2 8.775C9.43333 8.90833 9.675 8.95 9.925 8.9C10.175 8.85 10.3833 8.70833 10.55 8.475C10.7333 8.225 10.9625 8.03333 11.2375 7.9C11.5125 7.76667 11.8 7.7 12.1 7.7Z" fill="#008FEC"></path>
+            </svg>
+          </span>
+          <span>podpora@dentmax.sk</span></span>
+        <div class="items">
+          <a target="_blank" href="/dashboard/faq/">Časté otázky</a>
+          <a href="/docs/Manual-DentMax-de.pdf" title="Anwendungshandbuch" target="_blank">Anwendungshandbuch</a>
+          <a href="javascript:;" id="btnSupportDialog" data-target="dialogSupport">Unterstützung</a>
+        </div>
+      </div>
+
+      <nav id="user" class="demo-avatar-dropdown">
+        <span>
+          Demo Dentmax<br>
+          <small>Arzt: Dr. Anna Beispiel</small>
+        </span>
+        <button id="accbtn" class="mdl-button mdl-js-button mdl-button--icon">
+          <svg role="presentation" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.4752 14.475L7.8502 10.85C7.8002 10.8 7.7627 10.7458 7.7377 10.6875C7.7127 10.6292 7.7002 10.5667 7.7002 10.5C7.7002 10.3667 7.74603 10.25 7.8377 10.15C7.92936 10.05 8.0502 10 8.2002 10H15.8002C15.9502 10 16.071 10.05 16.1627 10.15C16.2544 10.25 16.3002 10.3667 16.3002 10.5C16.3002 10.5333 16.2502 10.65 16.1502 10.85L12.5252 14.475C12.4419 14.5583 12.3585 14.6167 12.2752 14.65C12.1919 14.6833 12.1002 14.7 12.0002 14.7C11.9002 14.7 11.8085 14.6833 11.7252 14.65C11.6419 14.6167 11.5585 14.5583 11.4752 14.475Z" fill="#008FEC"></path>
+          </svg>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="accbtn">
+          <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
+            <a href="/setup/account/"><i class="material-icons">person</i> Mein Konto
+            </a>
+          </li>
+          <li disabled="" class="mdl-menu__item user-profile active-profile" data-epzp="">
+            <i class="material-icons">person_outline</i> Anna Beispiel
+          </li>
+          <li class="users-list scroll"><ul></ul></li>
+          <li class="mdl-menu__item">
+            <a class="text-red" href="/logout"><i class="material-icons">exit_to_app</i> abmelden</a>
+          </li>
+        </ul>
+      </nav>
+      <a class="btn-logout" href="/logout"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H11C11.2833 3 11.5208 3.09583 11.7125 3.2875C11.9042 3.47917 12 3.71667 12 4C12 4.28333 11.9042 4.52083 11.7125 4.7125C11.5208 4.90417 11.2833 5 11 5H5V19H11C11.2833 19 11.5208 19.0958 11.7125 19.2875C11.9042 19.4792 12 19.7167 12 20C12 20.2833 11.9042 20.5208 11.7125 20.7125C11.5208 20.9042 11.2833 21 11 21H5ZM17.175 13H10C9.71667 13 9.47917 12.9042 9.2875 12.7125C9.09583 12.5208 9 12.2833 9 12C9 11.7167 9.09583 11.4792 9.2875 11.2875C9.47917 11.0958 9.71667 11 10 11H17.175L15.3 9.125C15.1167 8.94167 15.025 8.71667 15.025 8.45C15.025 8.18333 15.1167 7.95 15.3 7.75C15.4833 7.55 15.7167 7.44583 16 7.4375C16.2833 7.42917 16.525 7.525 16.725 7.725L20.3 11.3C20.5 11.5 20.6 11.7333 20.6 12C20.6 12.2667 20.5 12.5 20.3 12.7L16.725 16.275C16.525 16.475 16.2875 16.5708 16.0125 16.5625C15.7375 16.5542 15.5 16.45 15.3 16.25C15.1167 16.05 15.0292 15.8125 15.0375 15.5375C15.0458 15.2625 15.1417 15.0333 15.325 14.85L17.175 13Z" fill="#008FEC"></path></svg></a>
+    </header>
+    <nav id="menu">
+      <ul>
+        <li class="mdl-menu__item active">
+          <a class="mdl-navigation__link" href="/">
+            <svg id="go_home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 19H9V14C9 13.7167 9.09583 13.4792 9.2875 13.2875C9.47917 13.0958 9.71667 13 10 13H14C14.2833 13 14.5208 13.0958 14.7125 13.2875C14.9042 13.4792 15 13.7167 15 14V19H18V10L12 5.5L6 10V19ZM4 19V10C4 9.68333 4.07083 9.38333 4.2125 9.1C4.35417 8.81667 4.55 8.58333 4.8 8.4L10.8 3.9C11.15 3.63333 11.55 3.5 12 3.5C12.45 3.5 12.85 3.63333 13.2 3.9L19.2 8.4C19.45 8.58333 19.6458 8.81667 19.7875 9.1C19.9292 9.38333 20 9.68333 20 10V19C20 19.55 19.8042 20.0208 19.4125 20.4125C19.0208 20.8042 18.55 21 18 21H14C13.7167 21 13.4792 20.9042 13.2875 20.7125C13.0958 20.5208 13 20.2833 13 20V15H11V20C11 20.2833 10.9042 20.5208 10.7125 20.7125C10.5208 20.9042 10.2833 21 10 21H6C5.45 21 4.97917 20.8042 4.5875 20.4125C4.19583 20.0208 4 19.55 4 19Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Start</span>
+            <span for="go_home" class="mdl-tooltip mdl-tooltip--right">Start</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_calendar" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.5 18C13.8 18 13.2083 17.7583 12.725 17.275C12.2417 16.7917 12 16.2 12 15.5C12 14.8 12.2417 14.2083 12.725 13.725C13.2083 13.2417 13.8 13 14.5 13C15.2 13 15.7917 13.2417 16.275 13.725C16.7583 14.2083 17 14.8 17 15.5C17 16.2 16.7583 16.7917 16.275 17.275C15.7917 17.7583 15.2 18 14.5 18ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6C3 5.45 3.19583 4.97917 3.5875 4.5875C3.97917 4.19583 4.45 4 5 4H6V3C6 2.71667 6.09583 2.47917 6.2875 2.2875C6.47917 2.09583 6.71667 2 7 2C7.28333 2 7.52083 2.09583 7.7125 2.2875C7.90417 2.47917 8 2.71667 8 3V4H16V3C16 2.71667 16.0958 2.47917 16.2875 2.2875C16.4792 2.09583 16.7167 2 17 2C17.2833 2 17.5208 2.09583 17.7125 2.2875C17.9042 2.47917 18 2.71667 18 3V4H19C19.55 4 20.0208 4.19583 20.4125 4.5875C20.8042 4.97917 21 5.45 21 6V20C21 20.55 20.8042 21.0208 20.4125 21.4125C20.0208 21.8042 19.55 22 19 22H5ZM5 20H19V10H5V20ZM5 8H19V6H5V8Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Terminkalender</span>
+            <span for="go_calendar" class="mdl-tooltip mdl-tooltip--right">Terminkalender</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="/patients/list/">
+            <svg id="go_patients" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 18C11.0667 18 10.175 18.1458 9.325 18.4375C8.475 18.7292 7.7 19.1667 7 19.75V20H17V19.75C16.3 19.1667 15.525 18.7292 14.675 18.4375C13.825 18.1458 12.9333 18 12 18ZM5 18.85C5.9 17.9667 6.94583 17.2708 8.1375 16.7625C9.32917 16.2542 10.6167 16 12 16C13.3833 16 14.6708 16.2542 15.8625 16.7625C17.0542 17.2708 18.1 17.9667 19 18.85V6H5V18.85ZM12 14C11.0333 14 10.2083 13.6583 9.525 12.975C8.84167 12.2917 8.5 11.4667 8.5 10.5C8.5 9.53333 8.84167 8.70833 9.525 8.025C10.2083 7.34167 11.0333 7 12 7C12.9667 7 13.7917 7.34167 14.475 8.025C15.1583 8.70833 15.5 9.53333 15.5 10.5C15.5 11.4667 15.1583 12.2917 14.475 12.975C13.7917 13.6583 12.9667 14 12 14ZM12 12C12.4167 12 12.7708 11.8542 13.0625 11.5625C13.3542 11.2708 13.5 10.9167 13.5 10.5C13.5 10.0833 13.3542 9.72917 13.0625 9.4375C12.7708 9.14583 12.4167 9 12 9C11.5833 9 11.2292 9.14583 10.9375 9.4375C10.6458 9.72917 10.5 10.0833 10.5 10.5C10.5 10.9167 10.6458 11.2708 10.9375 11.5625C11.2292 11.8542 11.5833 12 12 12ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6C3 5.45 3.19583 4.97917 3.5875 4.5875C3.97917 4.19583 4.45 4 5 4H6V3C6 2.71667 6.09583 2.47917 6.2875 2.2875C6.47917 2.09583 6.71667 2 7 2C7.28333 2 7.52083 2.09583 7.7125 2.2875C7.90417 2.47917 8 2.71667 8 3V4H16V3C16 2.71667 16.0958 2.47917 16.2875 2.2875C16.4792 2.09583 16.7167 2 17 2C17.2833 2 17.5208 2.09583 17.7125 2.2875C17.9042 2.47917 18 2.71667 18 3V4H19C19.55 4 20.0208 4.19583 20.4125 4.5875C20.8042 4.97917 21 5.45 21 6V20C21 20.55 20.8042 21.0208 20.4125 21.4125C20.0208 21.8042 19.55 22 19 22H5ZM12 20H17H7H12Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Patienten </span>
+            <span for="go_patients" class="mdl-tooltip mdl-tooltip--right">Patienten
+            </span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_insurance" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.786 4.354C16.6302 3.47683 14.3274 3.01735 12 3C9.67266 3.01747 7.36983 3.47695 5.214 4.354C4.85879 4.49254 4.55327 4.73437 4.33687 5.04828C4.12047 5.36218 4.00313 5.73374 4 6.115V10.593C4 16.7 9.022 19.78 11.108 20.793C11.386 20.9278 11.691 20.9978 12 20.9978C12.309 20.9978 12.614 20.9278 12.892 20.793C14.978 19.78 20 16.7 20 10.593V6.115C19.9969 5.73374 19.8795 5.36218 19.6631 5.04828C19.4467 4.73437 19.1412 4.49254 18.786 4.354ZM16.814 8.581L11.814 15.581C11.7215 15.7106 11.5993 15.8162 11.4578 15.8891C11.3162 15.962 11.1592 16 11 16H10.984C10.8221 15.9974 10.6633 15.9556 10.5212 15.8781C10.379 15.8006 10.2578 15.6897 10.168 15.555L8.168 12.555C8.0951 12.4457 8.04444 12.3232 8.01891 12.1944C7.99337 12.0655 7.99347 11.9329 8.0192 11.8041C8.04492 11.6753 8.09576 11.5528 8.16882 11.4437C8.24188 11.3346 8.33573 11.2409 8.445 11.168C8.55425 11.0951 8.6768 11.0444 8.80563 11.0189C8.93447 10.9934 9.06708 10.9935 9.19588 11.0192C9.32468 11.0449 9.44715 11.0958 9.5563 11.1688C9.66544 11.2419 9.75913 11.3357 9.832 11.445L11.032 13.245L15.19 7.424C15.2663 7.3164 15.3632 7.22495 15.475 7.15495C15.5868 7.08494 15.7114 7.03774 15.8415 7.01608C15.9716 6.99442 16.1048 6.99874 16.2332 7.02876C16.3617 7.05878 16.4829 7.11392 16.59 7.191C16.8031 7.34636 16.9461 7.57957 16.9881 7.8399C17.03 8.10022 16.9675 8.36658 16.814 8.581Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Poisťovne</span>
+            <span for="go_insurance" class="mdl-tooltip mdl-tooltip--right">Poisťovne</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_cash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 22C5.16667 22 4.45833 21.7083 3.875 21.125C3.29167 20.5416 3 19.8333 3 19V17C3 16.7166 3.09583 16.4791 3.2875 16.2875C3.47917 16.0958 3.71667 16 4 16H6V2.59995C6 2.48328 6.05 2.40412 6.15 2.36245C6.25 2.32078 6.34167 2.34162 6.425 2.42495L7.15 3.14995C7.25 3.24995 7.36667 3.29995 7.5 3.29995C7.63333 3.29995 7.75 3.24995 7.85 3.14995L8.65 2.34995C8.75 2.24995 8.86667 2.19995 9 2.19995C9.13333 2.19995 9.25 2.24995 9.35 2.34995L10.15 3.14995C10.25 3.24995 10.3667 3.29995 10.5 3.29995C10.6333 3.29995 10.75 3.24995 10.85 3.14995L11.65 2.34995C11.75 2.24995 11.8667 2.19995 12 2.19995C12.1333 2.19995 12.25 2.24995 12.35 2.34995L13.15 3.14995C13.25 3.24995 13.3667 3.29995 13.5 3.29995C13.6333 3.29995 13.75 3.24995 13.85 3.14995L14.65 2.34995C14.75 2.24995 14.8667 2.19995 15 2.19995C15.1333 2.19995 15.25 2.24995 15.35 2.34995L16.15 3.14995C16.25 3.24995 16.3667 3.29995 16.5 3.29995C16.6333 3.29995 16.75 3.24995 16.85 3.14995L17.65 2.34995C17.75 2.24995 17.8667 2.19995 18 2.19995C18.1333 2.19995 18.25 2.24995 18.35 2.34995L19.15 3.14995C19.25 3.24995 19.3667 3.29995 19.5 3.29995C19.6333 3.29995 19.75 3.24995 19.85 3.14995L20.575 2.42495C20.6583 2.34162 20.75 2.32078 20.85 2.36245C20.95 2.40412 21 2.48328 21 2.59995V19C21 19.8333 20.7083 20.5416 20.125 21.125C19.5417 21.7083 18.8333 22 18 22H6ZM18 20C18.2833 20 18.5208 19.9041 18.7125 19.7125C18.9042 19.5208 19 19.2833 19 19V4.99995H8V16H16C16.2833 16 16.5208 16.0958 16.7125 16.2875C16.9042 16.4791 17 16.7166 17 17V19C17 19.2833 17.0958 19.5208 17.2875 19.7125C17.4792 19.9041 17.7167 20 18 20ZM10 6.99995H14C14.2833 6.99995 14.5208 7.09579 14.7125 7.28745C14.9042 7.47912 15 7.71662 15 7.99995C15 8.28329 14.9042 8.52078 14.7125 8.71245C14.5208 8.90412 14.2833 8.99995 14 8.99995H10C9.71667 8.99995 9.47917 8.90412 9.2875 8.71245C9.09583 8.52078 9 8.28329 9 7.99995C9 7.71662 9.09583 7.47912 9.2875 7.28745C9.47917 7.09579 9.71667 6.99995 10 6.99995ZM10 9.99995H14C14.2833 9.99995 14.5208 10.0958 14.7125 10.2875C14.9042 10.4791 15 10.7166 15 11C15 11.2833 14.9042 11.5208 14.7125 11.7125C14.5208 11.9041 14.2833 12 14 12H10C9.71667 12 9.47917 11.9041 9.2875 11.7125C9.09583 11.5208 9 11.2833 9 11C9 10.7166 9.09583 10.4791 9.2875 10.2875C9.47917 10.0958 9.71667 9.99995 10 9.99995ZM17 8.99995C16.7167 8.99995 16.4792 8.90412 16.2875 8.71245C16.0958 8.52078 16 8.28329 16 7.99995C16 7.71662 16.0958 7.47912 16.2875 7.28745C16.4792 7.09579 16.7167 6.99995 17 6.99995C17.2833 6.99995 17.5208 7.09579 17.7125 7.28745C17.9042 7.47912 18 7.71662 18 7.99995C18 8.28329 17.9042 8.52078 17.7125 8.71245C17.5208 8.90412 17.2833 8.99995 17 8.99995ZM17 12C16.7167 12 16.4792 11.9041 16.2875 11.7125C16.0958 11.5208 16 11.2833 16 11C16 10.7166 16.0958 10.4791 16.2875 10.2875C16.4792 10.0958 16.7167 9.99995 17 9.99995C17.2833 9.99995 17.5208 10.0958 17.7125 10.2875C17.9042 10.4791 18 10.7166 18 11C18 11.2833 17.9042 11.5208 17.7125 11.7125C17.5208 11.9041 17.2833 12 17 12ZM6 20H15V18H5V19C5 19.2833 5.09583 19.5208 5.2875 19.7125C5.47917 19.9041 5.71667 20 6 20Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Barkasse</span>
+            <span for="go_cash" class="mdl-tooltip mdl-tooltip--right">Barkasse</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_marketing" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.5 20C4.98333 20 3.6875 19.475 2.6125 18.425C1.5375 17.375 1 16.0917 1 14.575C1 13.275 1.39167 12.1167 2.175 11.1C2.95833 10.0833 3.98333 9.43333 5.25 9.15C5.66667 7.61667 6.5 6.375 7.75 5.425C9 4.475 10.4167 4 12 4C13.95 4 15.6042 4.67917 16.9625 6.0375C18.3208 7.39583 19 9.05 19 11C20.15 11.1333 21.1042 11.6292 21.8625 12.4875C22.6208 13.3458 23 14.35 23 15.5C23 16.75 22.5625 17.8125 21.6875 18.6875C20.8125 19.5625 19.75 20 18.5 20H6.5ZM6.5 18H18.5C19.2 18 19.7917 17.7583 20.275 17.275C20.7583 16.7917 21 16.2 21 15.5C21 14.8 20.7583 14.2083 20.275 13.725C19.7917 13.2417 19.2 13 18.5 13H17V11C17 9.61667 16.5125 8.4375 15.5375 7.4625C14.5625 6.4875 13.3833 6 12 6C10.6167 6 9.4375 6.4875 8.4625 7.4625C7.4875 8.4375 7 9.61667 7 11H6.5C5.53333 11 4.70833 11.3417 4.025 12.025C3.34167 12.7083 3 13.5333 3 14.5C3 15.4667 3.34167 16.2917 4.025 16.975C4.70833 17.6583 5.53333 18 6.5 18Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Marketing</span>
+            <span for="go_marketing" class="mdl-tooltip mdl-tooltip--right">Marketing</span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_stats" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.70011 17.625C2.50011 17.425 2.40428 17.1875 2.41261 16.9125C2.42094 16.6375 2.51678 16.4083 2.70011 16.225L7.97511 10.875C8.35844 10.4916 8.83344 10.3 9.40011 10.3C9.96678 10.3 10.4418 10.4916 10.8251 10.875L13.4001 13.475L18.6001 8.32495H17.0001C16.7168 8.32495 16.4793 8.22912 16.2876 8.03745C16.0959 7.84578 16.0001 7.60828 16.0001 7.32495C16.0001 7.04162 16.0959 6.80412 16.2876 6.61245C16.4793 6.42078 16.7168 6.32495 17.0001 6.32495H21.0001C21.2834 6.32495 21.5209 6.42078 21.7126 6.61245C21.9043 6.80412 22.0001 7.04162 22.0001 7.32495V11.325C22.0001 11.6083 21.9043 11.8458 21.7126 12.0375C21.5209 12.2291 21.2834 12.325 21.0001 12.325C20.7168 12.325 20.4793 12.2291 20.2876 12.0375C20.0959 11.8458 20.0001 11.6083 20.0001 11.325V9.72495L14.8251 14.9C14.4418 15.2833 13.9668 15.475 13.4001 15.475C12.8334 15.475 12.3584 15.2833 11.9751 14.9L9.40011 12.325L4.10011 17.625C3.91678 17.8083 3.68344 17.9 3.40011 17.9C3.11678 17.9 2.88344 17.8083 2.70011 17.625Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Statistiken</span>
+            <span for="go_stats" class="mdl-tooltip mdl-tooltip--right">Statistiken</span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item has-sub">
+          <a class="mdl-navigation__link" href="/setup/">
+            <svg id="go_setup" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.825 22C10.375 22 9.98748 21.85 9.66248 21.55C9.33748 21.25 9.14165 20.8833 9.07498 20.45L8.84998 18.8C8.63331 18.7167 8.42915 18.6167 8.23748 18.5C8.04581 18.3833 7.85831 18.2583 7.67498 18.125L6.12498 18.775C5.70831 18.9583 5.29165 18.975 4.87498 18.825C4.45831 18.675 4.13331 18.4083 3.89998 18.025L2.72498 15.975C2.49165 15.5917 2.42498 15.1833 2.52498 14.75C2.62498 14.3167 2.84998 13.9583 3.19998 13.675L4.52498 12.675C4.50831 12.5583 4.49998 12.4458 4.49998 12.3375V11.6625C4.49998 11.5542 4.50831 11.4417 4.52498 11.325L3.19998 10.325C2.84998 10.0417 2.62498 9.68333 2.52498 9.25C2.42498 8.81667 2.49165 8.40833 2.72498 8.025L3.89998 5.975C4.13331 5.59167 4.45831 5.325 4.87498 5.175C5.29165 5.025 5.70831 5.04167 6.12498 5.225L7.67498 5.875C7.85831 5.74167 8.04998 5.61667 8.24998 5.5C8.44998 5.38333 8.64998 5.28333 8.84998 5.2L9.07498 3.55C9.14165 3.11667 9.33748 2.75 9.66248 2.45C9.98748 2.15 10.375 2 10.825 2H13.175C13.625 2 14.0125 2.15 14.3375 2.45C14.6625 2.75 14.8583 3.11667 14.925 3.55L15.15 5.2C15.3666 5.28333 15.5708 5.38333 15.7625 5.5C15.9541 5.61667 16.1416 5.74167 16.325 5.875L17.875 5.225C18.2916 5.04167 18.7083 5.025 19.125 5.175C19.5416 5.325 19.8666 5.59167 20.1 5.975L21.275 8.025C21.5083 8.40833 21.575 8.81667 21.475 9.25C21.375 9.68333 21.15 10.0417 20.8 10.325L19.475 11.325C19.4916 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4833 12.5583 19.45 12.675L20.775 13.675C21.125 13.9583 21.35 14.3167 21.45 14.75C21.55 15.1833 21.4833 15.5917 21.25 15.975L20.05 18.025C19.8166 18.4083 19.4916 18.675 19.075 18.825C18.6583 18.975 18.2416 18.9583 17.825 18.775L16.325 18.125C16.1416 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.925 20.45C14.8583 20.8833 14.6625 21.25 14.3375 21.55C14.0125 21.85 13.625 22 13.175 22H10.825ZM11 20H12.975L13.325 17.35C13.8416 17.2167 14.3208 17.0208 14.7625 16.7625C15.2041 16.5042 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4166 13.0458 17.45 12.7875C17.4833 12.5292 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.4708 17.45 11.2125C17.4166 10.9542 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2041 7.49583 14.7625 7.2375C14.3208 6.97917 13.8416 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.67915 6.97917 9.23748 7.2375C8.79581 7.49583 8.39165 7.80833 8.02498 8.175L5.54998 7.15L4.57498 8.85L6.72498 10.45C6.64165 10.7 6.58331 10.95 6.54998 11.2C6.51665 11.45 6.49998 11.7167 6.49998 12C6.49998 12.2667 6.51665 12.525 6.54998 12.775C6.58331 13.025 6.64165 13.275 6.72498 13.525L4.57498 15.15L5.54998 16.85L8.02498 15.8C8.39165 16.1833 8.79581 16.5042 9.23748 16.7625C9.67915 17.0208 10.1583 17.2167 10.675 17.35L11 20ZM12.05 15.5C13.0166 15.5 13.8416 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8416 8.84167 13.0166 8.5 12.05 8.5C11.0666 8.5 10.2375 8.84167 9.56248 9.525C8.88748 10.2083 8.54998 11.0333 8.54998 12C8.54998 12.9667 8.88748 13.7917 9.56248 14.475C10.2375 15.1583 11.0666 15.5 12.05 15.5Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Einstellungen </span>
+            <span for="go_setup" class="mdl-tooltip mdl-tooltip--right">Einstellungen
+            </span>
+          </a>
+        </li>
+
+        <li class="mdl-menu__item has-sub">
+          <a class="mdl-navigation__link" href="javascript:;">
+            <svg id="go_admin" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V8.725C2.7 8.54167 2.45833 8.30417 2.275 8.0125C2.09167 7.72083 2 7.38333 2 7V4C2 3.45 2.19583 2.97917 2.5875 2.5875C2.97917 2.19583 3.45 2 4 2H20C20.55 2 21.0208 2.19583 21.4125 2.5875C21.8042 2.97917 22 3.45 22 4V7C22 7.38333 21.9083 7.72083 21.725 8.0125C21.5417 8.30417 21.3 8.54167 21 8.725V20C21 20.55 20.8042 21.0208 20.4125 21.4125C20.0208 21.8042 19.55 22 19 22H5ZM5 9V20H19V9H5ZM4 7H20V4H4V7ZM10 14H14C14.2833 14 14.5208 13.9042 14.7125 13.7125C14.9042 13.5208 15 13.2833 15 13C15 12.7167 14.9042 12.4792 14.7125 12.2875C14.5208 12.0958 14.2833 12 14 12H10C9.71667 12 9.47917 12.0958 9.2875 12.2875C9.09583 12.4792 9 12.7167 9 13C9 13.2833 9.09583 13.5208 9.2875 13.7125C9.47917 13.9042 9.71667 14 10 14Z" fill="white" fill-opacity="0.8"></path>
+            </svg>
+            <span class="label">Verwaltung</span>
+            <span for="go_admin" class="mdl-tooltip mdl-tooltip--right">Verwaltung des Informationssystems</span>
+          </a>
+        </li>
+        <li class="mdl-menu__item" id="is-status"></li>
+        <!--        <li class="mdl-menu__item" id="is-lights">-->
+        <!--          <i-->
+        <!--            id="is-light-app"-->
+        <!--            class="fa fa-plug"-->
+        <!--            data-toggle="tooltip"-->
+        <!--            data-placement="right"-->
+        <!--          ></i>-->
+        <!--        </li>-->
+      </ul>
+      <a href="javascript:;" class="mdl-navigation__link toggle-menu">
+        <svg id="menu_hidder" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17H10C10.2833 17 10.5208 17.0958 10.7125 17.2875C10.9042 17.4792 11 17.7167 11 18C11 18.2833 10.9042 18.5208 10.7125 18.7125C10.5208 18.9042 10.2833 19 10 19H6C5.71667 19 5.47917 18.9042 5.2875 18.7125C5.09583 18.5208 5 18.2833 5 18V14C5 13.7167 5.09583 13.4792 5.2875 13.2875C5.47917 13.0958 5.71667 13 6 13C6.28333 13 6.52083 13.0958 6.7125 13.2875C6.90417 13.4792 7 13.7167 7 14V17ZM17 7H14C13.7167 7 13.4792 6.90417 13.2875 6.7125C13.0958 6.52083 13 6.28333 13 6C13 5.71667 13.0958 5.47917 13.2875 5.2875C13.4792 5.09583 13.7167 5 14 5H18C18.2833 5 18.5208 5.09583 18.7125 5.2875C18.9042 5.47917 19 5.71667 19 6V10C19 10.2833 18.9042 10.5208 18.7125 10.7125C18.5208 10.9042 18.2833 11 18 11C17.7167 11 17.4792 10.9042 17.2875 10.7125C17.0958 10.5208 17 10.2833 17 10V7Z" fill="#111F41"></path>
+        </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 15H6C5.71667 15 5.47917 14.9042 5.2875 14.7125C5.09583 14.5208 5 14.2833 5 14C5 13.7167 5.09583 13.4792 5.2875 13.2875C5.47917 13.0958 5.71667 13 6 13H10C10.2833 13 10.5208 13.0958 10.7125 13.2875C10.9042 13.4792 11 13.7167 11 14V18C11 18.2833 10.9042 18.5208 10.7125 18.7125C10.5208 18.9042 10.2833 19 10 19C9.71667 19 9.47917 18.9042 9.2875 18.7125C9.09583 18.5208 9 18.2833 9 18V15ZM15 9H18C18.2833 9 18.5208 9.09583 18.7125 9.2875C18.9042 9.47917 19 9.71667 19 10C19 10.2833 18.9042 10.5208 18.7125 10.7125C18.5208 10.9042 18.2833 11 18 11H14C13.7167 11 13.4792 10.9042 13.2875 10.7125C13.0958 10.5208 13 10.2833 13 10V6C13 5.71667 13.0958 5.47917 13.2875 5.2875C13.4792 5.09583 13.7167 5 14 5C14.2833 5 14.5208 5.09583 14.7125 5.2875C14.9042 5.47917 15 5.71667 15 6V9Z" fill="#111F41"></path>
+        </svg>
+        <span class="label">Menu ausblenden</span>
+        <span for="menu_hidder" class="mdl-tooltip mdl-tooltip--right">Menu einblenden</span>
+      </a>
+    </nav>
+    <script>
+      /*  */
+      //	let keysDown = {};
+      window.onkeydown = function (e) {
+        keysDown[e.key] = true;
+        //		console.log(e.key , keysDown);
+        /*  */
+      };
+      window.onkeyup = function (e) {
+        keysDown[e.key] = false;
+      };
+      /*  */
+    </script>
+    <section id="content" class="dashboard redesign">
+      <nav class="navbar">
+  <ul class="navbar-list text">
+    
+      
+        <li class="navbar-list__item ">
+          <a href="#" class="navbar-list__link">Übersicht</a>
+        </li>
+      
+      
+        <li class="navbar-list__item ">
+          <a href="#" class="navbar-list__link">Beh.blatt</a>
+        </li>
+      
+      
+        <li data-menu-parent="" class="navbar-list__item active">
+          <span data-open-menu="" class="navbar-list__link">Pläne</span>
+
+          <ul data-menu="" class="navbar-list__menu">
+            
+              <li class="navbar-list__menu-item">
+                <a href="/DentistMax/dist/pages/ze/1-grants.html" class="navbar-list__menu-link">ze</a>
+              </li>
+            
+              <li class="navbar-list__menu-item">
+                <a href="#" class="navbar-list__menu-link">par</a>
+              </li>
+            
+              <li class="navbar-list__menu-item">
+                <a href="#" class="navbar-list__menu-link">kbr</a>
+              </li>
+            
+              <li class="navbar-list__menu-item">
+                <a href="#" class="navbar-list__menu-link">kch</a>
+              </li>
+            
+          </ul>
+        </li>
+      
+      
+        <li class="navbar-list__item ">
+          <a href="#" class="navbar-list__link">Dokumente</a>
+        </li>
+      
+      
+        <li class="navbar-list__item ">
+          <a href="#" class="navbar-list__link">Anhänge</a>
+        </li>
+      
+      
+        <li class="navbar-list__item ">
+          <a href="#" class="navbar-list__link">Kontakt</a>
+        </li>
+      
+  </ul>
+</nav>
+
+
+      <form>
+        
+  <div class="row row--lg">
+    <div data-resize-container="" class="column column--lg column--setting-card">
+      
+
+
+
+<div class="content-card ">
+  <div class="content-card__header">
+    
+      <h2 class="content-card__title text">Heil- und Kostenplan Parodontitis</h2>
+    
+      <div class="content-card__actions">
+  
+    
+      <button type="button" class="content-card__action content-card__action--resize js-resize">
+        <svg class="resize-off" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 15H6C5.71667 15 5.47917 14.9042 5.2875 14.7125C5.09583 14.5208 5 14.2833 5 14C5 13.7167 5.09583 13.4792 5.2875 13.2875C5.47917 13.0958 5.71667 13 6 13H10C10.2833 13 10.5208 13.0958 10.7125 13.2875C10.9042 13.4792 11 13.7167 11 14V18C11 18.2833 10.9042 18.5208 10.7125 18.7125C10.5208 18.9042 10.2833 19 10 19C9.71667 19 9.47917 18.9042 9.2875 18.7125C9.09583 18.5208 9 18.2833 9 18V15ZM15 9H18C18.2833 9 18.5208 9.09583 18.7125 9.2875C18.9042 9.47917 19 9.71667 19 10C19 10.2833 18.9042 10.5208 18.7125 10.7125C18.5208 10.9042 18.2833 11 18 11H14C13.7167 11 13.4792 10.9042 13.2875 10.7125C13.0958 10.5208 13 10.2833 13 10V6C13 5.71667 13.0958 5.47917 13.2875 5.2875C13.4792 5.09583 13.7167 5 14 5C14.2833 5 14.5208 5.09583 14.7125 5.2875C14.9042 5.47917 15 5.71667 15 6V9Z" fill="#111F41"></path>
+        </svg>
+        <svg class="resize-on" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17H10C10.2833 17 10.5208 17.0958 10.7125 17.2875C10.9042 17.4792 11 17.7167 11 18C11 18.2833 10.9042 18.5208 10.7125 18.7125C10.5208 18.9042 10.2833 19 10 19H6C5.71667 19 5.47917 18.9042 5.2875 18.7125C5.09583 18.5208 5 18.2833 5 18V14C5 13.7167 5.09583 13.4792 5.2875 13.2875C5.47917 13.0958 5.71667 13 6 13C6.28333 13 6.52083 13.0958 6.7125 13.2875C6.90417 13.4792 7 13.7167 7 14V17ZM17 7H14C13.7167 7 13.4792 6.90417 13.2875 6.7125C13.0958 6.52083 13 6.28333 13 6C13 5.71667 13.0958 5.47917 13.2875 5.2875C13.4792 5.09583 13.7167 5 14 5H18C18.2833 5 18.5208 5.09583 18.7125 5.2875C18.9042 5.47917 19 5.71667 19 6V10C19 10.2833 18.9042 10.5208 18.7125 10.7125C18.5208 10.9042 18.2833 11 18 11C17.7167 11 17.4792 10.9042 17.2875 10.7125C17.0958 10.5208 17 10.2833 17 10V7Z" fill="#111F41"></path>
+        </svg>
+      </button>
+    
+</div>
+
+    </div>
+  <div class="content-card__body">
+    
+  <div class="row">
+    
+    <h2 class="text text--medium">Angaben zum Antrag</h2>
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--max-80 ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="idInput" name="idInput" type="number" placeholder="ID" value="1" disabled="disabled" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--max-160 ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="antragsnummerInput" name="antragsnummerInput" type="number" placeholder="Antragsnummer" value="2" disabled="disabled" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="BezeichnungInput" name="BezeichnungInput" type="text" placeholder="Bezeichnung" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Planart" name="planartSelect">
+      
+        <option value="0">Planart</option>
+      
+        <option value="neuer-plan">Neuer Plan</option>
+      
+        <option value="reparatur">Reparatur</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--145 ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Therapieschritt" name="therapieschrittSelect">
+      
+        <option value="0">Therapieschritt</option>
+      
+        <option value="1">1</option>
+      
+        <option value="2">2</option>
+      
+        <option value="3">3</option>
+      
+        <option value="4">4</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--75 ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Von" name="vonSelect">
+      
+        <option value="0">Von</option>
+      
+        <option value="1">1</option>
+      
+        <option value="2">2</option>
+      
+        <option value="3">3</option>
+      
+        <option value="4">4</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="unfallCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="unfallCheckbox" name="unfallCheckbox" label="Unfall" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Unfall</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="versorgungsleidenCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="versorgungsleidenCheckbox" name="versorgungsleidenCheckbox" label="Versorgungsleiden" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Versorgungsleiden</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="interimsversorgungCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="interimsversorgungCheckbox" name="interimsversorgungCheckbox" label="Interimsversorgung" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Interimsversorgung</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="nemCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="nemCheckbox" name="nemCheckbox" label="NEM" value="1" >
+      <span class="checkbox__box"></span>
+      <span>NEM</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="immediatversorgungCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="immediatversorgungCheckbox" name="immediatversorgungCheckbox" label="Immediatversorgung" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Immediatversorgung</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="UPBKCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="UPBKCheckbox" name="UPBKCheckbox" label="Unbr. Prothese, Brücke, Krone" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Unbr. Prothese, Brücke, Krone</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="alterCaInJahrenInput" name="AlterCaInJahrenInput" type="text" placeholder="Alter (ca. In Jahren)" >
+    </div>
+  
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    <h2 class="text text--medium">Antrags- und Abrechnungsdaten</h2>
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Status" name="statusSelect">
+      
+        <option value="0">Status</option>
+      
+        <option value="zum-gutachter">zum Gutachter</option>
+      
+        <option value="bewilligt">bewilligt</option>
+      
+        <option value="wird-abgerechnet">wird abgerechnet</option>
+      
+        <option value="wurde-abgerechnet">wurde abgerechnet</option>
+      
+        <option value="abgelehnt-kasse">abgelehnt Kasse</option>
+      
+        <option value="abgelehnt-patient">abgelehnt Patient</option>
+      
+        <option value="alternativer-plan">alternativer Plan</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="erstelltInput" name="erstelltInput" type="text" placeholder="Erstellt am" data-type="date" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="genehmigtInput" name="genehmigtInput" type="text" placeholder="Genehmigt am" data-type="date" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    
+      
+
+<div class="r-tooltip r-tooltip--top">
+  <p class="r-tooltip__text text text--sm">Genehmigung gültig bis</p>
+</div>
+
+    <input class="form__input " id="genehmigungInput" name="genehmigungInput" type="date" placeholder="Genehmigung gültig bis" value="2024-10-10" disabled="disabled" >
+    </div>
+  
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="eingegliedertInput" name="eingegliedertInput" type="text" placeholder="Eingegliedert am" data-type="date" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    
+      
+
+<div class="r-tooltip r-tooltip--top">
+  <p class="r-tooltip__text text text--sm">Kasse abgerechnet</p>
+</div>
+
+    <input class="form__input " id="kasseabgerechnetInput" name="kasseabgerechnetInput" type="date" placeholder="Kasse abgerechnet" value="2024-10-10" disabled="disabled" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--quarter ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    
+      
+
+<div class="r-tooltip r-tooltip--top">
+  <p class="r-tooltip__text text text--sm">Privat abgerechnet</p>
+</div>
+
+    <input class="form__input " id="privatabgerechnetInput" name="privatabgerechnetInput" type="date" placeholder="Privat abgerechnet" value="2024-10-10" disabled="disabled" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="teilabrechnungCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="teilabrechnungCheckbox" name="teilabrechnungCheckbox" label="Teilabrechnung" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Teilabrechnung</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Behandler" name="behandlerSelect">
+      
+        <option value="0">Behandler</option>
+      
+        <option value="name-1">Name 1</option>
+      
+        <option value="name-2">Name 2</option>
+      
+        <option value="name-3">Name 3</option>
+      
+        <option value="name-4">Name 4</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Versorgungsart" name="versorgungsartSelect">
+      
+        <option value="0">Versorgungsart</option>
+      
+        <option value="regelversorgung">Regelversorgung</option>
+      
+        <option value="gleichartige-versorgung">Gleichartige Versorgung</option>
+      
+        <option value="andersartige-versorgung">Andersartige Versorgung</option>
+      
+        <option value="direktabrechnung">Direktabrechnung</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Zuschuss" name="zuschussSelect">
+      
+        <option value="0">Zuschuss</option>
+      
+        <option value="60%">60%</option>
+      
+        <option value="70%">70%</option>
+      
+        <option value="75%">75%</option>
+      
+        <option value="100%">100%</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="hartefallCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="hartefallCheckbox" name="hartefallCheckbox" label="Härtefall" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Härtefall</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    <h2 class="text text--medium">Angaben zum Labor</h2>
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <select class="form__select" title="Fremdlabor" name="fremdlaborSelect">
+      
+        <option value="0">Fremdlabor</option>
+      
+        <option value="Labor 1">Labor 1</option>
+      
+        <option value="Labor 2">Labor 2</option>
+      
+        <option value="Labor 3">Labor 3</option>
+      
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="herstellungsortLandInput" name="herstellungsortLandInput" type="text" placeholder="Herstellungsort-/Land" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input form__input--with-currency" id="geschatzteLaborkostenInput" name="geschatzteLaborkostenInput" type="text" placeholder="Geschätzte Laborkosten" >
+    
+      <span class="currency euro"></span>
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input form__input--with-currency" id="versandkostenInput" name="versandkostenInput" type="text" placeholder="Versandkosten" >
+    
+      <span class="currency euro"></span>
+    </div>
+  
+</div>
+
+
+</div>
+
+  
+</div>
+
+  <div class="row">
+    
+    
+
+<div class="column  ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <label for="gutachterlichBefurwortetCheckbox" class="checkbox">
+      <input class="checkbox__input" type="checkbox" id="gutachterlichBefurwortetCheckbox" name="gutachterlichBefurwortetCheckbox" label="Gutachterlich befürwortet" value="1" >
+      <span class="checkbox__box"></span>
+      <span>Gutachterlich befürwortet</span>
+    </label>
+  </div>
+
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="gutachtenvomInput" name="gutachtenvomInput" type="text" placeholder="Gutachten vom" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="KZVMitteilungInput" name="KZVMitteilungInput" type="text" placeholder="KZV Mitteilung" >
+    </div>
+  
+</div>
+
+
+</div>
+
+    
+
+<div class="column column--grow ">
+  
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="notizenInput" name="notizenInput" type="text" placeholder="Notizen" >
+    </div>
+  
+</div>
+
+
+</div>
+
+  
+</div>
+
+
+  </div>
+</div>
+
+
+    </div>
+  </div>
+  <div class="row row--lg">
+    <div class="column column--lg">
+      
+
+
+
+<div class="content-card content-card--with-nav">
+  <div class="content-card__header">
+    
+      <nav class="content-card__navigation">
+  <ul class="content-card__navigation-list text text--medium">
+    
+      <li class="content-card__navigation-item active">
+        <a href="/DentistMax/dist/pages/ze/1-grants.html" class="content-card__navigation-link">Festzuschüsse</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/2-services.html" class="content-card__navigation-link">Leistungen</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/3-plan-laboratory.html" class="content-card__navigation-link">Plan Eigenlabor</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/4-own-laboratory.html" class="content-card__navigation-link">Eigenlabor</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/5-external-laboratory-plan.html" class="content-card__navigation-link">Plan Fremdlabor</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/6-external-laboratory.html" class="content-card__navigation-link">Fremdlabor</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/7-application.html" class="content-card__navigation-link">Beantragung</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/8-ebz.html" class="content-card__navigation-link">EBZ</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/9-cash-accounting.html" class="content-card__navigation-link">Kassenabrechnung</a>
+      </li>
+    
+      <li class="content-card__navigation-item ">
+        <a href="/DentistMax/dist/pages/ze/10-invoice.html" class="content-card__navigation-link">Abrechnung</a>
+      </li>
+    
+  </ul>
+</nav>
+
+    </div>
+  <div class="content-card__body">
+    
+  <div class="row">
+    
+    
+
+<div class="column column--grow flex-column">
+  
+      <div class="row">
+    
+        
+
+<div class="column column--half ">
+  
+          <div class="row">
+    
+            <h3 class="text center">Festzuschüsse</h3>
+          
+</div>
+
+          <div class="row">
+    
+            
+
+<div data-table="" class="table table--center table--with-actions">
+  
+    <div class="table__head">
+      <div class="table__row">
+        
+          
+            <div class="table__col ">
+              
+                <span>Zahn</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>Nr.</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>Anzahl</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>EUR</span>
+              </div>
+          
+          
+            <div class="table__col table__col--actions">
+              <span>&nbsp;</span>
+            </div>
+          
+      </div>
+    </div>
+  <div class="table__body">
+    
+      
+        <div data-row="1" class="table__row">
+          
+            
+              <div class="table__col ">
+                
+                  <span>11</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1.3</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>93,71</span>
+                </div>
+            
+            
+              <div class="table__col table__col--actions">
+                <button type="button" class="table__action-button js-remove-row">
+                  <img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon">
+                </button>
+              </div>
+            
+        </div>
+      
+        <div data-row="2" class="table__row">
+          
+            
+              <div class="table__col ">
+                
+                  <span>11</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1.1</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>274,47</span>
+                </div>
+            
+            
+              <div class="table__col table__col--actions">
+                <button type="button" class="table__action-button js-remove-row">
+                  <img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon">
+                </button>
+              </div>
+            
+        </div>
+      
+        <div data-row="3" class="table__row">
+          
+            
+              <div class="table__col ">
+                
+                  <span>17-15, 25-27, 37-35</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>2.1</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>3</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1903,47</span>
+                </div>
+            
+            
+              <div class="table__col table__col--actions">
+                <button type="button" class="table__action-button js-remove-row">
+                  <img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon">
+                </button>
+              </div>
+            
+        </div>
+      
+        <div data-row="4" class="table__row">
+          
+            
+              <div class="table__col ">
+                
+                  <span>15, 25</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>2.7</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>2</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>184,68</span>
+                </div>
+            
+            
+              <div class="table__col table__col--actions">
+                <button type="button" class="table__action-button js-remove-row">
+                  <img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon">
+                </button>
+              </div>
+            
+        </div>
+      
+    
+      <div data-row="5" class="table__row table__row--actions">
+        
+          
+            <div class="table__col ">
+              <input data-id="fixed-zahn-input" id="fixed-zahn-input-5" name="fixed-zahn-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="fixed-nr-input" id="fixed-nr-input-5" name="fixed-nr-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="fixed-anzahl-input" id="fixed-anzahl-input-5" name="fixed-anzahl-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="fixed-eur-input" id="fixed-eur-input-5" name="fixed-eur-input-5" disabled="" value="93,71" class="table__input">
+            </div>
+          
+          
+            <div class="table__col table__col--actions">
+              <button data-swap="remove" type="button" class="table__action-button js-add-row">
+                <img src="/DentistMax/dist/img/icons/16/plus-icon.svg" width="16" height="16" alt="add icon">
+              </button>
+            </div>
+          
+      </div>
+    </div>
+</div>
+
+          
+</div>
+
+        
+</div>
+
+        
+
+<div class="column column--half ">
+  
+          <div class="row">
+    
+            <h3 class="text center">Nachträgliche Festzuschüsse</h3>
+          
+</div>
+
+          <div class="row">
+    
+            
+
+<div data-table="" class="table table--center table--with-actions">
+  
+    <div class="table__head">
+      <div class="table__row">
+        
+          
+            <div class="table__col ">
+              
+                <span>Zahn</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>Nr.</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>Anzahl</span>
+              </div>
+          
+          
+            <div class="table__col ">
+              
+                <span>EUR</span>
+              </div>
+          
+          
+            <div class="table__col table__col--actions">
+              <span>&nbsp;</span>
+            </div>
+          
+      </div>
+    </div>
+  <div class="table__body">
+    
+      
+        <div data-row="1" class="table__row">
+          
+            
+              <div class="table__col ">
+                
+                  <span>15</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1.2</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>1</span>
+                </div>
+            
+            
+              <div class="table__col ">
+                
+                  <span>314,84</span>
+                </div>
+            
+            
+              <div class="table__col table__col--actions">
+                <button type="button" class="table__action-button js-remove-row">
+                  <img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon">
+                </button>
+              </div>
+            
+        </div>
+      
+    
+      <div data-row="5" class="table__row table__row--actions">
+        
+          
+            <div class="table__col ">
+              <input data-id="subsequent-zahn-input" id="subsequent-zahn-input-5" name="subsequent-zahn-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="subsequent-nr-input" id="subsequent-nr-input-5" name="subsequent-nr-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="subsequent-anzahl-input" id="subsequent-anzahl-input-5" name="subsequent-anzahl-input-5" class="table__input">
+            </div>
+          
+          
+            <div class="table__col ">
+              <input data-id="subsequent-eur-input" id="subsequent-eur-input-5" name="subsequent-eur-input-5" disabled="" value="93,71" class="table__input">
+            </div>
+          
+          
+            <div class="table__col table__col--actions">
+              <button data-swap="remove" type="button" class="table__action-button js-add-row">
+                <img src="/DentistMax/dist/img/icons/16/plus-icon.svg" width="16" height="16" alt="add icon">
+              </button>
+            </div>
+          
+      </div>
+    </div>
+</div>
+
+          
+</div>
+
+        
+</div>
+
+      
+</div>
+
+      
+
+<div class="row body-footer flex-column">
+  <div class="row body-footer__submit">
+    
+        
+
+<div class="column column--max-700 ">
+  
+          
+
+
+
+<div class="field ">
+  
+  <div class="field__container r-tooltip-container">
+    <input class="form__input " id="inputId" name="notizenInputName" type="text" placeholder="Notizen" >
+    </div>
+  
+</div>
+
+
+        
+</div>
+
+      
+    
+      <div class="column body-footer__actions">
+        
+          <div class="column">
+            
+
+<button class="button button--primary" type="button">
+  
+    <span class="button__text">Speichern</span>
+  </button>
+
+          </div>
+        
+      </div>
+    </div>
+</div>
+
+    
+</div>
+
+  
+</div>
+
+
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+      </form>
+    </section>
+
+    <aside id="sidebox" class="">
+      <details id="sb-patients">
+        <summary data-focus="§sb_spatient_search">
+          <span title="Patienten " data-toggle="tooltip" data-placement="bottom"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 12C9.9 12 8.95833 11.6083 8.175 10.825C7.39167 10.0417 7 9.1 7 8C7 6.9 7.39167 5.95833 8.175 5.175C8.95833 4.39167 9.9 4 11 4C12.1 4 13.0417 4.39167 13.825 5.175C14.6083 5.95833 15 6.9 15 8C15 9.1 14.6083 10.0417 13.825 10.825C13.0417 11.6083 12.1 12 11 12ZM11 10C11.55 10 12.0208 9.80417 12.4125 9.4125C12.8042 9.02083 13 8.55 13 8C13 7.45 12.8042 6.97917 12.4125 6.5875C12.0208 6.19583 11.55 6 11 6C10.45 6 9.97917 6.19583 9.5875 6.5875C9.19583 6.97917 9 7.45 9 8C9 8.55 9.19583 9.02083 9.5875 9.4125C9.97917 9.80417 10.45 10 11 10ZM21.4 22.8L18.9 20.3C18.55 20.5 18.175 20.6667 17.775 20.8C17.375 20.9333 16.95 21 16.5 21C15.25 21 14.1875 20.5625 13.3125 19.6875C12.4375 18.8125 12 17.75 12 16.5C12 15.25 12.4375 14.1875 13.3125 13.3125C14.1875 12.4375 15.25 12 16.5 12C17.75 12 18.8125 12.4375 19.6875 13.3125C20.5625 14.1875 21 15.25 21 16.5C21 16.95 20.9333 17.375 20.8 17.775C20.6667 18.175 20.5 18.55 20.3 18.9L22.8 21.4C22.9833 21.5833 23.075 21.8167 23.075 22.1C23.075 22.3833 22.9833 22.6167 22.8 22.8C22.6167 22.9833 22.3833 23.075 22.1 23.075C21.8167 23.075 21.5833 22.9833 21.4 22.8ZM16.5 19C17.2 19 17.7917 18.7583 18.275 18.275C18.7583 17.7917 19 17.2 19 16.5C19 15.8 18.7583 15.2083 18.275 14.725C17.7917 14.2417 17.2 14 16.5 14C15.8 14 15.2083 14.2417 14.725 14.725C14.2417 15.2083 14 15.8 14 16.5C14 17.2 14.2417 17.7917 14.725 18.275C15.2083 18.7583 15.8 19 16.5 19ZM3 18V17.225C3 16.6583 3.14167 16.1333 3.425 15.65C3.70833 15.1667 4.1 14.8 4.6 14.55C5.3 14.1833 6.07917 13.8625 6.9375 13.5875C7.79583 13.3125 8.675 13.1333 9.575 13.05C9.85833 13.0167 10.1 13.1 10.3 13.3C10.5 13.5 10.6 13.7417 10.6 14.025C10.6 14.3083 10.5 14.5542 10.3 14.7625C10.1 14.9708 9.85833 15.0917 9.575 15.125C8.625 15.2417 7.825 15.4167 7.175 15.65C6.525 15.8833 5.975 16.1167 5.525 16.35C5.35833 16.4333 5.22917 16.5542 5.1375 16.7125C5.04583 16.8708 5 17.0417 5 17.225V18H9.6C9.88333 18 10.1208 18.0958 10.3125 18.2875C10.5042 18.4792 10.6 18.7167 10.6 19C10.6 19.2833 10.5042 19.5208 10.3125 19.7125C10.1208 19.9042 9.88333 20 9.6 20H5C4.45 20 3.97917 19.8042 3.5875 19.4125C3.19583 19.0208 3 18.55 3 18Z" fill="white"></path></svg></span>
+        </summary>
+        <div>
+          <input type="text" name="spatient" id="search-patient" placeholder="vyhľadajte pacienta">
+          <div id="sb-spatients-finding" style="display: none">
+            <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+          </div>
+          <div id="snippet--sbDPatient">
+            <div id="sb-spatients-result" class="scroll-box scroll-v" style="
+                height: calc(100% - 22px);
+                margin-right: -10px;
+                padding-right: 10px;
+              "></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="sb-waitlist">
+        <summary data-focus="§sb_wpatient_search">
+          <span title="Zoznam čakajúcich pacientov" data-toggle="tooltip" data-placement="bottom"><svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 2C6.71667 2 6.47917 1.90417 6.2875 1.7125C6.09583 1.52083 6 1.28333 6 1C6 0.716667 6.09583 0.479167 6.2875 0.2875C6.47917 0.0958333 6.71667 0 7 0H11C11.2833 0 11.5208 0.0958333 11.7125 0.2875C11.9042 0.479167 12 0.716667 12 1C12 1.28333 11.9042 1.52083 11.7125 1.7125C11.5208 1.90417 11.2833 2 11 2H7ZM9 13C9.28333 13 9.52083 12.9042 9.7125 12.7125C9.90417 12.5208 10 12.2833 10 12V8C10 7.71667 9.90417 7.47917 9.7125 7.2875C9.52083 7.09583 9.28333 7 9 7C8.71667 7 8.47917 7.09583 8.2875 7.2875C8.09583 7.47917 8 7.71667 8 8V12C8 12.2833 8.09583 12.5208 8.2875 12.7125C8.47917 12.9042 8.71667 13 9 13ZM9 21C7.76667 21 6.60417 20.7625 5.5125 20.2875C4.42083 19.8125 3.46667 19.1667 2.65 18.35C1.83333 17.5333 1.1875 16.5792 0.7125 15.4875C0.2375 14.3958 0 13.2333 0 12C0 10.7667 0.2375 9.60417 0.7125 8.5125C1.1875 7.42083 1.83333 6.46667 2.65 5.65C3.46667 4.83333 4.42083 4.1875 5.5125 3.7125C6.60417 3.2375 7.76667 3 9 3C10.0333 3 11.025 3.16667 11.975 3.5C12.925 3.83333 13.8167 4.31667 14.65 4.95L15.35 4.25C15.5333 4.06667 15.7667 3.975 16.05 3.975C16.3333 3.975 16.5667 4.06667 16.75 4.25C16.9333 4.43333 17.025 4.66667 17.025 4.95C17.025 5.23333 16.9333 5.46667 16.75 5.65L16.05 6.35C16.6833 7.18333 17.1667 8.075 17.5 9.025C17.8333 9.975 18 10.9667 18 12C18 13.2333 17.7625 14.3958 17.2875 15.4875C16.8125 16.5792 16.1667 17.5333 15.35 18.35C14.5333 19.1667 13.5792 19.8125 12.4875 20.2875C11.3958 20.7625 10.2333 21 9 21ZM9 19C10.9333 19 12.5833 18.3167 13.95 16.95C15.3167 15.5833 16 13.9333 16 12C16 10.0667 15.3167 8.41667 13.95 7.05C12.5833 5.68333 10.9333 5 9 5C7.06667 5 5.41667 5.68333 4.05 7.05C2.68333 8.41667 2 10.0667 2 12C2 13.9333 2.68333 15.5833 4.05 16.95C5.41667 18.3167 7.06667 19 9 19Z" fill="white"></path></svg></span>
+        </summary>
+        <div>
+          <input type="text" name="wpatient" id="wait-patient" placeholder="vyhľadajte a pridajte pacienta">
+          <div id="sb-wpatients-finding" style="
+              position: relative;
+              margin-top: -22px;
+              padding-top: 0;
+              color: #000;
+              text-align: right;
+              display: none;
+            ">
+            <i class="fa fa-spinner fa-pulse fa-lg fa-fw"></i>
+          </div>
+          <div id="sb-wpatients-result"></div>
+          <div id="snippet--sbWPatient">
+            <div id="sb-wpatients-list" class="scroll-box scroll-v" style="height: 100%; margin-right: -10px; padding-right: 10px"></div>
+            <script>
+              $('#sb-wpatients-result').empty();
+              /*  */
+            </script>
+          </div>
+        </div>
+      </details>
+
+      <a href="javascript:;" id="sidebox-hide" title="Schließen"><span class="material-icons">close</span></a>
+    </aside>
+
+    <dialog class="mdl-dialog mdl-dialog--with-buttons dialogSBwPatient" data-width="500" data-height="325">
+      <form action="/?do=sbWPatForm-submit" method="post" id="frm-sbWPatForm" class="dialogForm">
+        <h4 class="mdl-dialog__title">Pridanie pacienta na čakaciu listinu</h4>
+        <div class="mdl-dialog__content">
+          <input type="hidden" name="id_data" id="frm-sbWPatForm-id_data" value="">
+          <input type="hidden" name="id_patient" id="frm-sbWPatForm-id_patient" value="">
+          <div class="mdl-grid nopad">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <select name="doctor" class="mdl-textfield__input" id="frm-sbWPatForm-doctor">
+                  <option value="1" data-length="15" selected="">
+                    Beispiel Anna
+                  </option>
+                </select>
+                <label for="frm-sbWPatForm-doctor" class="mdl-textfield__label">Arzt</label>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet mdl-cell--3-col-phone">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <select name="type" class="mdl-textfield__input" id="frm-sbWPatForm-type">
+                  <option value="1" data-length="-1" data-doctor="0" class="vys-default">
+                    Předvolené vyšetření
+                  </option>
+                  <option value="13" data-length="60" data-doctor="1" class="vys-red">
+                    Zahnschmerz
+                  </option>
+                  <option value="14" data-length="60" data-doctor="1" class="vys-lblue">
+                    Hygiene
+                  </option>
+                  <option value="15" data-length="60" data-doctor="1" class="vys-yellow">
+                    Neue
+                  </option>
+                </select>
+                <label for="frm-sbWPatForm-type" class="mdl-textfield__label">Typ</label>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--1-col-phone">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <select name="time" class="mdl-textfield__input" id="frm-sbWPatForm-time">
+                  <option value="5">5 min.</option>
+                  <option value="10">10 min.</option>
+                  <option value="15">15 min.</option>
+                  <option value="20">20 min.</option>
+                  <option value="25">25 min.</option>
+                  <option value="30">30 min.</option>
+                  <option value="35">35 min.</option>
+                  <option value="40">40 min.</option>
+                  <option value="45">45 min.</option>
+                  <option value="50">50 min.</option>
+                  <option value="55">55 min.</option>
+                  <option value="60">60 min. (1h)</option>
+                  <option value="65">65 min.</option>
+                  <option value="70">70 min.</option>
+                  <option value="75">75 min.</option>
+                  <option value="80">80 min.</option>
+                  <option value="85">85 min.</option>
+                  <option value="90">90 min.</option>
+                  <option value="95">95 min.</option>
+                  <option value="100">100 min.</option>
+                  <option value="105">105 min.</option>
+                  <option value="110">110 min.</option>
+                  <option value="115">115 min.</option>
+                  <option value="120">120 min. (2h)</option>
+                  <option value="125">125 min.</option>
+                  <option value="130">130 min.</option>
+                  <option value="135">135 min.</option>
+                  <option value="140">140 min.</option>
+                  <option value="145">145 min.</option>
+                  <option value="150">150 min.</option>
+                  <option value="155">155 min.</option>
+                  <option value="160">160 min.</option>
+                  <option value="165">165 min.</option>
+                  <option value="170">170 min.</option>
+                  <option value="175">175 min.</option>
+                  <option value="180">180 min. (3h)</option>
+                  <option value="185">185 min.</option>
+                  <option value="190">190 min.</option>
+                  <option value="195">195 min.</option>
+                  <option value="200">200 min.</option>
+                  <option value="205">205 min.</option>
+                  <option value="210">210 min.</option>
+                  <option value="215">215 min.</option>
+                  <option value="220">220 min.</option>
+                  <option value="225">225 min.</option>
+                  <option value="230">230 min.</option>
+                  <option value="235">235 min.</option>
+                  <option value="240">240 min. (4h)</option>
+                  <option value="245">245 min.</option>
+                  <option value="250">250 min.</option>
+                  <option value="255">255 min.</option>
+                  <option value="260">260 min.</option>
+                  <option value="265">265 min.</option>
+                  <option value="270">270 min.</option>
+                  <option value="275">275 min.</option>
+                  <option value="280">280 min.</option>
+                  <option value="285">285 min.</option>
+                  <option value="290">290 min.</option>
+                  <option value="295">295 min.</option>
+                  <option value="300">300 min. (5h)</option>
+                  <option value="305">305 min.</option>
+                  <option value="310">310 min.</option>
+                  <option value="315">315 min.</option>
+                  <option value="320">320 min.</option>
+                  <option value="325">325 min.</option>
+                  <option value="330">330 min.</option>
+                  <option value="335">335 min.</option>
+                  <option value="340">340 min.</option>
+                  <option value="345">345 min.</option>
+                  <option value="350">350 min.</option>
+                  <option value="355">355 min.</option>
+                  <option value="360">360 min. (6h)</option>
+                  <option value="365">365 min.</option>
+                  <option value="370">370 min.</option>
+                  <option value="375">375 min.</option>
+                  <option value="380">380 min.</option>
+                  <option value="385">385 min.</option>
+                  <option value="390">390 min.</option>
+                  <option value="395">395 min.</option>
+                  <option value="400">400 min.</option>
+                  <option value="405">405 min.</option>
+                  <option value="410">410 min.</option>
+                  <option value="415">415 min.</option>
+                  <option value="420">420 min. (7h)</option>
+                </select>
+                <label for="frm-sbWPatForm-time" class="mdl-textfield__label">Zeit</label>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" name="description" class="mdl-textfield__input" id="frm-sbWPatForm-description">
+                <label for="frm-sbWPatForm-description" class="mdl-textfield__label">Bemerkung</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-dialog__actions">
+          <input type="submit" name="_submit" value="Hinzufügen" class="ajax mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--raised btn-close">
+            Schließen
+          </button>
+        </div>
+        <input type="hidden" name="_do" value="sbWPatForm-submit"><!--[if IE
+          ]><input type="IEbug" disabled style="display: none"
+        /><![endif]-->
+      </form>
+    </dialog>
+
+    <script>
+  $(document).ready(function () {
+    // Open menu
+    $(document).on('click', '[data-open-menu]', function () {
+      if ($(this).closest('[data-menu-parent]').hasClass('is-open-menu')) {
+        $('[data-menu-parent]').removeClass('is-open-menu');
+      }
+
+      $('[data-menu-parent]').removeClass('is-open-menu');
+      $(this).closest('[data-menu-parent]').addClass('is-open-menu');
+    });
+
+    $(document).on('click', '[data-close-menu]', function () {
+      $(this).closest('[data-menu-parent]').removeClass('is-open-menu');
+    });
+
+    // Close menu on click outside
+    $(document).on('click', function (e) {
+      if (!$(e.target).closest('[data-menu-parent]').length) {
+        $('[data-menu-parent]').removeClass('is-open-menu');
+      }
+    });
+
+    $('input[data-type="date"]').on('focus', function () {
+      $(this).attr('type', 'date');
+    });
+
+    $('input[data-type="date"]').on('blur', function () {
+      if ($(this).val()) {
+        return;
+      }
+
+      $(this).attr('type', 'text');
+    });
+
+    $('.js-resize').on('click', function () {
+      $(this).closest('[data-resize-container]').toggleClass('resized');
+    });
+
+    function removeRow() {
+      $(this).closest('[data-row]').remove();
+    }
+
+    $(document).on('click', '.js-remove-row', removeRow);
+
+    const removeButtonHtml = `<div class="table__col table__col--actions"><button type="button" class="table__action-button js-remove-row"><img src="/DentistMax/dist/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon" /></button></div>`;
+    const moreMenuHtml = `<div class="table__col table__col--actions"><div data-menu-parent class="more-menu-container"><button data-open-menu type="button" class="table__action-button"><img src="/DentistMax/dist/img/icons/16/more-icon.svg" width="16" height="16" alt="more menu icon" /></button><ul class="more-menu"><li class="more-menu__item edit"><button data-close-menu type="button" class="more-menu__button js-edit-row">Edit</button></li><li class="more-menu__item done"><button data-close-menu type="button" class="more-menu__button js-done-edit-row">Done</button></li></ul></div></div>`;
+    const swapConfig = {
+      remove: removeButtonHtml,
+      'more-menu': moreMenuHtml,
+    };
+
+    $(document).on('click', '.js-add-row', function addNewRow() {
+      const clonedRow = $(this).closest('[data-row]').clone();
+      const rowIndex = $(this).closest('[data-row]').data('row');
+      clonedRow.attr('data-row', rowIndex + 1);
+      clonedRow.find('input').each(function () {
+        const newId = $(this)
+          .attr('id')
+          .replace(/-\d+$/, `-${rowIndex + 1}`);
+        const newName = $(this)
+          .attr('name')
+          .replace(/-\d+$/, `-${rowIndex + 1}`);
+        $(this).attr('id', newId);
+        $(this).attr('name', newName);
+      });
+
+      const swapAttrs = $(this).attr('data-swap').split(', ');
+      $(this)
+        .closest('.table__body')
+        .append(clonedRow)
+        .find('.table__col--empty-actions')
+        .remove();
+      $(this).closest('[data-row]').addClass('show-input editing');
+      $(this)
+        .parent()
+        .replaceWith(swapAttrs.map((attr) => swapConfig[attr]).join(''));
+    });
+
+    $(document).on('click', '.js-done-edit-row', function addNewRow() {
+      $(this)
+        .closest('[data-row]')
+        .removeClass('editing table__row--actions show-input')
+        .find('.table__input')
+        .replaceWith(function () {
+          const value = $(this).val();
+          const type = $(this).attr('type');
+
+          if (type === 'text') {
+            return `<span>${value}</span>`;
+          }
+
+          return `<span>${value}</span>`;
+        });
+    });
+
+    $(document).on('click', '.js-edit-row', function addNewRow() {
+      const $inputs = $(this)
+        .closest('[data-table]')
+        .find('[data-row]:last-child .table__col');
+
+      const index = $(this).closest('[data-row]').data('row');
+
+      $(this)
+        .closest('[data-row]')
+        .addClass('editing table__row--actions show-input')
+        .find('.table__col span')
+        .replaceWith(function (i, value) {
+          const clonedInput = $inputs.eq(i).find('.table__input').clone();
+
+          return clonedInput
+            .attr('id', `${clonedInput.attr('data-id')}-${index}`)
+            .attr('name', `${clonedInput.attr('data-id')}-${index}`)
+            .val(value);
+        });
+
+      console.log($inputs);
+    });
+  });
+</script>
+
+
+    <script>
+      var sb_spatient_search = null;
+      var sb_wpatient_search = null;
+      $(document).ready(function () {
+        sb_spatient_search = $('#search-patient').selectize(
+          sb_spatient_selectize
+        );
+        sb_wpatient_search = $('#wait-patient').selectize(
+          sb_wpatient_selectize
+        );
+        $(document).on('click', '.option .btn-showfunc', function () {
+          $(this).parent().toggleClass('open', 500);
+        });
+        $(document).on('formClear', 'DIALOG.dialogSBwPatient', function () {
+          $('#frm-sbWPatForm-doctor').val(IS_dr);
+          $('#frm-sbWPatForm-type').val(1);
+          $('#frm-sbWPatForm-description').val('');
+        });
+        $(document).on('change', '#frm-sbWPatForm-doctor', function () {
+          var dr = $(this).val();
+          $("#frm-sbWPatForm-type OPTION[data-doctor!='0']").hide();
+          $("#frm-sbWPatForm-type OPTION[data-doctor='" + dr + "']").show();
+        });
+        $(document).on('change', '#frm-sbWPatForm-type', function () {
+          var vys = $(this).val();
+          if (vys == 1)
+            $('#frm-sbWPatForm-time').val(
+              $('#frm-sbWPatForm-doctor OPTION:selected').attr('data-length')
+            );
+          else
+            $('#frm-sbWPatForm-time').val(
+              $('#frm-sbWPatForm-type OPTION:selected').attr('data-length')
+            );
+          console.log(
+            'vys',
+            vys,
+            $('#frm-sbWPatForm-doctor OPTION:selected'),
+            $('#frm-sbWPatForm-doctor OPTION:selected').attr('data-length')
+          );
+        });
+        $(document).on('click', '#sidebox .btn-sb-wpat-add', function () {
+          var id = $(this).attr('data-id');
+          $('#frm-sbWPatForm-id_data').val('');
+          $('#frm-sbWPatForm-id_patient').val(id);
+          $('#frm-sbWPatForm-doctor').change();
+          $('#frm-sbWPatForm-type').change();
+          initDialog('OPEN', 'DIALOG.dialogSBwPatient');
+        });
+        $(document).on('click', '#sb-waitlist .btnSbWPat-edit', function () {
+          var lnk_edit = $(this).attr('href');
+          $.nette.ajax(
+            {
+              url: lnk_edit,
+              dataType: 'json',
+              method: 'POST',
+              success: function (data) {
+                do_edit = true;
+                $('#frm-sbWPatForm-id_data').val(data['id']);
+                $('#frm-sbWPatForm-id_patient').val(data['patient']);
+                $('#frm-sbWPatForm-doctor').val(data['id_doctor']);
+                $('#frm-sbWPatForm-type').val(data['type']);
+                $('#frm-sbWPatForm-time').val(data['time']);
+                $('#frm-sbWPatForm-description').val(data['desc']);
+                $('#frm-sbWPatForm-doctor').change();
+                $('#frm-sbWPatForm-type').change();
+                initDialog('OPEN', 'DIALOG.dialogSBwPatient');
+                setTimeout(function () {
+                  do_edit = false;
+                }, 1000);
+              },
+            },
+            this,
+            null
+          );
+          return false;
+        });
+        $(document).on('click', '#sb-waitlist .btnSbWPat-del', function () {
+          var lnk_edit = $(this).attr('href');
+          $.nette.ajax(
+            {
+              url: lnk_edit,
+              dataType: 'json',
+              method: 'POST',
+              success: function (data) {},
+            },
+            this,
+            null
+          );
+          return false;
+        });
+      });
+      $(window).load(function () {
+        var hash = document.location.hash.substr(1);
+        if (hash.indexOf('sidebar') != -1) {
+          if (!$('BODY').hasClass('sidebox-open'))
+            $('BODY').addClass('sidebox-open');
+          if (!$('ASIDE#sidebox').hasClass('open'))
+            $('ASIDE#sidebox').addClass('open');
+          var tab = hash.substr(8);
+          if (tab == '') tab = 'waitlist';
+          if (tab.substr(0, 8) == 'patients' && tab.indexOf('|') != -1) {
+            var pat_id = tab.substr(9);
+            tab = tab.substr(0, 8);
+            if (parseInt(pat_id) > 0) sidebarGetPatientInfo(pat_id);
+          }
+          $('ASIDE#sidebox DETAILS#sb-' + tab).attr('open', '');
+        }
+        /*  */
+      });
+      function sidebarGetPatientInfo(id, open) {
+        if (typeof open == 'undefined') var open = true;
+        if (open && typeof $('#sb-patients').attr('open') == 'undefined') {
+          if (!$('BODY').hasClass('sidebox-open'))
+            $('BODY').addClass('sidebox-open');
+          if (!$('ASIDE#sidebox').hasClass('open'))
+            $('ASIDE#sidebox').addClass('open');
+          $('ASIDE#sidebox DETAILS').each(function () {
+            $(this).attr('open', false);
+          });
+          $('ASIDE#sidebox DETAILS#sb-patients').attr('open', '');
+        }
+
+        $('#sb-spatients-result').empty();
+        $('#sb-spatients-result').html(
+          '<br><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>'
+        );
+        var pLink = '\/?do=getPatientDetails';
+        $.ajax({
+          url: pLink.replace('\/', '/'),
+          type: 'POST',
+          data: { pid: id },
+          dataType: 'json',
+          success: function (res) {
+            if (typeof res['snippets'] != 'undefined') {
+              for (var s in res['snippets']) {
+                console.log(s, res['snippets'][s]);
+                $('#' + s).html(res['snippets'][s]);
+              }
+            }
+            //				$("#sb-spatients-result").html( res );
+            OptionsSave('SidebarPatient', id);
+          },
+        });
+      }
+      var sb_spatient_selectize = {
+        mode: 'full',
+        create: false,
+        maxItems: 1,
+        valueField: 'id',
+        labelField: 'name',
+        sortField: [
+          { field: 'zorad', direction: 'asc' },
+          { field: 'name', direction: 'asc' },
+        ],
+        searchField: 'name',
+        options: [],
+        selectOnTab: true,
+        openOnFocus: false,
+        closeAfterSelect: true,
+        addPrecedence: false,
+        loadThrottle: 750,
+        render: {
+          item: function (item, escape) {
+            var label = item['name'];
+            return (
+              '<div class="item" data-value="' +
+              (item['id'] !== undefined ? escape(item['id']) : '') +
+              '">' +
+              label.replace('/', ' (') +
+              ')</div>'
+            );
+          },
+          option: function (item, escape) {
+            var label = item['name'];
+            if (typeof item['option'] != 'undefined')
+              var label = escape(item['option']);
+            return (
+              '<div class="option" data-selectable="" data-value="' +
+              item['id'] +
+              '">' +
+              label.replace('/', ' (') +
+              ')</div>'
+            );
+          },
+          option_create: function (data, escape) {
+            return '<span></span>';
+          },
+        },
+        onChange: function (val) {
+          var input = this.$input[0];
+          var opt = this.options[val];
+          if (val != '' && parseInt(val) > 0) sidebarGetPatientInfo(val);
+        },
+        onFocus: function () {
+          this.focus();
+        },
+        score: function () {
+          return function () {
+            return 1;
+          };
+        },
+        load: function (query, callback) {
+          if (!query.length || query.length < 1) return callback();
+          var pLink = '\/?do=getPatient';
+          sel_patient = false;
+          $('#sb-spatients-result').empty();
+          $('#sb-spatients-finding').show();
+          this.clearOptions();
+          $.ajax({
+            url: pLink.replace('\/', '/'),
+            data: { query: query },
+            type: 'GET',
+            error: function () {
+              callback();
+            },
+            success: function (res) {
+              $('#sb-spatients-finding').hide();
+              if (res.length) callback(res);
+            },
+          });
+        },
+      };
+      var sb_wpatient_selectize = {
+        mode: 'full',
+        create: false,
+        maxItems: 1,
+        valueField: 'id',
+        labelField: 'name',
+        sortField: [
+          { field: 'zorad', direction: 'asc' },
+          { field: 'name', direction: 'asc' },
+        ],
+        searchField: 'name',
+        options: [],
+        selectOnTab: true,
+        openOnFocus: false,
+        closeAfterSelect: true,
+        addPrecedence: false,
+        loadThrottle: 750,
+        render: {
+          item: function (item, escape) {
+            var label = item['name'];
+            //			var id = $(this).attr('data-id');
+            $('#frm-sbWPatForm-id_data').val('');
+            $('#frm-sbWPatForm-id_patient').val(item['id']);
+            $('#frm-sbWPatForm-doctor').change();
+            $('#frm-sbWPatForm-type').change();
+            initDialog('OPEN', 'DIALOG.dialogSBwPatient');
+            return (
+              '<div class="item" data-value="' +
+              (item['id'] !== undefined ? escape(item['id']) : '') +
+              '">' +
+              label.replace('/', ' (') +
+              ')</div>'
+            );
+            /*
+                var ptags = [];
+                if ( item['tags'].length > 0 ) {
+                  for ( var t in item['tags'] ) {
+                    ptags.push('<span class="ptag ' + tags[ parseInt(item['tags'][t]) ]['color'] + '" title="' + tags[ parseInt(item['tags'][t]) ][ 'caption' ] + '">' + tags[ parseInt(item['tags'][t]) ][ 'icon' ] + '</span>');
+                  }
+                }
+                if ( typeof( item['is-patient'] ) == 'undefined' ){
+                  return '<div class="item" data-toggle="tooltip" data-value="' + (item['id'] !== undefined ? escape(item['id']) : '') + '">\
+                    Suche: ' + item['name'].replace('/' , '<br>(') + '\
+                  </div>';
+                } else {
+                  return '<div class="item" data-toggle="tooltip" title="' + (item['option'] !== undefined ? escape(item['option']) : '') + '" data-value="' + (item['id'] !== undefined ? escape(item['id']) : '') + '">\
+                    ' + item['name'].replace('/' , '<br>(') + ( ptags.length > 0 ? '<span class="p-tags align-right">' + ptags.join(' ') + '</span>'  : '' ) + ')\
+                  </div>';
+                }
+        */
+          },
+          option: function (item, escape) {
+            var label = item['name'];
+            if (typeof item['option'] != 'undefined')
+              var label = escape(item['option']);
+            return (
+              '<div class="option" data-selectable="" data-value="' +
+              item['id'] +
+              '">' +
+              label.replace('/', ' (') +
+              ')</div>'
+            );
+            /*
+                console.log(item);
+                var label = escape(item['name']);
+                if (typeof(item['option']) != 'undefined') var label = escape(item['option']);
+                if ( $("#sb-wpatients-result").find(".option[data-value='" + item['id'] + "']").length == 0 ) {
+                  $("#sb-wpatients-result").append('<div class="option" data-value="'+(item['id'] !== undefined ? escape(item['id']) : '')+'">\
+                    <a href="javascript:;" class="btn-showfunc"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>\
+                    ' + label.replace('/' , ' (') + ')\
+                    <div class="option-func">\
+                      <a href="/patients/detail/' + item['id'] + '/" target="_blank" class="mdl-button mdl-js-button mdl-button-small mdl-button--raised mdl-button--green" data-toggle="tooltip" data-placement="bottom" title="Patientendetail">&nbsp;&nbsp;&nbsp;<i class="material-icons">contacts</i>&nbsp;&nbsp;&nbsp;</a>\
+                      <a href="javascript:;" data-id="' + item['id'] + '" class="btn-sb-wpat-add mdl-button mdl-js-button mdl-button-small mdl-button--raised mdl-button--accent" data-toggle="tooltip" data-placement="bottom" title="Pridať do zoznamu">&nbsp;&nbsp;&nbsp;<i class="material-icons">hourglass_empty</i>&nbsp;&nbsp;&nbsp;</a>\
+                    </div>\
+                  </div>');
+                }
+                if ( sel_patient === false ) {
+                  if ( $("#sb-wpatients-result .option.selected").length == 0 ) var p = $("#sb-wpatients-result .option").get(0);
+                  else var p = $("#sb-wpatients-result .option.selected").get(0);
+                  sel_patient = $(p).attr('data-value');
+                  $(p).addClass('selected');
+                }
+                return '<span></span>';
+        */
+          },
+          option_create: function (data, escape) {
+            return '<span></span>';
+          },
+        },
+        onFocus: function () {
+          this.focus();
+        },
+        score: function () {
+          return function () {
+            return 1;
+          };
+        },
+        load: function (query, callback) {
+          if (!query.length || query.length < 1) return callback();
+          var pLink = '\/?do=getPatient';
+          sel_patient = false;
+          $('#sb-wpatients-result').empty();
+          $('#sb-wpatients-finding').show();
+          this.clearOptions();
+          $.ajax({
+            url: pLink.replace('\/', '/'),
+            data: { query: query },
+            type: 'GET',
+            error: function () {
+              callback();
+            },
+            success: function (res) {
+              $('#sb-wpatients-finding').hide();
+              if (res.length) callback(res);
+            },
+          });
+        },
+      };
+    </script>
+
+    <footer>
+      <div id="IS-version">
+        &copy; 2016-2025 DentistMax, alle Rechte vorbehalten |
+        <a href="javascript:;" id="btnAboutIS" class="dialog-link" data-target="dialogAboutIS">Version 5.4.0</a>
+        |
+        <a href="/docs/VOP-DentMax-de.pdf" target="_blank">Geschäftsbedingungen</a>
+        |
+        <a href="mailto:support@dentistmax.de?subject=Anfrage an das Informationssystem DentMax&body=ZEIT%3A%2016.03.2025%2020%3A04%3A03%0AURL%3A%20%2F%0ABENUTZER%3A%209-Demo%20Dentmax%0ADR%3A%201-Dr.%20Anna%20Beispiel%0A%0AAbfrage%3A%20" target="_blank">support@dentistmax.de</a>
+      </div>
+    </footer>
+    <dialog class="mdl-dialog mdl-dialog--with-buttons dialogSupport" data-width="700" data-height="500">
+      <h4 class="mdl-dialog__title">Radi Vám pomôžeme a zodpovieme otázky</h4>
+      <div class="mdl-dialog__content">
+        <div class="mdl-grid nopad">
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <h2>DentistMax unterstützung</h2>
+            <p>Podporu môžete kontaktovať:</p>
+            <p><strong>Mo - Fr: 8:00 - 16:00</strong></p>
+            <p>
+              Tel: #SUPPORT-TEL#<br>
+              E-Mail:
+              <a href="mailto:support@dentistmax.de?subject=Anfrage an das Informationssystem DentMax&body=ZEIT%3A%2016.03.2025%2020%3A04%3A03%0AURL%3A%20%2F%0ABENUTZER%3A%209-Demo%20Dentmax%0ADR%3A%201-Dr.%20Anna%20Beispiel%0A%0AAbfrage%3A%20" target="_blank">support@dentistmax.de</a>
+            </p>
+            <br><br>
+            <p style="line-height: 20px">
+              <small>Pre vzdialenú pomoc na vašom zariadení používame
+                aplikáciu</small><br>
+              <a href="https://www.nanosystems.it/public/download/Supremo.exe" target="_blank" style="text-decoration: none; white-space: nowrap">
+                <img src="/DentistMax/dist/img/logo/support-sr.png" style="width: 16px; height: 16px; vertical-align: middle">
+                <strong>SupRemo (Windows)</strong>
+              </a>
+              <a href="https://www.nanosystems.it/public/download/macOS/Supremo.dmg" target="_blank" style="text-decoration: none; white-space: nowrap">
+                <img src="/DentistMax/dist/img/logo/support-sr.png" style="width: 16px; height: 16px; vertical-align: middle">
+                <strong>SupRemo (Apple/Mac)</strong>
+              </a>
+            </p>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+            <h2><br></h2>
+            <p>
+              <i class="fa fa-question-circle fa-2x text-green"></i><br>
+              Pred zaslaním dotazu si prosím prečítajte
+              <a href="/dashboard/faq/"><strong>Často kladené otázky</strong></a>.
+            </p>
+            <br>
+            <p>
+              <i class="fa fa-exclamation-triangle fa-2x text-orange"></i><br>
+              Správu o chybe pošlite e-mailom na adresu
+              <a href="mailto:support@dentistmax.de?subject=Anfrage an das Informationssystem DentMax&body=ZEIT%3A%2016.03.2025%2020%3A04%3A03%0AURL%3A%20%2F%0ABENUTZER%3A%209-Demo%20Dentmax%0ADR%3A%201-Dr.%20Anna%20Beispiel%0A%0AAbfrage%3A%20" target="_blank">support@dentistmax.de</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--raised btn-close">
+          Schließen
+        </button>
+      </div>
+    </dialog>
+
+    <dialog class="mdl-dialog mdl-dialog--with-buttons dialogAboutIS" data-width="550" data-height="500">
+      <h4 class="mdl-dialog__title">O IS DentistMax</h4>
+      <div class="mdl-dialog__content scroll">
+        <h1 class="text-center text-blue">IS DentistMax</h1>
+        <div class="text-center">Version 5.4.0</div>
+        <div class="text-center text-silver">
+          letzte Aktualisierung 14.04.2023
+        </div>
+        <br>
+        <p>
+          Der Betreiber des Informationssystems ist
+          "Navstevalekare.cz&nbsp;s.r.o.", mit Sitz in Kounická &nbsp;1385/60,
+          100&nbsp;00&nbsp;Prag 10
+        </p>
+        <br>
+        <p>E-Post-Adresse:</p>
+        <ul>
+          <li>
+            <a href="mailto:info@isde.navstevalekara.sk">info@isde.navstevalekara.sk</a>
+            : allgemeine Informationen
+          </li>
+          <li>
+            <a href="mailto:support@isde.navstevalekara.sk">support@isde.navstevalekara.sk</a>
+            : technischer Support
+          </li>
+        </ul>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--raised btn-close">
+          Schließen
+        </button>
+      </div>
+    </dialog>
+
+    <dialog class="mdl-dialog mdl-dialog--with-buttons dialogSMS" data-width="500" data-height="500">
+      <form action="/?do=smsForm-submit" method="post" id="frm-smsForm" class="dialogForm">
+        <h4 class="mdl-dialog__title">Odoslanie SMS</h4>
+        <div class="mdl-dialog__content">
+          <input type="hidden" name="id_patient" id="frm-smsForm-id_patient" value="">
+          <input type="hidden" name="id_order" id="frm-smsForm-id_order" value="">
+          <br>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input type="text" name="number" class="mdl-textfield__input" id="frm-smsForm-number" required="" data-nette-rules="[{&quot;op&quot;:&quot;:filled&quot;,&quot;msg&quot;:&quot;Zadajte Vaše mobilné číslo.&quot;}]">
+            <label for="frm-smsForm-number" class="mdl-textfield__label">Mobilné číslo</label>
+          </div>
+          <br>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty">
+            <textarea name="message" rows="7" maxlength="600" class="mdl-textfield__input counter" id="frm-smsForm-message" required="" data-nette-rules="[{&quot;op&quot;:&quot;:filled&quot;,&quot;msg&quot;:&quot;Zadajte Vášu správu.&quot;}]"></textarea>
+            <label for="frm-smsForm-message" class="mdl-textfield__label">Bericht</label>
+          </div>
+          <p>
+            Bitte geben Sie den Text der Textnachricht ohne diakritische Zeichen
+            ein.
+          </p>
+          <p style="line-height: normal">
+            <small>Für jede gesendete SMS wird ein Betrag von 1,5 CZK
+              berechnet.</small><br><small style="font-size: 10px">(bis zu 160 Zeichen = 1 Nachricht, bis zu 300 Zeichen = 2
+              Nachrichten, bis zu 459 Zeichen = 3 Nachrichten, bis zu 600
+              Zeichen = 4 Nachrichten)</small>
+          </p>
+        </div>
+        <div class="mdl-dialog__actions">
+          <input type="submit" name="_submit" value="Senden an" class="ajax mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--raised btn-close">
+            Schließen
+          </button>
+        </div>
+        <input type="hidden" name="_do" value="smsForm-submit"><!--[if IE
+          ]><input type="IEbug" disabled style="display: none"
+        /><![endif]-->
+      </form>
+    </dialog>
+
+    <dialog class="mdl-dialog mdl-dialog--with-buttons dialogDemo" data-width="400" data-height="500">
+      <form action="/?do=demoForm-submit" method="post" id="frm-demoForm" class="dialogForm">
+        <h4 class="mdl-dialog__title">Kontaktdetails für die DEMO-Version</h4>
+        <div class="mdl-dialog__content">
+          <p>
+            Für die Anmeldung zur Demoversion bitten wir Sie um die Eingabe
+            Ihrer Kontaktdaten.
+          </p>
+          <br>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input type="text" name="name" class="mdl-textfield__input" id="frm-demoForm-name" required="" data-nette-rules="[{&quot;op&quot;:&quot;:filled&quot;,&quot;msg&quot;:&quot;Geben Sie Ihren Namen ein&quot;}]">
+            <label for="frm-demoForm-name" class="mdl-textfield__label">Name des Arztes/der Ärztin</label>
+          </div>
+          <br>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty">
+            <input type="email" name="email" class="mdl-textfield__input" id="frm-demoForm-email" required="" data-nette-rules="[{&quot;op&quot;:&quot;:filled&quot;,&quot;msg&quot;:&quot;Geben Sie bitte Ihre aktuelle E-Mail-Adresse ein.&quot;},{&quot;op&quot;:&quot;:email&quot;,&quot;msg&quot;:&quot;Please enter a valid email address.&quot;}]">
+            <label for="frm-demoForm-email" class="mdl-textfield__label">E-Mail</label>
+          </div>
+          <br>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input type="text" name="phone" class="mdl-textfield__input" id="frm-demoForm-phone" required="" data-nette-rules="[{&quot;op&quot;:&quot;:filled&quot;,&quot;msg&quot;:&quot;Geben Sie bitte Ihre aktuelle Telefonverbindung ein.&quot;}]">
+            <label for="frm-demoForm-phone" class="mdl-textfield__label">Telefonverbindung</label>
+          </div>
+        </div>
+        <div class="mdl-dialog__actions">
+          <input type="submit" name="_submit" value="senden und weiter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+          <!-- <button type="button" class="mdl-button mdl-js-button mdl-button--raised btn-close">Schließen</button> -->
+        </div>
+        <input type="hidden" name="_do" value="demoForm-submit">
+      </form>
+    </dialog>
+
+    <input type="text" id="copy2clpbrd" value="" style="display: none">
+    <iframe name="printFrame" width="0" height="0" frameborder="0" src="about:blank" style="visibility: hidden"></iframe>
+
+    <script src="/DentistMax/dist/lib/bootstrap/bootstrap.js?_v=20250423162905"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js?_v=20250423162905"></script> -->
+    <script src="/DentistMax/dist/lib/nette/netteForms.min.js?_v=20250423162905"></script>
+    <script defer="" src="https://code.getmdl.io/1.3.0/material.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/jQuery/jquery-libs.js?t=250316&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/material/material.plugs.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/dialog-polyfill/dialog-polyfill.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/grid/jquery.touch-punch.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/grid/jquery.shapeshift.min.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/dropzone/dropzone.js?_v=20250423162905"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js?_v=20250423162905"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js?_v=20250423162905"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js?_v=20250423162905"></script>
+
+    <script src="/DentistMax/dist/lib/summernote/summernote.min.js?t=250316&_v=20250423162905"></script>
+
+    <script src="/DentistMax/dist/lib/summernote/plugin/print/summernote-ext-print.js?t=250316&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/summernote/plugin/texts/summernote-ext-texts.js?t=250316&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/summernote/plugin/patient/summernote-ext-patient.js?t=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/summernote/plugin/dekurz_gyn/summernote-ext-dekurz_gyn.js?t=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/selectize/selectize.js?_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/main.js?t=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/modules/erp.js?tm=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/modules/nczi.js?tm=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/modules/commMax.js?tm=250316200403&_v=20250423162905"></script>
+    <script src="/DentistMax/dist/lib/nette/nette.ajax.js?_v=20250423162905"></script>
+    <script type="text/javascript">
+      /*  */
+      var doctor_active = '1';
+      var doctor_hash = '';
+      var doctors_access = {
+        /**/ 1: 'Anna Beispiel' /**/ /**/,
+      };
+      /*  */
+
+      /*  */
+      /*  */
+
+      $(document).ready(function () {
+        if (IS_presenter == 'Dashboard' && IS_action == 'default') {
+          if (
+            typeof APP_version != 'undefined' &&
+            APP_version != '' &&
+            checkVersion(3, 4, 9, 2)
+          ) {
+            $('#app-status').html(
+              '<small class="text-green">Využívate verziu aplikácie ' +
+                APP_version +
+                '</small>'
+            );
+          } else if (APP_state.run) {
+            $('#app-status').html(
+              '<small class="text-orange">Používate starú verziu aplikácie</small>'
+            );
+            alert(
+              'MÁTE NAINŠALOVANÚ STARŠIU VERZIU APLIKÁCIE COMMMAX, KTORÚ JE POTREBNÉ AKTUALIZOVAŤ.'
+            );
+          }
+          if (APP_state.updt !== false)
+            $('#app-status').append(
+              '<br><small class="text-red">Je dostupná nová verzia ' +
+                APP_state.updt +
+                '</small>'
+            );
+        }
+
+        // pridat upozornenie, ze nie je spusteny commMax, ak ma byt spusteny
+
+        /*  */
+        $('#btnSupportDialog').click(function () {
+          initDialog('OPEN', 'DIALOG.dialogSupport');
+        });
+      });
+      $(document).on('formClear', 'DIALOG.dialogSMS', function () {
+        $('DIALOG.dialogSMS #frm-smsForm-number').val('').change();
+        $('DIALOG.dialogSMS #frm-smsForm-message').val('').change().keyup();
+      });
+      $(document).on('click', 'A[data-target="dialogSMS"]', function () {
+        var phone = $(this).attr('data-phone');
+        var patient = $(this).attr('data-patient');
+        var order = $(this).attr('data-order');
+        /* if ( "Dashboard" == 'Calendar' ) */ initDialog(
+          'OPEN',
+          'DIALOG.dialogSMS',
+          500,
+          500
+        );
+        console.log('SMS', phone, patient, order);
+        if (typeof phone != 'undefined' && phone != '')
+          $('DIALOG.dialogSMS #frm-smsForm-number')
+            .val(phone)
+            .parent()
+            .removeClass('is-invalid');
+        if (typeof patient != 'undefined' && patient != '')
+          $('DIALOG.dialogSMS #frm-smsForm-id_patient').val(patient);
+        if (typeof order != 'undefined' && order != '')
+          $('DIALOG.dialogSMS #frm-smsForm-id_order').val(order);
+      });
+      $(document).on('keyup', '#frm-smsForm-message', function () {
+        $(this).val($(this).val().replace(/\r?\n/gi, '').nodiacritic());
+      });
+
+      locale['cmx_run'] = 'Anwendung&nbsp;<b>commMax</b> je&nbsp;läuft.';
+      locale['cmx_off'] =
+        'Anwendung&nbsp;<b>commMax</b> NIE&nbsp;JE&nbsp;läuft.';
+      locale['cmx_run_update'] =
+        'Anwendung&nbsp;<b>commMax</b> je&nbsp;läuft a&nbsp;je&nbsp;Aktualisierung verfügbar.';
+      locale['cmx_update'] = 'Bitte aktualisieren Sie die Anwendung commMax';
+      locale['cmx_orp_on'] = 'Kasse&nbsp;ORP ist&nbsp;angeschlossen.';
+      locale['cmx_orp_off'] = 'Kasse&nbsp;ORP NEIN&nbsp;JE&nbsp;angeschlossen.';
+      locale['cmx_epzp_on'] = 'Karte&nbsp;<b>ePZP</b> wurde&nbsp;gelesen.';
+      locale['cmx_epzp_off'] =
+        'Karte&nbsp;<b>ePZP</b> NEIN&nbsp;JE&nbsp;eingelegt.';
+      locale['confirm_del'] =
+        'Sind Sie sicher, dass Sie den Datensatz löschen wollen?';
+      locale['reason_del'] = 'Grund für die Löschung';
+      locale['btn_close'] = 'Schließen';
+      locale['btn_del'] = 'löschen';
+      locale['btn_cancel'] = 'Abbrechen';
+      locale['btn_set'] = 'Einstellungen';
+      locale['dialog_open'] =
+        'Zmeny zapísané v dekurze nebudú uložené. Chcete pokračovať?';
+      locale['conf_del'] = 'Naozaj chcete vymazať?';
+      locale['default'] = 'Standard';
+
+      locale['oh_red'] = 'rot';
+      locale['oh_blue'] = 'blau';
+      locale['oh_odber'] = 'Materialabtrag';
+      locale['oh_pp'] = 'frühere Inspektionen';
+      locale['oh_intern'] = 'interne amb.';
+      locale['oh_lila'] = 'lila';
+      locale['oh_green'] = 'grün';
+      locale['oh_urgent'] = 'dringend';
+      locale['oh_silver'] = 'grau';
+
+      locale['dekurz_dg_req'] =
+        'Aby bolo možné záznam vykázať na poisťovňu, musí byť zadaná diagnóza.';
+      locale['dekurz_pos_req'] =
+        'Aby bolo možné záznam vykázať na poisťovňu, musí byť zadaná oblasť.';
+      locale['dekurz_srv_req'] =
+        'Aby bolo možné záznam vykázať na poisťovňu, musí byť zadaný výkon alebo protetika.';
+      locale['dekurz_spec_data'] = 'Einem Datensatz besondere Daten hinzufügen';
+      locale['dekurz_dr_supp'] = 'vertretende\/-r Arzt\/Ärztin';
+      locale['dekurz_dr_recm'] = 'Empfehlende\/-r Arzt\/Ärztin';
+      locale['dr_pzs'] =
+        'Identifikationsnummer des Gesundheitsdienstleisters\/der gesundheitlichen Einrichtung';
+      locale['dr_kzp'] = 'Identifikationsnummer des Arztes';
+      locale['xticket_date'] = 'Datum der Anfrage';
+      locale['xticket_spec'] = 'Code des Fachgebiets';
+      locale['xticket_spec_desc'] =
+        'Code des Fachgebiets des überweisenden Arztes';
+      locale['dekurz_recm_error'] =
+        'Nie sú zadané všetky údaje z výmenného lístku.';
+      locale['dekurz_recm_invalid'] =
+        'Údaje z výmenného lístku sú zadané v zlom formáte (PZS - veľké písmeno + 11 čísel, KZP - veľké písmeno + 8 čísel).';
+
+      var is4dm1n = true;
+    </script>
+  </body>
+</html>
+
