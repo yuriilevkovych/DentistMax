@@ -1,0 +1,13 @@
+<nav class="content-card__navigation">
+  <ul class="content-card__navigation-list text text--medium">
+    <each loop="item, index in ## navigations ##">
+      <li
+        class="content-card__navigation-item {{ activeLink == index + 1 ? 'active' : '' }}"
+      >
+        <a href="{{ item.route }}" class="content-card__navigation-link"
+          >{{ item.name }}</a
+        >
+      </li>
+    </each>
+  </ul>
+</nav>

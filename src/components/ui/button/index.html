@@ -1,0 +1,14 @@
+<script locals>
+  module.exports = {
+    hasText: !!locals.text,
+    text: locals.text || 'Button',
+    variantClass: locals.variant ? `button--${locals.variant}` : '',
+    buttonClasses: locals.buttonClasses || '',
+  };
+</script>
+
+<button class="button {{variantClass}} {{buttonClasses}}" type="button">
+  <if condition="{{hasText}}">
+    <span class="button__text">{{text}}</span>
+  </if>
+</button>

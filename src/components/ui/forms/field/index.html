@@ -1,0 +1,28 @@
+<script locals>
+  module.exports = {
+    error: locals.error || false,
+    getClasses: () => {
+      let classes = 'field';
+      if (locals.class && locals.class !== 'undefined') {
+        classes += ` ${locals.class}`;
+      }
+      if (locals.size && locals.size !== 'undefined') {
+        classes += ` field--size-${locals.size}`;
+      }
+      if (locals.display && locals.display !== 'undefined') {
+        classes += ` field--display-${locals.display}`;
+      }
+      if (locals.error) {
+        classes += ' has-error';
+      }
+
+      return classes;
+    },
+    sizeClass: locals.size ? `field--size-${locals.size}` : '',
+    displayClass: !!locals.display ? `field--display-${locals.display}` : '',
+  };
+</script>
+
+<div class="{{getClasses()}}">
+  <content></content>
+</div>

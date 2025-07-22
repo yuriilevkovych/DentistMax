@@ -1,0 +1,54 @@
+<script locals>
+  module.exports = {
+    for: locals.for || '',
+    inputAttrs: locals.inputAttrs || {},
+    getClasses: () => {
+      let classes = 'checkbox';
+
+      if (locals.class && locals.class !== 'undefined') {
+        classes += ` ${locals.class}`;
+      }
+
+      return classes;
+    },
+    getAttrs: () => {
+      const attrs = {
+        id: locals.for || '',
+        name: locals.name || '',
+        label: locals.label || '',
+      };
+
+      if (locals.value) {
+        attrs.value = locals.value;
+      }
+
+      if (locals.required) {
+        attrs.required = 'required';
+      }
+
+      return Object.entries(attrs).reduce((acc, [key, value]) => {
+        if (!value) {
+          return acc;
+        }
+
+        return `${acc} ${key}="${value}"`;
+      }, '');
+    },
+  };
+</script>
+
+<module src="/components/ui/forms/field/index.html">
+  <div class="field__container r-tooltip-container">
+    <if condition="##tooltip##">
+      <module
+        tooltip="##tooltip##"
+        src="/components/ui/tooltip/index.html"
+      ></module>
+    </if>
+    <label for="{{ for }}" class="{{getClasses()}}">
+      <input class="checkbox__input" type="checkbox" ##getAttrs()## />
+      <span class="checkbox__box"></span>
+      <span>{{ label }}</span>
+    </label>
+  </div>
+</module>

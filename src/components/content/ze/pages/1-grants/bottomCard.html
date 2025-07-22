@@ -1,0 +1,255 @@
+<script locals>
+  module.exports = {
+    bodyActions: [
+      {
+        text: 'Speichern',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+    ],
+    fixedSubsidiesTable: {
+      head: {
+        cols: [
+          {
+            text: 'Zahn',
+          },
+          {
+            text: 'Nr.',
+          },
+          {
+            text: 'Anzahl',
+          },
+          {
+            text: 'EUR',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          [
+            {
+              text: '11',
+            },
+            {
+              text: '1.3',
+            },
+            {
+              text: '1',
+            },
+            {
+              text: '93,71',
+            },
+            {
+              type: 'delete',
+            },
+          ],
+          [
+            {
+              text: '11',
+            },
+            {
+              text: '1.1',
+            },
+            {
+              text: '1',
+            },
+            {
+              text: '274,47',
+            },
+            {
+              type: 'delete',
+            },
+          ],
+          [
+            {
+              text: '17-15, 25-27, 37-35',
+            },
+            {
+              text: '2.1',
+            },
+            {
+              text: '3',
+            },
+            {
+              text: '1903,47',
+            },
+            {
+              type: 'delete',
+            },
+          ],
+          [
+            {
+              text: '15, 25',
+            },
+            {
+              text: '2.7',
+            },
+            {
+              text: '2',
+            },
+            {
+              text: '184,68',
+            },
+            {
+              type: 'delete',
+            },
+          ],
+        ],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            withDialog: 'dialogManageSearch',
+            ops: {
+              id: 'fixed-zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'fixed-nr-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'fixed-anzahl-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'fixed-eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'add',
+          },
+        ],
+      },
+    },
+    subsequentFixedSubsidiesTable: {
+      head: {
+        cols: [
+          {
+            text: 'Zahn',
+          },
+          {
+            text: 'Nr.',
+          },
+          {
+            text: 'Anzahl',
+          },
+          {
+            text: 'EUR',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          [
+            {
+              text: '15',
+            },
+            {
+              text: '1.2',
+            },
+            {
+              text: '1',
+            },
+            {
+              text: '314,84',
+            },
+            {
+              type: 'delete',
+            },
+          ],
+        ],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            ops: {
+              id: 'subsequent-zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'subsequent-nr-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'subsequent-anzahl-input',
+            },
+          },
+          {
+            type: 'input',
+            ops: {
+              id: 'subsequent-eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'add',
+          },
+        ],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="1"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.ze ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module wrap="true" src="/components/ui/layout/row.html">
+          <module
+            size="half 600"
+            title="Festzuschüsse"
+            tableData="##fixedSubsidiesTable##"
+            src="/components/ui/block/table-with-title.html"
+          ></module>
+          <module
+            size="half 600"
+            title="Nachträgliche Festzuschüsse"
+            tableData="##subsequentFixedSubsidiesTable##"
+            src="/components/ui/block/table-with-title.html"
+          ></module>
+        </module>
+        <module
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+          <module size="max-700" src="/components/ui/layout/column.html">
+            <module
+              id="inputId"
+              name="notizenInputName"
+              placeholder="Notizen"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+      <module src="/components/content/ze/common/info.html"></module>
+    </module>
+  </module>
+</module>

@@ -1,0 +1,217 @@
+<script locals>
+  var config = {
+    idInput: {
+      id: 'idInput',
+      name: 'idInput',
+      type: 'number',
+      placeholder: 'ID',
+      value: '84',
+      disabled: true,
+    },
+    bezeichnungInput: {
+      id: 'BezeichnungInput',
+      placeholder: 'Bezeichnung',
+      name: 'BezeichnungInput',
+    },
+    behandlerInput: {
+      id: 'BehandlerInput',
+      placeholder: 'Behandler',
+      name: 'BehandlerInput',
+    },
+    statusSelect: {
+      name: 'statusSelect',
+      title: 'Status',
+      options: [
+        { value: '0', text: 'Status' },
+        { value: 'zum-gutachter', text: 'zum Gutachter' },
+        { value: 'bewilligt', text: 'bewilligt' },
+        { value: 'wird-abgerechnet', text: 'wird abgerechnet' },
+        { value: 'wurde-abgerechnet', text: 'wurde abgerechnet' },
+        { value: 'abgelehnt-kasse', text: 'abgelehnt Kasse' },
+        { value: 'abgelehnt-patient', text: 'abgelehnt Patient' },
+        { value: 'alternativer-plan', text: 'alternativer Plan' },
+      ],
+    },
+    erstellungsdatumInput: {
+      id: 'erstellungsdatumInput',
+      name: 'erstellungsdatumInput',
+      type: 'date',
+      placeholder: 'Erstellungsdatum',
+      tooltip: { text: 'Erstellungsdatum' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    bewilligungInput: {
+      id: 'bewilligungInput',
+      name: 'bewilligungInput',
+      type: 'date',
+      placeholder: 'Bewilligung',
+      tooltip: { text: 'Bewilligung' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    behandlungsplanVomInput: {
+      id: 'behandlungsplanVomInput',
+      name: 'behandlungsplanVomInput',
+      type: 'date',
+      placeholder: 'Behandlungsplan vom',
+      tooltip: { text: 'Behandlungsplan vom' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    abschlussdatumInput: {
+      id: 'abschlussdatumInput',
+      name: 'abschlussdatumInput',
+      type: 'date',
+      placeholder: 'Abschlussdatum',
+      tooltip: { text: 'Abschlussdatum' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    antragsnummerInput: {
+      id: 'antragsnummerInput',
+      placeholder: 'Antragsnummer',
+      name: 'antragsnummerInput',
+    },
+    versandInput: {
+      id: 'versandInput',
+      placeholder: 'Versand',
+      name: 'versandInput',
+    },
+    punktwertInput: {
+      id: 'punktwertInput',
+      placeholder: 'Punktwert',
+      name: 'punktwertInput',
+    },
+    KZVMitteilungInput: {
+      id: 'KZVMitteilungInput',
+      name: 'KZVMitteilungInput',
+      placeholder: 'KZV Mitteilung',
+    },
+    notizenInput: {
+      id: 'notizenInput',
+      name: 'notizenInput',
+      placeholder: 'Notizen',
+    },
+    kostentragerSelect: {
+      name: 'kostentragerSelect',
+      title: 'Kostenträger',
+      options: [
+        { value: '0', text: 'Kostenträger' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+  };
+
+  module.exports = {
+    config: config,
+  };
+</script>
+
+<module
+  headerTitle="Heil- und Kostenplan KBR"
+  src="/components/ui/content-card/index.html"
+>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.idInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.bezeichnungInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.behandlerInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.statusSelect)##
+        src="/components/ui/forms/select/index.html"
+      ></module
+    ></module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.erstellungsdatumInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.bewilligungInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.behandlungsplanVomInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.abschlussdatumInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+
+  <module src="/components/ui/layout/row.html">
+    <module size="col-3" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.antragsnummerInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="col-3" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.versandInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="col-3" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.punktwertInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.notizenInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.KZVMitteilungInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.kostentragerSelect)##
+        src="/components/ui/forms/select/index.html"
+      ></module
+    ></module>
+  </module>
+</module>

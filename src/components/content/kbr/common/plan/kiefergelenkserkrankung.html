@@ -1,0 +1,150 @@
+<script locals>
+  var config = {
+    abdSelect: {
+      name: 'abdSelect',
+      title: 'Anamnese/Befund/Diagnose',
+      options: [
+        { value: '0', text: 'Anamnese/Befund/Diagnose' },
+        { value: '1', text: 'Value 1' },
+        { value: '2', text: 'Value 2' },
+      ],
+    },
+    freitextInput1: {
+      id: 'freitextInput1',
+      placeholder: 'Freitext',
+      name: 'freitextInput1',
+    },
+    vorgeseheneBehandlungSelect: {
+      name: 'vorgeseheneBehandlungSelect',
+      title: 'Vorgesehene Behandlung',
+      options: [
+        { value: '0', text: 'Vorgesehene Behandlung' },
+        { value: '1', text: 'Value 1' },
+        { value: '2', text: 'Value 2' },
+      ],
+    },
+    freitextInput2: {
+      id: 'freitextInput2',
+      placeholder: 'Freitext',
+      name: 'freitextInput2',
+    },
+    bemaPositionInput1: {
+      id: 'bemaPositionInput1',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput1',
+    },
+    bemaPositionInput2: {
+      id: 'bemaPositionInput2',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput2',
+    },
+    bemaPositionInput3: {
+      id: 'bemaPositionInput3',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput3',
+    },
+    bemaPositionInput4: {
+      id: 'bemaPositionInput4',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput4',
+    },
+    interdentalraumeInput: {
+      id: 'interdentalraumeInput',
+      placeholder: 'Interdentalräume',
+      name: 'interdentalraumeInput',
+    },
+  };
+
+  module.exports = {
+    config: config,
+  };
+</script>
+
+<module src="/components/ui/layout/row.html">
+  <module size="quarter" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.abdSelect)##
+      src="/components/ui/forms/select/index.html"
+    ></module
+  ></module>
+  <module size="quarter" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.freitextInput1)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module size="quarter" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.vorgeseheneBehandlungSelect)##
+      src="/components/ui/forms/select/index.html"
+    ></module
+  ></module>
+  <module size="quarter" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.freitextInput2)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+</module>
+<module src="/components/ui/layout/row.html">
+  <module src="/components/ui/layout/column.html">
+    <span class="text text--medium">&nbsp;</span>
+  </module>
+</module>
+<module wrap="true" src="/components/ui/layout/row.html">
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K1 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput1)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K2 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput2)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K3 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput3)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K4 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput4)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module size="grow" src="/components/ui/layout/column.html">
+    <module
+      ##getConfig(config.interdentalraumeInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module>
+  </module>
+</module>

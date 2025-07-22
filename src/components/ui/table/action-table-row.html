@@ -1,0 +1,132 @@
+<script locals>
+  module.exports = {
+    rows: JSON.parse(locals.rows),
+    getClasses: function (col) {
+      let classes = 'table__col';
+
+      if (col.size) {
+        classes += ' table__col--' + col.size;
+      }
+
+      if (col.align) {
+        classes += ' table__col--' + col.align;
+      }
+
+      return classes;
+    },
+  };
+</script>
+
+<each loop="row, rowIndex in rows">
+  <div data-row="{{rowIndex + 1}}" class="table__row">
+    <each loop="col, index in row">
+      <if condition="!!col.text">
+        <div class="##getClasses(col)##">
+          <if condition="col.text === 'empty'">
+            <span></span>
+          </if>
+          <else>
+            <span>{{ col.text }}</span>
+          </else>
+        </div>
+      </if>
+      <if condition="col.type === 'checkbox'">
+        <div class="table__col--checkbox ##getClasses(col)##">
+          <label class="checkbox checkbox--sm checkbox--interactive">
+            <input
+              class="checkbox__input"
+              type="checkbox"
+              data-id="{{col.ops.id}}"
+              name="{{col.ops.id}}-{{rowIndex}}"
+              id="{{col.ops.id}}-{{rowIndex}}"
+            />
+            <span class="checkbox__box"></span>
+          </label>
+        </div>
+      </if>
+      <if condition="col.type === 'edit/done'">
+        <div class="table__col table__col--actions">
+          <button type="button" class="table__action-button edit js-edit-row">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </button>
+          <button
+            type="button"
+            class="table__action-button done js-done-edit-row"
+          >
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+          </button>
+        </div>
+      </if>
+      <if condition="col.type === 'delete'">
+        <div class="table__col table__col--actions">
+          <button type="button" class="table__action-button js-remove-row">
+            <img
+              src="/img/icons/16/cross-icon.svg"
+              width="16"
+              height="16"
+              alt="cross icon"
+            />
+          </button>
+        </div>
+      </if>
+      <if condition="col.type === 'more-menu'">
+        <div class="table__col table__col--actions">
+          <div data-menu-parent class="more-menu-container">
+            <button data-open-menu type="button" class="table__action-button">
+              <img
+                src="/img/icons/16/more-icon.svg"
+                width="16"
+                height="16"
+                alt="more menu icon"
+              />
+            </button>
+            <ul class="more-menu">
+              <li class="more-menu__item edit">
+                <button
+                  data-close-menu
+                  type="button"
+                  class="more-menu__button js-edit-row"
+                >
+                  Edit
+                </button>
+              </li>
+              <li class="more-menu__item done">
+                <button
+                  data-close-menu
+                  type="button"
+                  class="more-menu__button js-done-edit-row"
+                >
+                  Done
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </if>
+      <if condition="col.type === 'file'">
+        <div class="table__col table__col--actions">
+          <button type="button" class="table__action-button">
+            <img
+              src="/img/icons/16/file-icon.svg"
+              width="16"
+              height="16"
+              alt="file icon"
+            />
+          </button>
+        </div>
+      </if>
+      <if condition="col.type === 'person'">
+        <div class="table__col table__col--actions">
+          <button type="button" class="table__action-button">
+            <img
+              src="/img/icons/16/person-icon.svg"
+              width="16"
+              height="16"
+              alt="person icon"
+            />
+          </button>
+        </div>
+      </if>
+    </each>
+  </div>
+</each>

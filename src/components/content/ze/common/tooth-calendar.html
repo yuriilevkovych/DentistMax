@@ -1,0 +1,364 @@
+<script locals>
+  module.exports = {
+    actions: [{ type: 'resize', text: 'Befund öffnen' }],
+  };
+</script>
+
+<div data-resize-container class="column column--lg">
+  <module
+    actions="##actions##"
+    headerTitle="Befund"
+    src="/components/ui/content-card/index.html"
+  >
+    <div class="tooth-calendar">
+      <div class="calendar__section">
+        <div class="calendar__description">
+          <div class="calendar__row">
+            <div class="calendar__cell calendar__cell--empty">
+              <div class="calendar__cell-inner"></div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">TP</p>
+              </div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">R</p>
+              </div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">B</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calendar__content">
+          <div class="calendar__sector">
+            <div class="calendar__row calendar__row--info">
+              <each loop="item in [18,17,16,15,14,13,12,11]">
+                <div class="calendar__cell">
+                  <div class="calendar__cell-inner">
+                    <p class="text text--medium">{{item}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: 'f', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: 'x', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: 'ww', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+          </div>
+          <div class="calendar__sector">
+            <div class="calendar__row calendar__row--info">
+              <each loop="item in [21,22,23,24,25,26,27,28]">
+                <div class="calendar__cell">
+                  <div class="calendar__cell-inner">
+                    <p class="text text--medium">{{item}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: 'F', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: 'F', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calendar__section">
+        <div class="calendar__description">
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">B</p>
+              </div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">R</p>
+              </div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell">
+              <div class="calendar__cell-inner">
+                <p class="text text--medium">TR</p>
+              </div>
+            </div>
+          </div>
+          <div class="calendar__row">
+            <div class="calendar__cell calendar__cell--empty">
+              <div class="calendar__cell-inner"></div>
+            </div>
+          </div>
+        </div>
+        <div class="calendar__content">
+          <div class="calendar__sector">
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: 'f', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: 'x', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: 'ww', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: ''}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row calendar__row--info">
+              <each loop="item in [48,47,46,45,44,43,42,41]">
+                <div class="calendar__cell">
+                  <div class="calendar__cell-inner">
+                    <p class="text text--medium">{{item}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+          </div>
+          <div class="calendar__sector">
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: '', status:'empty-blue'},
+                {text: 'F', status:'filled'},
+                {text: '', status:'empty-blue'},
+                {text: 'F', status:'filled'}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row">
+              <each
+                loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+              >
+                <div class="calendar__cell ##item.status ? item.status : ''##">
+                  <div class="calendar__cell-inner">
+                    <p class="text">{{item.text}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+            <div class="calendar__row calendar__row--info">
+              <each loop="item in [31,32,33,34,35,36,37,38]">
+                <div class="calendar__cell">
+                  <div class="calendar__cell-inner">
+                    <p class="text text--medium">{{item}}</p>
+                  </div>
+                </div>
+              </each>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </module>
+</div>

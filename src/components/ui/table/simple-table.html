@@ -1,0 +1,84 @@
+<script locals>
+  module.exports = {
+    getClasses: function (col, baseClass) {
+      let classes = baseClass;
+      if (col.size) {
+        classes += ` ${baseClass}--${col.size}`;
+      }
+      if (col.align) {
+        classes += ` ${baseClass}--${col.align}`;
+      }
+      if (col.class) {
+        classes += ' ' + col.class;
+      }
+
+      return classes;
+    },
+    data: locals.tableData
+      ? JSON.parse(locals.tableData)
+      : {
+          head: { cols: [] },
+          body: { rows: [] },
+        },
+  };
+</script>
+
+<div data-table class="table table--simple">
+  <if condition="!!data.head.cols.length">
+    <div class="table__head">
+      <div class="table__row">
+        <each loop="col, index in data.head.cols">
+          <div class="{{getClasses(col, 'table__col')}}">
+            <if condition="col.type === 'empty'">
+              <span>&nbsp;</span>
+            </if>
+            <if condition="col.type === 'checkbox'">
+              <module ##getConfig(col)##></module>
+            </if>
+            <if condition="col.text">
+              <p>##col.text##</p>
+            </if>
+          </div>
+        </each>
+      </div>
+    </div>
+  </if>
+
+  <div class="table__body">
+    <if condition="!!data.body.rows.length">
+      <each loop="row, rowIndex in data.body.rows">
+        <div data-row="{{rowIndex + 1}}" class="table__row">
+          <each loop="col, index in row.cols">
+            <div class="{{getClasses(col, 'table__col')}}">
+              <if condition="col.type === 'empty'">
+                <span>&nbsp;</span>
+              </if>
+              <if condition="col.type === 'checkbox'">
+                <module ##getConfig(col)##></module>
+              </if>
+              <if condition="col.text">
+                <p>##col.text##</p>
+              </if>
+
+              <if condition="col.cols">
+                <each loop="innerCol, index in col.cols">
+                  <div class="{{getClasses(innerCol, 'table__col-inner')}}">
+                    <if condition="innerCol.type === 'empty'">
+                      <span>&nbsp;</span>
+                    </if>
+                    <if condition="innerCol.type === 'checkbox'">
+                      <module ##getConfig(innerCol)##></module>
+                    </if>
+                    <if condition="innerCol.text">
+                      <p>##col.text##</p>
+                    </if>
+                  </div>
+                </each>
+              </if>
+            </div>
+          </each>
+        </div>
+      </each>
+    </if>
+  </div>
+</div>

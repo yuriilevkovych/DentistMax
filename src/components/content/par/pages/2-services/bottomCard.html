@@ -1,0 +1,263 @@
+<script locals>
+  module.exports = {
+    bodyActions: [
+      {
+        text: 'Abrechnung',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+      {
+        items: ['pdf-Datei erstellen', 'Per E-Mail versenden', 'Drucken'],
+        src: '/components/ui/button/dropdown-button.html',
+        print: true,
+      },
+    ],
+    planedServicesTable: {
+      head: {
+        cols: [
+          {
+            text: 'Zahn',
+            size: 80,
+          },
+          {
+            text: 'Leistung',
+            size: 80,
+          },
+          {
+            text: 'Beschreibung',
+            size: 'grow',
+          },
+          {
+            text: 'ANZ',
+            size: 60,
+          },
+          {
+            text: 'Fakt',
+            size: 60,
+          },
+          {
+            text: 'EUR',
+            size: 80,
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'planed-zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'planed-leistung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 'grow',
+            ops: {
+              id: 'planed-beschreibung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'planed-anz-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'planed-fakt-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'planed-eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'add',
+            swap: 'remove, more-menu',
+          },
+        ],
+      },
+    },
+    servicesTable: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 80,
+          },
+          {
+            text: 'Zahn',
+            size: 60,
+          },
+          {
+            text: 'Leistung',
+            size: 80,
+          },
+          {
+            text: 'Beschreibung',
+            size: 'grow',
+          },
+
+          {
+            text: 'ANZ',
+            size: 60,
+          },
+
+          {
+            text: 'Fakt',
+            size: 80,
+          },
+
+          {
+            text: 'EUR',
+            size: 80,
+          },
+
+          {
+            text: 'Kulanz',
+            size: 60,
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'services-datum-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'services-zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'services-leistung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 'grow',
+            ops: {
+              id: 'services-beschreibung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'services-anz-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'services-fakt-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'services-eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'checkbox',
+            size: 60,
+            ops: {
+              id: 'services-kulanz-input',
+            },
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'add',
+            swap: 'remove, more-menu',
+          },
+        ],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="2"
+    navigations="## pagesRoutes.contentPageNavigation.par ##"
+    actions="##cardActions.resize##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module src="/components/ui/layout/row.html">
+          <module
+            size="max-620"
+            title="Geplante Leistungen"
+            tableData="##planedServicesTable##"
+            src="/components/ui/block/table-with-title.html"
+          ></module>
+          <module
+            size="grow"
+            title="Leistungen"
+            tableData="##servicesTable##"
+            src="/components/ui/block/table-with-title.html"
+          ></module>
+        </module>
+        <module
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

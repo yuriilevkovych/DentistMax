@@ -1,0 +1,41 @@
+@import '../../config/vars';
+
+.header-account-info {
+  @import './typography';
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 4px;
+
+    &--center {
+      align-items: center;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__col {
+    margin-right: 20px;
+    &--sm {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__title {
+    color: $colorInkUltraDark;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  &__text-button {
+    background-color: $colorBlue100;
+    padding: 1px 4px;
+    color: $colorWhite;
+  }
+}

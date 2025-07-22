@@ -1,0 +1,76 @@
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="3"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.par ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module src="/components/ui/layout/row.html">
+          <module size="half" src="/components/ui/layout/column.html">
+            <h3 class="text text--medium text--lg mb-16">
+              Mitteilung über eine chirurgische Therapie (offenes Vorgehen)
+              gemäß § 12 Abs. 1 der PAR-RL
+            </h3>
+            <div class="text text--medium">
+              Es werden weitere Maßnahmen im Rahmen der systematischen <br />
+              PAR-Therapie zum Parodontalstatus vom
+              <module
+                size="250"
+                display="inline-block"
+                id="inputId"
+                name="inputName"
+                src="/components/ui/forms/input/index.html"
+              ></module>
+              notwendig.
+            </div>
+          </module>
+          <module size="half" src="/components/ui/layout/column.html">
+            <module src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <p class="text--medium text text--lg">
+                  Folgende Leistungen werden angezeigt:
+                </p>
+              </module>
+            </module>
+            <module src="/components/ui/layout/row.html">
+              <module size="70" src="/components/ui/layout/column.html">
+                <p class="text--medium text">Geb.-Nr.</p>
+              </module>
+              <module size="grow" src="/components/ui/layout/column.html"
+                ><p class="text--medium text">Zahnangabe</p></module
+              >
+            </module>
+            <module align="center" src="/components/ui/layout/row.html">
+              <module size="70" src="/components/ui/layout/column.html">
+                <p class="text--medium text">CPT a</p>
+              </module>
+              <module size="grow" src="/components/ui/layout/column.html">
+                <module
+                  size="250"
+                  id="cptAInputId"
+                  name="cptAInputName"
+                  src="/components/ui/forms/input/index.html"
+                ></module>
+              </module>
+            </module>
+            <module align="center" src="/components/ui/layout/row.html">
+              <module size="70" src="/components/ui/layout/column.html">
+                <p class="text--medium text">CPT b</p>
+              </module>
+              <module size="grow" src="/components/ui/layout/column.html">
+                <module
+                  size="250"
+                  id="cptBInputId"
+                  name="cptBInputName"
+                  src="/components/ui/forms/input/index.html"
+                ></module>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

@@ -1,0 +1,15 @@
+<script locals>
+  module.exports = {
+    tooltip: (function () {
+      eval('var tooltip=' + locals.tooltip);
+      // const tooltip = locals.tooltip || {};
+      // if (typeof tooltip === 'string') {
+      // }
+      return tooltip || { text: 'No value' };
+    })(),
+  };
+</script>
+
+<div class="r-tooltip r-tooltip--{{tooltip.position || 'top'}}">
+  <p class="r-tooltip__text text text--sm">{{ tooltip.text }}</p>
+</div>

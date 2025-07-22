@@ -1,0 +1,92 @@
+<script locals>
+  module.exports = {
+    tableData: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 100,
+          },
+          {
+            text: 'Absender',
+            size: 200,
+          },
+          {
+            text: 'Empfanger',
+            size: 200,
+          },
+          {
+            text: 'Betreff',
+            size: 'grow',
+          },
+          {
+            text: 'empty',
+            size: 60,
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          [
+            {
+              text: 'empty',
+              size: 100,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 'grow',
+            },
+            {
+              type: 'checkbox',
+              ops: {
+                id: 'checkbox',
+              },
+              size: 60,
+            },
+            {
+              type: 'file',
+            },
+            {
+              type: 'person',
+            },
+          ],
+        ],
+      },
+      action: {
+        cols: [],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="4"
+    navigations="## pagesRoutes.contentPageNavigation.par ##"
+    actions="##cardActions.resize##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module size="grow" src="/components/ui/layout/column.html">
+        <module
+          tableData="##tableData##"
+          src="/components/ui/table/actions-table.html"
+        ></module>
+      </module>
+    </module>
+  </module>
+</module>

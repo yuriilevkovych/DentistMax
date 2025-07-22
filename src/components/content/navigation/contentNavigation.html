@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <ul class="navbar-list text">
+    <each loop="item, index in pagesRoutes.contentNavigation">
+      <if condition="!item.pages">
+        <li class="navbar-list__item {{ item.active ? 'active' : '' }}">
+          <a href="{{ item.route }}" class="navbar-list__link"
+            >{{ item.name }}</a
+          >
+        </li>
+      </if>
+      <else>
+        <li
+          data-menu-parent
+          class="navbar-list__item {{ item.active ? 'active' : '' }}"
+        >
+          <span data-open-menu class="navbar-list__link">{{ item.name }}</span>
+
+          <ul data-menu class="navbar-list__menu">
+            <each loop="subitem, subindex in item.pages">
+              <li
+                class="navbar-list__menu-item {{active == subitem.name ? 'active' : ''}}"
+              >
+                <a href="{{ subitem.route }}" class="navbar-list__menu-link"
+                  >{{ subitem.name }}</a
+                >
+              </li>
+            </each>
+          </ul>
+        </li>
+      </else>
+    </each>
+  </ul>
+</nav>

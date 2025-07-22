@@ -1,0 +1,176 @@
+<script locals>
+  module.exports = {
+    getTableClasses: function () {
+      let classes = 'table table--center table--with-actions';
+
+      if (!!locals.selectable) {
+        classes += ' table--selectable';
+      }
+
+      return classes;
+    },
+    data: locals.tableData
+      ? JSON.parse(locals.tableData)
+      : {
+          head: { cols: [] },
+          body: { rows: [] },
+          action: { cols: [] },
+        },
+
+    getClasses: function (col) {
+      let classes = 'table__col';
+
+      if (col.size) {
+        classes += ' table__col--' + col.size;
+      }
+
+      if (col.align) {
+        classes += ' table__col--' + col.align;
+      }
+
+      if (col.type === 'checkbox') {
+        classes += ' table__col--checkbox';
+      }
+
+      if (col.type === 'add') {
+        classes += ' table__col--actions';
+      }
+
+      if (col.type === 'action') {
+        classes += ' table__col--actions table__col--empty-actions';
+      }
+
+      return classes;
+    },
+  };
+</script>
+
+<div data-table class="##getTableClasses()##">
+  <if condition="!!data.head.cols.length">
+    <div class="table__head">
+      <div class="table__row">
+        <each loop="col, index in data.head.cols">
+          <if condition="col.type === 'checkbox'">
+            <div class="##getClasses(col)##">
+              <label class="checkbox checkbox--sm checkbox--interactive">
+                <input
+                  class="checkbox__input"
+                  type="checkbox"
+                  data-id="{{col.ops.id}}"
+                  name="{{col.ops.id}}-{{rowIndex}}"
+                  id="{{col.ops.id}}-{{rowIndex}}"
+                />
+                <span class="checkbox__box"></span>
+              </label>
+            </div>
+          </if>
+          <if condition="!!col.text">
+            <div class="##getClasses(col)##">
+              <if condition="col.text === 'empty'">
+                <span>&nbsp;</span>
+              </if>
+              <else>
+                <span>{{ col.text }}</span>
+              </else>
+            </div>
+          </if>
+          <if condition="col.type === 'action'">
+            <div class="table__col table__col--actions">
+              <span>&nbsp;</span>
+            </div>
+          </if>
+        </each>
+      </div>
+    </div>
+  </if>
+  <div class="table__body">
+    <if condition="!!data.body.rows.length">
+      <if condition="##scrollable##">
+        <div class="table__body-inner">
+          <module
+            rows="##data.body.rows##"
+            src="/components/ui/table/action-table-row.html"
+          ></module>
+        </div>
+      </if>
+      <else>
+        <module
+          rows="##data.body.rows##"
+          src="/components/ui/table/action-table-row.html"
+        ></module>
+      </else>
+    </if>
+
+    <if condition="!!data.action.cols.length">
+      <div
+        data-row="{{data.action.cols.length}}"
+        class="table__row table__row--actions"
+      >
+        <each loop="col, index in data.action.cols">
+          <div class="##getClasses(col)##">
+            <if condition="col.type === 'input' && col.ops.disabled">
+              <input
+                data-id="{{col.ops.id}}"
+                id="{{col.ops.id}}-{{data.action.cols.length}}"
+                name="{{col.ops.id}}-{{data.action.cols.length}}"
+                disabled
+                value="{{col.ops.value}}"
+                class="table__input"
+              />
+            </if>
+            <if condition="col.type === 'input' && !col.ops.disabled">
+              <input
+                data-id="{{col.ops.id}}"
+                id="{{col.ops.id}}-{{data.action.cols.length}}"
+                name="{{col.ops.id}}-{{data.action.cols.length}}"
+                class="table__input"
+              />
+            </if>
+            <if condition="col.type === 'checkbox'">
+              <label class="checkbox checkbox--sm checkbox--interactive">
+                <input
+                  class="checkbox__input"
+                  type="checkbox"
+                  data-id="{{col.ops.id}}"
+                  name="{{col.ops.id}}-{{data.action.cols.length}}"
+                  id="{{col.ops.id}}-{{data.action.cols.length}}"
+                />
+                <span class="checkbox__box"></span>
+              </label>
+            </if>
+            <if condition="col.type === 'action'"></if>
+            <if condition="col.type === 'add'">
+              <button
+                data-swap="{{!!col.swap ? col.swap : 'remove'}}"
+                type="button"
+                class="table__action-button js-add-row"
+              >
+                <img
+                  src="/img/icons/16/plus-icon.svg"
+                  width="16"
+                  height="16"
+                  alt="add icon"
+                />
+              </button>
+            </if>
+            <if condition="col.withDialog">
+              <button
+                type="button"
+                class="table__action-dialog-button"
+                data-dialog-target="{{col.withDialog}}"
+                data-dialog-position="#content .navbar + form"
+              >
+                <img
+                  src="/img/icons/16/manage-search-icon.svg"
+                  width="16"
+                  height="16"
+                  alt="more icon"
+                />
+              </button>
+            </if>
+          </div>
+        </each>
+      </div>
+    </if>
+  </div>
+</div>

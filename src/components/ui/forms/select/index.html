@@ -1,0 +1,25 @@
+<script locals>
+  module.exports = {
+    localsAttr: locals.options || {},
+    options: locals.options || [
+      { value: 'item-0', text: 'Item 0' },
+      { value: 'item-1', text: 'Item 1' },
+    ],
+  };
+</script>
+
+<module src="/components/ui/forms/field/index.html">
+  <div class="field__container r-tooltip-container">
+    <if condition="##tooltip##">
+      <module
+        tooltip="##tooltip##"
+        src="/components/ui/tooltip/index.html"
+      ></module>
+    </if>
+    <select class="form__select" title="{{ title }}" name="{{ name }}">
+      <each loop="option, index in ## options ##">
+        <option value="{{ option.value }}">{{ option.text }}</option>
+      </each>
+    </select>
+  </div>
+</module>

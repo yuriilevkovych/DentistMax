@@ -1,0 +1,183 @@
+<script locals>
+  module.exports = {
+    tableData: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 100,
+          },
+          {
+            text: 'Absender',
+            size: 200,
+          },
+          {
+            text: 'Empfanger',
+            size: 200,
+          },
+          {
+            text: 'Betreff',
+            size: 'grow',
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          [
+            {
+              text: 'empty',
+              size: 100,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 'grow',
+            },
+            {
+              type: 'file',
+            },
+            {
+              type: 'person',
+            },
+          ],
+        ],
+      },
+      action: {
+        cols: [],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="7"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.ze ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module size="grow" src="/components/ui/layout/column.html">
+        <module class="row--100h" src="/components/ui/layout/row.html">
+          <module
+            flex="column"
+            size="max-380"
+            src="/components/ui/layout/column.html"
+          >
+            <module src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <module
+                  for="InputId"
+                  name="InputName"
+                  label="Kostenvoranschlag durch Patient unterschrieben"
+                  value="0"
+                  src="/components/ui/forms/checkbox/index.html"
+                ></module>
+              </module>
+            </module>
+
+            <module src="/components/ui/layout/row.html">
+              <module size="grow" src="/components/ui/layout/column.html">
+                <h2 class="text text--medium">Formulare</h2>
+                <ul class="pdf-list">
+                  <li class="pdf-list__item">
+                    <a href="#" class="pdf-list__link">
+                      <img
+                        src="/img/icons/14/file-icon.svg"
+                        width="14"
+                        height="14"
+                        alt="file icon"
+                      />
+                      <span>Patienteninformation (Kostenvoranschlag)</span>
+                      <img
+                        src="/img/icons/16/check-icon.svg"
+                        width="14"
+                        height="14"
+                        alt="file icon"
+                      />
+                    </a>
+                  </li>
+                  <li class="pdf-list__item">
+                    <a href="#" class="pdf-list__link">
+                      <img
+                        src="/img/icons/14/pdf-file-icon.svg"
+                        width="14"
+                        height="14"
+                        alt="file icon"
+                      />
+                      <span> HKPTeil1.pdf </span>
+                    </a>
+                  </li>
+                  <li class="pdf-list__item">
+                    <a href="#" class="pdf-list__link">
+                      <img
+                        src="/img/icons/14/pdf-file-icon.svg"
+                        width="14"
+                        height="14"
+                        alt="file icon"
+                      />
+                      <span> HKPTeil2.pdf </span>
+                    </a>
+                  </li>
+                  <li class="pdf-list__item">
+                    <a href="#" class="pdf-list__link">
+                      <img
+                        src="/img/icons/14/pdf-file-icon.svg"
+                        width="14"
+                        height="14"
+                        alt="file icon"
+                      />
+                      <span>eHKP.pdf</span>
+                    </a>
+                  </li>
+                </ul>
+              </module>
+            </module>
+            <module class="row--top-auto" src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <module src="/components/ui/layout/row.html">
+                  <module src="/components/ui/layout/column.html">
+                    <module
+                      text="Antrag an GKV -KIM"
+                      variant="outline"
+                      src="/components/ui/button/index.html"
+                    ></module>
+                  </module>
+                </module>
+                <module src="/components/ui/layout/row.html">
+                  <module src="/components/ui/layout/column.html">
+                    <module
+                      text="Plan zurücksetzen"
+                      variant="primary"
+                      src="/components/ui/button/index.html"
+                    ></module>
+                  </module>
+                </module>
+              </module>
+            </module>
+          </module>
+          <module size="grow" src="/components/ui/layout/column.html">
+            <module
+              tableData="##tableData##"
+              src="/components/ui/table/actions-table.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+      <module src="/components/content/ze/common/info.html"></module>
+    </module>
+  </module>
+</module>

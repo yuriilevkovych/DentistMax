@@ -1,0 +1,113 @@
+<script locals>
+  module.exports = {
+    hasCalculator: !!locals.hasCalculator,
+    hasPrice: !!locals.hasPrice,
+    hasActions: !!locals.bodyActions,
+    bodyActions: locals.bodyActions || [],
+  };
+</script>
+
+<div class="row body-footer flex-column">
+  <div class="column">
+    <if condition="##hasCalculator##">
+      <div class="row flex-column body-footer__calculator">
+        <div class="column">
+          <div class="row">
+            <div class="column">
+              <p class="text">Pauschbetrag Abformmaterial</p>
+            </div>
+          </div>
+          <div class="row row--align-center js-calculate-fields">
+            <div class="column column--grow">
+              <module
+                type="number"
+                id="inputId1"
+                name="inputName1"
+                placeholder=""
+                src="/components/ui/forms/input/index.html"
+              ></module>
+            </div>
+            <p class="text text--sm">x</p>
+            <div class="column column--grow">
+              <module
+                type="number"
+                id="inputId2"
+                name="inputName2"
+                placeholder=""
+                src="/components/ui/forms/input/index.html"
+              ></module>
+            </div>
+            <div class="column">
+              <p class="text text--sm">=</p>
+            </div>
+            <div class="column column--grow">
+              <module
+                value="0"
+                disabled="true"
+                type="number"
+                id="inputId3"
+                name="inputName3"
+                placeholder=""
+                src="/components/ui/forms/input/index.html"
+              ></module>
+            </div>
+          </div>
+        </div>
+      </div>
+    </if>
+    <if condition="##hasPrice##">
+      <div class="row flex-column body-footer__rate">
+        <div class="column">
+          <div class="row">
+            <div class="column">
+              <p class="text">Gesamtschätzung pauschal:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column column--grow">
+              <module
+                id="notizenInputId"
+                name="notizenInputName"
+                placeholder="Notizen"
+                src="/components/ui/forms/input/index.html"
+              ></module>
+            </div>
+            <div class="column column--max-100">
+              <module
+                id="dateInputId"
+                name="dateInputName"
+                type="date"
+                placeholder="Datum"
+                tooltip="{ text: 'Datum' }"
+                src="/components/ui/forms/input/index.html"
+                value="2024-12-18"
+              ></module>
+            </div>
+            <div class="column column--max-100">
+              <module
+                id="priceInputId"
+                placeholder="Betrag in €"
+                src="/components/ui/forms/input/index.html"
+                currency="euro"
+              ></module>
+            </div>
+          </div>
+        </div>
+      </div>
+    </if>
+    <div class="row body-footer__submit">
+      <content></content>
+      <if condition="{{hasActions}}">
+        <div class="column body-footer__actions">
+          <div class="row">
+            <each loop="item in ##bodyActions##">
+              <div class="column">
+                <module ##getConfig(item)##></module>
+              </div>
+            </each>
+          </div>
+        </div>
+      </if>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<script locals>
+  module.exports = {
+    renderError: !!locals.error,
+    error: locals.error || '',
+    hasCurrency: !!locals.currency,
+    getAttrs: () => {
+      const attrs = {
+        id: locals.id || '',
+        name: locals.name || '',
+        type: locals.type || 'text',
+        placeholder: locals.placeholder || '',
+      };
+
+      if (locals.value) {
+        attrs.value = locals.value;
+      }
+
+      if (locals.disabled) {
+        attrs.disabled = 'disabled';
+      }
+
+      if (locals.required) {
+        attrs.required = 'required';
+      }
+
+      if (locals['data-type']) {
+        attrs['data-type'] = locals['data-type'];
+      }
+
+      return Object.entries(attrs).reduce((acc, [key, value]) => {
+        if (!value) {
+          return acc;
+        }
+
+        return `${acc} ${key}="${value}"`;
+      }, '');
+    },
+  };
+</script>
+
+<module
+  size="{{size}}"
+  display="{{display}}"
+  error="##error##"
+  src="/components/ui/forms/field/index.html"
+>
+  <div class="field__container r-tooltip-container">
+    <if condition="##tooltip##">
+      <module
+        tooltip="##tooltip##"
+        src="/components/ui/tooltip/index.html"
+      ></module>
+    </if>
+    <input
+      class="form__input ##hasCurrency ? 'form__input--with-currency' : ''##"
+      ##getAttrs()##
+    />
+    <if condition="##hasCurrency##">
+      <span class="currency {{currency}}"></span>
+    </if>
+  </div>
+  <if condition="{{renderError}}">
+    <div class="form__error">{{error}}</div>
+  </if>
+</module>

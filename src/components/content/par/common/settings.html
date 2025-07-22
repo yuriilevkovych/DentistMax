@@ -1,0 +1,413 @@
+<script locals>
+  var config = {
+    idInput: {
+      id: 'idInput',
+      name: 'idInput',
+      type: 'number',
+      placeholder: 'ID',
+      value: '1',
+      disabled: true,
+    },
+    antragsnummerInput: {
+      id: 'antragsnummerInput',
+      name: 'antragsnummerInput',
+      type: 'number',
+      placeholder: 'Antragsnummer',
+      value: '2',
+      disabled: true,
+    },
+    bezeichnungInput: {
+      id: 'BezeichnungInput',
+      placeholder: 'Bezeichnung',
+      name: 'BezeichnungInput',
+    },
+
+    PARBefundSelect: {
+      name: 'PARBefundSelect',
+      title: 'PAR-Befund',
+      options: [
+        { value: '0', text: 'PAR-Befund' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    befundverlangerungSelect: {
+      name: 'befundverlangerungSelect',
+      title: 'Befundverlängerung',
+      options: [
+        { value: '0', text: 'Befundverlängerung' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    behandlerSelect: {
+      name: 'behandlerSelect',
+      title: 'Behandler',
+      options: [
+        { value: '0', text: 'Behandler' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    statusSelect: {
+      name: 'statusSelect',
+      title: 'Status',
+      options: [
+        { value: '0', text: 'Status' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    erstellungsdatumInput: {
+      id: 'erstellungsdatumInput',
+      name: 'erstellungsdatumInput',
+      // type: 'date',
+      placeholder: 'Erstellungsdatum',
+      'data-type': 'date',
+    },
+    genehmigungsdatumInput: {
+      id: 'genehmigungsdatumInput',
+      name: 'genehmigungsdatumInput',
+      // type: 'date',
+      placeholder: 'Genehmigungsdatum',
+      'data-type': 'date',
+    },
+    genehmigungsdatumDerUPTInput: {
+      id: 'genehmigungsdatumDerUPTInput',
+      name: 'genehmigungsdatumDerUPTInput',
+      type: 'date',
+      placeholder: 'Genehmigungsdatum der UPT-Verlängerung',
+      tooltip: { text: 'Genehmigungsdatum der UPT-Verlängerung' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    ausstellungsdatumDerUPTInput: {
+      id: 'ausstellungsdatumDerUPTInput',
+      name: 'ausstellungsdatumDerUPTInput',
+      type: 'date',
+      placeholder: 'Ausstellungsdatum der UPT Verlängerung',
+      tooltip: { text: 'Ausstellungsdatum der UPT Verlängerung' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    verlangerungszeitraumInMonatenInput: {
+      type: 'number',
+      id: 'verlangerungszeitraumInMonatenInput',
+      placeholder: 'Verlängerungszeitraum in Monaten',
+      name: 'verlangerungszeitraumInMonatenInput',
+    },
+    EBZAntrUBTVerlInput: {
+      id: 'EBZAntrUBTVerlInput',
+      placeholder: 'EBZ-Antr.-Nr. UBT-Verl.',
+      name: 'EBZAntrUBTVerlInput',
+      value: '1234567890',
+      disabled: true,
+    },
+    statusUPTSelect: {
+      name: 'statusUPTSelect',
+      title: 'Status UPT',
+      options: [
+        { value: '0', text: 'Status UPT' },
+        { value: '1', text: 'in Arbeit' },
+        { value: '2', text: 'fertiggestellt' },
+        { value: '3', text: 'zur Bewilligung' },
+        { value: '4', text: 'bewilligt' },
+        { value: '5', text: 'wird abgerechnet' },
+        { value: '6', text: 'abgelehnt durch Kasse' },
+      ],
+    },
+    behandlungsendeInput: {
+      id: 'behandlungsendeInput',
+      name: 'behandlungsendeInput',
+      // type: 'date',
+      placeholder: 'Behandlungsende',
+      'data-type': 'date',
+    },
+    gutachterlichBefurwortetSelect: {
+      name: 'gutachterlichBefurwortetSelect',
+      title: 'Gutachterlich befürwortet',
+      options: [
+        { value: '0', text: 'Gutachterlich befürwortet' },
+        { value: '1', text: 'gutachterlich befürwortet' },
+        { value: '2', text: 'gutachterlich nicht befürwortet' },
+      ],
+    },
+    gutachterdatumInput: {
+      id: 'gutachterdatumInput',
+      name: 'gutachterdatumInput',
+      // type: 'date',
+      placeholder: 'Gutachterdatum',
+      'data-type': 'date',
+    },
+    abschlussAITInput: {
+      id: 'abschlussAITInput',
+      name: 'abschlussAITInput',
+      // type: 'date',
+      placeholder: 'Abschluss AIT',
+      'data-type': 'date',
+    },
+    datumCPTInput: {
+      id: 'datumCPTInput',
+      name: 'datumCPTInput',
+      // type: 'date',
+      placeholder: 'Datum CPT',
+      'data-type': 'date',
+    },
+    beginnUPTInput: {
+      id: 'beginnUPTInput',
+      name: 'beginnUPTInput',
+      // type: 'date',
+      placeholder: 'Beginn UPT',
+      'data-type': 'date',
+    },
+    d22aSelect: {
+      name: 'd22aSelect',
+      title: '§22a',
+      options: [
+        { value: '0', text: '§22a' },
+        { value: '1', text: '§15 SGB XI (Behandlung nach PAR-RL)' },
+        { value: '2', text: '§99 SGB IX (Behandlung nach PAR-RL)' },
+        { value: '3', text: 'außerhalb der PAR-RL' },
+      ],
+    },
+    CPTMitteilungInput: {
+      id: 'CPTMitteilungInput',
+      placeholder: 'CPT Mitteilung',
+      name: 'CPTMitteilungInput',
+    },
+    CPTErfolgtDurchSpezialistenSelect: {
+      name: 'CPTErfolgtDurchSpezialistenSelect',
+      title: 'CPT erfolgt durch Spezialisten',
+      options: [
+        { value: '0', text: 'CPT erfolgt durch Spezialisten' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    KZVMitteilungInput: {
+      id: 'KZVMitteilungInput',
+      placeholder: 'KZV Mitteilung',
+      name: 'KZVMitteilungInput',
+    },
+    bemerkungInput: {
+      id: 'bemerkungInput',
+      placeholder: 'Bemerkung',
+      name: 'bemerkungInput',
+    },
+  };
+
+  module.exports = {
+    actions: [{ type: 'resize' }],
+    config: config,
+  };
+</script>
+
+<div class="row row--lg">
+  <div data-resize-container class="column column--lg column--setting-card">
+    <module
+      headerTitle="Heil- und Kostenplan Parodontitis"
+      actions="## actions ##"
+      src="/components/ui/content-card/index.html"
+    >
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <span class="text text--medium">&nbsp;</span>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="col-3" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.idInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="col-3" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.antragsnummerInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="col-3" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.bezeichnungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <span class="text text--medium">&nbsp;</span>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.PARBefundSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.befundverlangerungSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.behandlerSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.statusSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <span class="text text--medium">&nbsp;</span>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.erstellungsdatumInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.genehmigungsdatumInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.genehmigungsdatumDerUPTInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.ausstellungsdatumDerUPTInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.verlangerungszeitraumInMonatenInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.EBZAntrUBTVerlInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.statusUPTSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.behandlungsendeInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <span class="text text--medium">&nbsp;</span>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.gutachterlichBefurwortetSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.gutachterdatumInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.abschlussAITInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.datumCPTInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.beginnUPTInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.d22aSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.CPTMitteilungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.CPTErfolgtDurchSpezialistenSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <span class="text text--medium">&nbsp;</span>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="half" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.KZVMitteilungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="half" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.bemerkungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+    </module>
+  </div>
+</div>

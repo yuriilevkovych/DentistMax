@@ -1,0 +1,86 @@
+<script locals>
+  module.exports = {
+    tableData: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 100,
+          },
+          {
+            text: 'Absender',
+            size: 200,
+          },
+          {
+            text: 'Empfanger',
+            size: 200,
+          },
+          {
+            text: 'Betreff',
+            size: 'grow',
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          [
+            {
+              text: 'empty',
+              size: 100,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 200,
+            },
+            {
+              text: 'empty',
+              size: 'grow',
+            },
+            {
+              type: 'file',
+            },
+            {
+              type: 'person',
+            },
+          ],
+        ],
+      },
+      action: {
+        cols: [],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="8"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.ze ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <module src="/components/ui/layout/row.html">
+            <module
+              tableData="##tableData##"
+              src="/components/ui/table/actions-table.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+      <module src="/components/content/ze/common/info.html"></module>
+    </module>
+  </module>
+</module>

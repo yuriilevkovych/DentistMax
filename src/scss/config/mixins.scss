@@ -1,0 +1,31 @@
+@import './vars';
+
+@mixin media-lg-desktop() {
+  @media (max-width: $lg-desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-desktop() {
+  @media (max-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-sm-desktop() {
+  @media (max-width: $sm-desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-tablet() {
+  @media (max-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-max($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}

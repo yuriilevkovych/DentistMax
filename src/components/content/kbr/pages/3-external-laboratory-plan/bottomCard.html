@@ -1,0 +1,188 @@
+<script locals>
+  module.exports = {
+    tableData: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 150,
+          },
+          {
+            text: 'Zahn',
+            size: 60,
+          },
+          {
+            text: 'Position',
+            size: 80,
+          },
+          {
+            text: 'Informationen/Bemerkung',
+            align: 'left',
+            size: 'grow',
+          },
+          {
+            text: 'ANZ',
+            size: 80,
+          },
+          {
+            text: 'Chargen-Nr.',
+            size: 100,
+          },
+          {
+            text: 'Gewicht',
+            size: 100,
+          },
+          {
+            text: 'Betrag (€)',
+            size: 80,
+          },
+          {
+            text: 'Ordnung',
+            size: 100,
+          },
+          {
+            text: 'MwSt.%',
+            size: 80,
+          },
+
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            size: 150,
+            ops: {
+              id: 'datum-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'position-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 'grow',
+            align: 'left',
+            ops: {
+              id: 'informationen-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'anz-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 100,
+            ops: {
+              id: 'chargen-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 100,
+            ops: {
+              id: 'gewicht-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'betrag-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 100,
+            ops: {
+              id: 'ordnung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'mwst-input',
+            },
+          },
+          {
+            type: 'add',
+          },
+        ],
+      },
+    },
+    bodyActions: [
+      {
+        text: 'Fremdlaborplan ausdrucken',
+        variant: 'outline',
+        src: '/components/ui/button/index.html',
+      },
+      {
+        text: 'Speichern',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+    ],
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="3"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.kbr ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module src="/components/ui/layout/row.html">
+          <module size="grow" src="/components/ui/layout/column.html">
+            <module
+              src="/components/ui/content-card/tab-bar/index.html"
+            ></module>
+            <module
+              tableData="##tableData##"
+              src="/components/ui/table/actions-table.html"
+            ></module>
+          </module>
+        </module>
+        <module src="/components/ui/layout/row.html">
+          <module size="grow" src="/components/ui/layout/column.html">
+            <module
+              id="inputId"
+              name="inputName"
+              placeholder="Freie Leistungseingabe"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+        </module>
+        <module
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

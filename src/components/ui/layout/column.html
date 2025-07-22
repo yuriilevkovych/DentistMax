@@ -1,0 +1,32 @@
+<script locals>
+  module.exports = {
+    getClasses: function () {
+      let classes = 'column';
+
+      if (locals.class) {
+        classes += ` ${locals.class}`;
+      }
+
+      if (locals.size) {
+        locals.size.split(' ').forEach((s) => {
+          classes += ` column--${s}`;
+        });
+        // classes += ` column--${locals.size}`;
+      }
+
+      if (locals.shrink) {
+        classes += ' column--shrink';
+      }
+
+      if (locals.flex) {
+        classes += ` flex-${locals.flex}`;
+      }
+
+      return classes;
+    },
+  };
+</script>
+
+<div class="{{getClasses()}}">
+  <content></content>
+</div>

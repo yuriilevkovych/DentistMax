@@ -1,0 +1,141 @@
+<script locals>
+  module.exports = {
+    bodyActions: [
+      {
+        text: 'Fremdlaborrechnung anzeigen',
+        variant: 'outline',
+        src: '/components/ui/button/index.html',
+      },
+      {
+        text: 'XML – Nummer zuordnen',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+      {
+        items: ['pdf-Datei erstellen', 'Per E-Mail versenden', 'Drucken'],
+        src: '/components/ui/button/dropdown-button.html',
+        print: true,
+      },
+    ],
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="4"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.kbr ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module src="/components/ui/layout/row.html">
+          <module src="/components/ui/layout/column.html">
+            <module
+              src="/components/ui/content-card/tab-bar/index.html"
+            ></module>
+            <div class="p-8">
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text px-8 py-4">FL-Rrechnung Nr.</p>
+                </div>
+                <div class="column column--460">
+                  <p class="text px-8 py-4">471100-8122-ZE-12-1-6</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text px-8 py-4">Bezeichnung</p>
+                </div>
+                <div class="column column--460">
+                  <p class="text px-8 py-4">Zahntechnik Ziemann</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text px-8 py-4">Fremdlabor/Adresse</p>
+                </div>
+                <div class="column column--460">
+                  <p class="text px-8 py-4">
+                    Franz-Josef-Delonge-Str. 3. 81249 München
+                  </p>
+                </div>
+              </div>
+            </div>
+          </module>
+        </module>
+        <module src="/components/ui/layout/row.html">
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              type="date"
+              disabled="true"
+              id="datumInputId"
+              name="datumInputName"
+              placeholder="Auftragsdatum"
+              value="2024-02-21"
+              tooltip="{ text: 'Auftragsdatum' }"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              id="lieferdatumInputId"
+              name="lieferdatumInputName"
+              placeholder="Lieferdatum"
+              data-type="date"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              id="eingliederungsdatumInputId"
+              name="eingliederungsdatumInputName"
+              placeholder="Eingliederungsdatum"
+              data-type="date"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              id="rechnungsdatumInputId"
+              name="rechnungsdatumInputName"
+              placeholder="Rechnungsdatum"
+              data-type="date"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              id="versandkostenInputId"
+              name="versandkostenInputName"
+              placeholder="Versandkosten"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="col-6" src="/components/ui/layout/column.html">
+            <module
+              id="gesamtpreisInputId"
+              name="gesamtpreisInputName"
+              placeholder="Gesamtpreis"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+        </module>
+        <module
+          print="true"
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+          <module size="max-700" src="/components/ui/layout/column.html">
+            <module
+              id="notizenInputId"
+              name="notizenInputName"
+              placeholder="Notizen"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

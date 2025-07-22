@@ -1,0 +1,579 @@
+<script locals>
+  module.exports = {
+    stadiumTableData: {
+      head: {
+        cols: [
+          {
+            type: 'empty',
+            size: '20p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            label: 'Stadium I',
+            for: 'stadium1Checkbox',
+            name: 'stadium1Checkbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '20p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            label: 'Stadium II',
+            for: 'stadium2Checkbox',
+            name: 'stadium2Checkbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '20p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            label: 'Stadium III',
+            for: 'stadium3Checkbox',
+            name: 'stadium3Checkbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '20p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            label: 'Stadium IV',
+            for: 'stadium4Checkbox',
+            name: 'stadium4Checkbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '20p',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          {
+            cols: [
+              {
+                text: 'Röntgen-Knochenabbau (KA) (bzw. interdentales CAL)',
+                size: '20p',
+              },
+              {
+                size: '20p',
+                cols: [
+                  {
+                    type: 'checkbox',
+                    label: '< 15%',
+                    for: 'checkbox1-1-1',
+                    name: 'checkbox1-1-1',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                  {
+                    type: 'checkbox',
+                    label: '(1-2 mm)',
+                    for: 'checkbox1-1-2',
+                    name: 'checkbox1-1-2',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                ],
+              },
+              {
+                size: '20p',
+                cols: [
+                  {
+                    type: 'checkbox',
+                    align: 'center',
+                    label: '15 - 33%',
+                    for: 'checkbox1-1-3',
+                    name: 'checkbox1-1-3',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                  {
+                    type: 'checkbox',
+                    align: 'center',
+                    label: '(3-4 mm)',
+                    for: 'checkbox1-1-4',
+                    name: 'checkbox1-1-4',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                ],
+              },
+              {
+                size: '40p',
+                align: 'center',
+                cols: [
+                  {
+                    type: 'checkbox',
+                    label: '> 33%',
+                    for: 'checkbox1-1-5',
+                    name: 'checkbox1-1-5',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                  {
+                    type: 'checkbox',
+                    label: '(>= 5 mm)',
+                    for: 'checkbox1-1-6',
+                    name: 'checkbox1-1-6',
+                    value: 1,
+                    src: '/components/ui/forms/checkbox/index.html',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            cols: [
+              {
+                text: 'Zahnverlust durch Parodontitis',
+                size: '20p',
+              },
+              {
+                type: 'checkbox',
+                align: 'center',
+                size: '40p',
+                label: 'Nein',
+                for: 'checkbox1-2-1',
+                name: 'checkbox1-2-1',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '20p',
+                label: '<= 4 Zahne',
+                for: 'checkbox1-2-2',
+                name: 'checkbox1-2-2',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '20p',
+                label: '>= 5 Zahne',
+                for: 'checkbox1-2-3',
+                name: 'checkbox1-2-3',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+            ],
+          },
+          {
+            cols: [
+              {
+                text: 'Komplexitätsfaktoren <span class="small">(anzukreuzen, auch wenn nur ein Faktor aus der jeweiligen Gruppe vorliegt)</span>',
+                size: '20p',
+              },
+              {
+                type: 'empty',
+                size: '20p',
+              },
+              {
+                type: 'checkbox',
+                size: '20p',
+                label: 'ST = 5mm Vorwiegend horizontaler KA',
+                for: 'checkbox1-3-1',
+                name: 'checkbox1-3-1',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '20p',
+                label: 'ST >= 6mm, vertikaler KA >= 3mm, FB Grad II oder III',
+                for: 'checkbox1-3-2',
+                name: 'checkbox1-3-2',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '20p',
+                label:
+                  'Komplexe Rehabilitation wegen mastikatorischer Dysfunktion erforderlich',
+                for: 'checkbox1-3-3',
+                name: 'checkbox1-3-3',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+            ],
+          },
+        ],
+      },
+    },
+    gradTableData: {
+      head: {
+        cols: [
+          {
+            text: 'Grad <span class="black">(Progression)</span>',
+            size: '25p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            class: 'reverse-checkbox',
+            label: 'Grad A',
+            for: 'gradACheckbox',
+            name: 'gradACheckbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '25p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            class: 'reverse-checkbox',
+            label: 'Grad B',
+            for: 'gradBCheckbox',
+            name: 'gradBCheckbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '25p',
+          },
+          {
+            type: 'checkbox',
+            align: 'center',
+            class: 'reverse-checkbox',
+            label: 'Grad C',
+            for: 'gradCCheckbox',
+            name: 'gradCCheckbox',
+            value: 1,
+            src: '/components/ui/forms/checkbox/index.html',
+            size: '25p',
+          },
+        ],
+      },
+      body: {
+        rows: [
+          {
+            cols: [
+              {
+                text: 'Knochenabbauindex (KA (%)/Alter)',
+                align: 'center',
+                size: '25p',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: '< 0,25',
+                for: 'checkbox2-1-1',
+                name: 'checkbox2-1-1',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: '0,25 - 1,0',
+                for: 'checkbox2-1-2',
+                name: 'checkbox2-1-2',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: '> 1,0',
+                for: 'checkbox2-1-3',
+                name: 'checkbox2-1-3',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+            ],
+          },
+          {
+            cols: [
+              {
+                text: 'Diabetes',
+                size: '25p',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: 'Kein Diabetes',
+                for: 'checkbox2-2-1',
+                name: 'checkbox2-2-1',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: 'HbA 1c < 7%',
+                for: 'checkbox2-2-2',
+                name: 'checkbox2-2-2',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: 'HbA 1c >= 7%',
+                for: 'checkbox2-2-3',
+                name: 'checkbox2-2-3',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+            ],
+          },
+          {
+            cols: [
+              {
+                text: 'Rauchen',
+                size: '25p',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: 'Kein Rauchen',
+                for: 'checkbox2-3-1',
+                name: 'checkbox2-3-1',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: '< 10 Zig. / Tag',
+                for: 'checkbox2-3-2',
+                name: 'checkbox2-3-2',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+              {
+                type: 'checkbox',
+                size: '25p',
+                label: '>= 10 Zig. / Tag',
+                for: 'checkbox2-3-3',
+                name: 'checkbox2-3-3',
+                value: 1,
+                src: '/components/ui/forms/checkbox/index.html',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="1"
+    navigations="## pagesRoutes.contentPageNavigation.par ##"
+    actions="##cardActions.resize##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module wrap="true" src="/components/ui/layout/row.html">
+          <module size="quarter 380" src="/components/ui/layout/column.html">
+            <div class="p-8 border-blue h-100">
+              <module src="/components/ui/layout/row.html">
+                <module src="/components/ui/layout/column.html">
+                  <h3 class="text text--medium center">
+                    Allgemeine und parodontitisspezifische Anamnese
+                  </h3>
+                </module>
+              </module>
+              <module src="/components/ui/layout/row.html">
+                <module size="grow" src="/components/ui/layout/column.html">
+                  <div>
+                    <module
+                      label="Diabetes mellitus"
+                      for="diabetesMellitusCheckbox"
+                      name="diabetesMellitusCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                  <div>
+                    <module
+                      label="Tabakkonsum"
+                      for="tabakkonsumCheckbox"
+                      name="tabakkonsumCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                  <div class="flex-align-center">
+                    <module
+                      label="Sonstiges"
+                      for="sonstigesCheckbox"
+                      name="sonstigesCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                    <module
+                      size="grow"
+                      id="sonstigesInputId"
+                      name="sonstigesInputName"
+                      src="/components/ui/forms/input/index.html"
+                    ></module>
+                  </div>
+                </module>
+              </module>
+            </div>
+          </module>
+          <module size="quarter 380" src="/components/ui/layout/column.html">
+            <div class="p-8 border-blue h-100">
+              <module src="/components/ui/layout/row.html">
+                <module src="/components/ui/layout/column.html">
+                  <h3 class="text text--medium center">
+                    Spezielle Vorgeschichte
+                  </h3>
+                </module>
+              </module>
+              <module src="/components/ui/layout/row.html">
+                <module size="grow" src="/components/ui/layout/column.html">
+                  <div class="py-5">
+                    <p class="text text--medium text--sm">
+                      Frühere PAR-Therapie
+                    </p>
+                  </div>
+                  <div class="flex-align-center">
+                    <p class="text text--medium text--sm mr-8">
+                      Angabe des Jahres: ca.
+                    </p>
+                    <module
+                      size="grow"
+                      id="angabeDesJahresInputId"
+                      name="angabeDesJahresInputName"
+                      src="/components/ui/forms/input/index.html"
+                    ></module>
+                  </div>
+                </module>
+              </module>
+            </div>
+          </module>
+          <module size="quarter 380" src="/components/ui/layout/column.html">
+            <div class="p-8 border-blue h-100">
+              <module src="/components/ui/layout/row.html">
+                <module src="/components/ui/layout/column.html">
+                  <h3 class="text text--medium center">Diagnose</h3>
+                </module>
+              </module>
+              <module src="/components/ui/layout/row.html">
+                <module size="grow" src="/components/ui/layout/column.html">
+                  <div>
+                    <module
+                      label="Parodontitis"
+                      for="parodontitisCheckbox"
+                      name="parodontitisCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                  <div class="flex-align-center">
+                    <module
+                      label="Parodontitis als Manifestation systemischer Erkrankungen"
+                      for="parodontitisAlsManifestationCheckbox"
+                      name="parodontitisAlsManifestationCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                    <module
+                      size="grow"
+                      id="parodontitisAlsManifestationInputId"
+                      name="parodontitisAlsManifestationInputName"
+                      src="/components/ui/forms/input/index.html"
+                    ></module>
+                  </div>
+                  <div>
+                    <module
+                      label="Andere das Parodont betreffende Zustände: generalisierte gingivale Vergrößerungen"
+                      for="andereDasParodontCheckbox"
+                      name="andereDasParodontCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                </module>
+              </module>
+            </div>
+          </module>
+          <module size="quarter 380" src="/components/ui/layout/column.html">
+            <div class="p-8 border-blue h-100">
+              <module src="/components/ui/layout/row.html">
+                <module src="/components/ui/layout/column.html">
+                  <h3 class="text text--medium center">
+                    Ausmaß/Verteilung (für das höchste Stadium)
+                  </h3>
+                </module>
+              </module>
+              <module src="/components/ui/layout/row.html">
+                <module size="grow" src="/components/ui/layout/column.html">
+                  <div>
+                    <module
+                      label="Lokalisiert (< 30% der Zahne)"
+                      for="lokalisiertCheckbox"
+                      name="lokalisiertCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                  <div>
+                    <module
+                      label="Generalisiert (>= 30% der Zahne)"
+                      for="generalisiertCheckbox"
+                      name="generalisiertCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                  <div>
+                    <module
+                      label="Molaren-Inzisiven-Muster"
+                      for="molarenInzisivenMusterCheckbox"
+                      name="molarenInzisivenMusterCheckbox"
+                      value="1"
+                      src="/components/ui/forms/checkbox/index.html"
+                    ></module>
+                  </div>
+                </module>
+              </module>
+            </div>
+          </module>
+        </module>
+        <module wrap="true" src="/components/ui/layout/row.html">
+          <module size="65p 900" src="/components/ui/layout/column.html">
+            <module src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <h3 class="text text--medium center">
+                  <strong>Stadium</strong> (Schweregrad, der Patient wird durch
+                  das höchste Stadium charakterisiert)
+                </h3>
+              </module>
+            </module>
+            <module src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <module
+                  tableData="##stadiumTableData##"
+                  src="/components/ui/table/simple-table.html"
+                ></module>
+              </module>
+            </module>
+          </module>
+          <module size="35p 556" src="/components/ui/layout/column.html">
+            <module src="/components/ui/layout/row.html">
+              <module src="/components/ui/layout/column.html">
+                <h3 class="text text--medium center">Grad (Progression)</h3>
+              </module>
+            </module>
+            <module src="/components/ui/layout/row.html">
+              <module size="grow" src="/components/ui/layout/column.html">
+                <module
+                  tableData="##gradTableData##"
+                  src="/components/ui/table/simple-table.html"
+                ></module>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

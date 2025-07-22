@@ -1,0 +1,198 @@
+<script locals>
+  module.exports = {
+    bodyActions: [
+      {
+        text: 'Rechnung',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+      {
+        items: ['pdf-Datei erstellen', 'Per E-Mail versenden', 'Drucken'],
+        src: '/components/ui/button/dropdown-button.html',
+        print: true,
+      },
+    ],
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="9"
+    actions="##cardActions.resize##"
+    navigations="## pagesRoutes.contentPageNavigation.ze ##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module src="/components/ui/layout/row.html">
+          <module src="/components/ui/layout/column.html">
+            <h2 class="text text--medium px-8">Zusammenfassung</h2>
+          </module>
+        </module>
+        <module src="/components/ui/layout/row.html">
+          <module src="/components/ui/layout/column.html">
+            <div class="p-8">
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text blue-text px-8 medium">Leistungstyp</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text blue-text text-right px-8 medium">
+                    Kosten gesam netto (€)
+                  </p>
+                </div>
+                <div class="column column--80">
+                  <p class="text blue-text text-right px-8 medium">MwSt. %</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text blue-text text-right px-8 medium">
+                    Kosten gesamt Brutto (€)
+                  </p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Leistungen nach BEMA</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">148,16</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">0</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">148,16</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Leistungen nach GOZ</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">526,49</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">0</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">526,49</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Leistungen nach GOZ</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">416,06</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">19</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">495,11</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Eigenlaborleistungen</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">124,10</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">0</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">124,10</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Fremdlaborleistungen</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">324,78</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">7</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">347,51</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--grow">
+                  <module
+                    id="versandkostenId"
+                    name="versandkostenInputName"
+                    placeholder="Versandkosten"
+                    src="/components/ui/forms/input/index.html"
+                  ></module>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Festzuschüsse der GKV</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">&nbsp;</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">&nbsp;</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">abzgl. 1.104,10</p>
+                </div>
+              </div>
+              <div class="row mb0">
+                <div class="column column--180">
+                  <p class="text py-4 px-8">Summe</p>
+                </div>
+                <div class="column column--180">
+                  <p class="text text-right py-4 px-8">&nbsp;</p>
+                </div>
+                <div class="column column--80">
+                  <p class="text text-right py-4 px-8">&nbsp;</p>
+                </div>
+                <div class="column column--200">
+                  <p class="text text-right py-4 px-8">538,27</p>
+                </div>
+              </div>
+            </div>
+          </module>
+        </module>
+        <module
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+          <module size="max-380" src="/components/ui/layout/column.html">
+            <module
+              id="versandkostenId"
+              name="versandkostenInputName"
+              placeholder="Versandkosten"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module size="max-380" src="/components/ui/layout/column.html">
+            <module
+              id="vorkasseId"
+              name="vorkasseInputName"
+              placeholder="Vorkasse"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+          <module src="/components/ui/layout/column.html">
+            <module
+              for="vddsRzModulInputId"
+              name="vddsRzModulInputName"
+              label="VDDS-RZ Modul"
+              value="0"
+              src="/components/ui/forms/checkbox/index.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+      <module src="/components/content/ze/common/info.html"></module>
+    </module>
+  </module>
+</module>

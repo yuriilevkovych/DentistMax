@@ -1,0 +1,36 @@
+@import '../../../config/vars';
+
+.pdf-list {
+  margin-top: 10px;
+  .pdf-list__item {
+    margin-bottom: 10px;
+    line-height: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .pdf-list__link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    color: $color2c333f;
+    transition: $transition;
+    text-decoration: none;
+
+    img {
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+
+    &:hover {
+      color: $colorBlue100;
+    }
+  }
+}

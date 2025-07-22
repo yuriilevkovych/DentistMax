@@ -1,0 +1,60 @@
+BODY { margin:0; padding:25px; background:#fff; font-family:arial,sans-serif; font-size:12px; }
+H1, H2, H3, H4, H5, H6, P { margin:0; padding:0; }
+H1 { color:#000; font-size:24px; font-weight:700; }
+H2 { color:#000; font-size:18px; font-weight:700; }
+H3 { color:#000; font-size:18px; font-weight:700; }
+H4, H3.black { color:#000; font-size:18px; font-weight:700; }
+A { color:#333; text-decoration:underline; }
+STRONG, B { font-weight:bold; }
+
+.align-left { float:left !important; }
+.align-right { float:right !important; }
+.text-left { text-align:left !important; }
+.text-right { text-align:right !important; }
+.text-center { text-align:center !important; }
+.nowrap { display:inline-block; white-space:nowrap; }
+.small { display:inline-block; line-height:normal; font-size:75%; }
+
+#print-header { display:table; width:100%; margin-bottom:10px; padding:0 0 10px; border-bottom:2px solid #212121; overflow:hidden; }
+#print-header .col { display:table-cell; width:33.3333333%; vertical-align:top; }
+#print-header .col > DIV  { display:table; width:100%; }
+#print-header .col > DIV > SPAN { display:table-cell; width:40%; vertical-align:top; }
+#print-header .col > DIV > STRONG { display:table-cell; width:60%; vertical-align:top; }
+
+#print-footer { margin-top:20px; padding:5px 0 0; border-top:1px solid #212121; font-size:9px; }
+
+.cash-doc { padding:20px; background:#fff; }
+.cash-doc TABLE TD { padding:15px; }
+.cash-doc .list TABLE TD { padding:3px 5px; }
+.cash-doc .list TABLE THEAD TD { border-bottom:1px solid #777; font-weight:bold; text-align:center; }
+.cash-doc .from .val { display:inline-block; padding:15px 10px 5px; line-height:30px; border-bottom:1px dotted #333; }
+.cash-doc .from DIV.val { display:block; }
+.cash-doc .from SPAN.val { display:inline-block; }
+.cash-doc .val { font-size:18px; }
+.cash-doc .sign { line-height:75px; border-bottom:1px dotted #333; }
+
+.print-doc { padding:0; background:#fff; }
+.print-doc H3 { margin:0 0 10px; color:#000; font-weight:bold; }
+.print-doc TABLE { width:100%; }
+.print-doc TABLE TD { padding:3px 20px 3px 0; }
+.print-doc TABLE.border-table TD { padding:5px; line-height:20px; }
+.print-doc UL, .print-doc OL { margin-top:0; margin-bottom:0; }
+.print-doc STRONG.border { border:1px solid #000; }
+
+.signature { display:inline-block; width:30%; border-top:2px dotted #000; font-size:12px; text-align:center; }
+
+.tblInsReport { width:100%; border-collapse:collapse; font-size:12px; }
+.tblInsReport THEAD { text-align:center; }
+.tblInsReport TD { padding:2px 5px; }
+.tblInsReport TD.ac { text-align:center; }
+.tblInsReport TD.ar { text-align:right; }
+.tblInsReport TD.bt { border-top:2px solid #000; }
+.tblInsReport TD.bb { border-bottom:2px solid #000; }
+.tblInsReport TD.bl { border-left:2px solid #000; }
+.tblInsReport TD.br { border-right:2px solid #000; }
+
+.labVysledok { margin:5px 0; width:100%; border-collapse:collapse; border-spacing:0px; border-color:#ccc; font-size:12px; }
+.labVysledok TD { padding:3px 5px; line-height:normal; font-size:12px; }
+.labVysledok .title { width:25%; }
+.labVysledok .value { width:15%; text-align:center; white-space:nowrap; }
+.labVysledok .desc { width:45%; }

@@ -1,0 +1,37 @@
+@import '../../../config/vars';
+
+.r-tooltip-container {
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    .r-tooltip {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+.r-tooltip {
+  width: max-content;
+  max-width: 300px;
+  position: absolute;
+  left: 0;
+  border-radius: 6px;
+  padding: 4px 16px;
+  background-color: rgba(54, 62, 75, 0.8);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: $transition;
+  cursor: default;
+
+  .text {
+    color: $colorWhite;
+  }
+
+  &--top {
+    top: 0;
+    transform: translateY(calc(-100% - 1px));
+  }
+}

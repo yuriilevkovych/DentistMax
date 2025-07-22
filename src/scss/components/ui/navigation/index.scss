@@ -1,0 +1,115 @@
+@import '../../../config/vars';
+
+[data-menu-parent] {
+  &.is-open-menu {
+    [data-menu] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+[data-menu] {
+  opacity: 0;
+  pointer-events: none;
+  transition: $transition;
+}
+
+.navbar {
+  min-height: 1px;
+  margin-bottom: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 12px 12px;
+
+  .navbar-list {
+    display: flex;
+    &__item {
+      position: relative;
+
+      &.active {
+        .navbar-list__link {
+          color: $colorInkUltraDark;
+          border-color: $colorInkUltraDark;
+          background-color: #e6f6fe;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .navbar-list__menu {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    &__link {
+      display: block;
+      border-top: 1px solid rgba(17, 31, 65, 0.3);
+      padding: 7px 16px 8px;
+      transition: $transition;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(17, 31, 65, 0.5);
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: $colorInkUltraDark;
+        border-color: $colorInkUltraDark;
+        background-color: #e6f6fe;
+      }
+    }
+
+    &__menu {
+      min-width: 174px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(calc(100% + 1px));
+      z-index: 10;
+
+      border: 1px solid $colorGrey50;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 32px 48px 0 rgba(33, 39, 43, 0.15);
+      background: $colorWhite;
+    }
+
+    &__menu-item {
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.active {
+        .navbar-list__menu-link {
+          pointer-events: none;
+          color: $colorInkLight;
+          background-color: #e6f6fe;
+        }
+      }
+    }
+
+    &__menu-link {
+      display: block;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: $colorInkUltraDark;
+      text-decoration: none;
+      transition: $transition;
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 162, 244, 0.2);
+        color: $colorInkLight;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+$colorDark: #008fec;
+$colorBlue100: #00a2f4;
+$colorBlue40: #7fd0f9;
+$colorBlue20: #ccecfd;
+$colorBlue10: #e5f5fd;
+
+$colorGrey100: #b0bec5;
+$colorGrey50: #d7dee2;
+$colorGrey20: #eff2f3;
+
+$colorInkUltraDark: #111f41;
+$colorInkLight: #3a4348;
+$colorInkUltraLight: #616f76;
+
+$colorRed100: #f73830;
+$colorRed50: #ff5e57;
+$colorRed20: #ffcecc;
+$colorRed10: #ffebea;
+
+$colorOrange100: #f48300;
+$colorOrange60: #f9a400;
+$colorOrange40: #ffc200;
+$colorOrange20: #fed600;
+
+$colorWhite: #ffffff;
+$colorCloud: #fafaff;
+$color2c333f: #2c333f;
+
+$colorGradientInk: linear-gradient(180deg, #111f41 0%, #03060d 100%);
+$colorGradientInkHover: linear-gradient(
+  180deg,
+  #425fa6 0%,
+  #121f41 48.94%,
+  #04070e 100%
+);
+$colorGradientOrange: linear-gradient(
+  180deg,
+  #fed600 0%,
+  #ffc200 49.8%,
+  #f9a400 100%
+);
+$colorGradientOrangeDark: linear-gradient(180deg, #ffc200 0%, #f48300 100.42%);
+$colorGradientOrangeDarkHover: linear-gradient(
+  180deg,
+  #ffc201 0%,
+  #e96302 100.42%
+);
+$colorGradientBlue: linear-gradient(180deg, #00a3f5 0%, #0077c4 100%);
+$colorGradientBlueHover: linear-gradient(180deg, #00a2f4 0%, #004877 100%);
+$colorGradientRed: linear-gradient(180deg, #ff5e57 37.4%, #f7372f 98.7%);
+$colorGradientGreen: linear-gradient(180deg, #34eb23 0%, #2bc61c 100%);
+
+$transition: all 0.3s;
+$transitionColor: color, background-color 0.3s;
+$lg-desktop-breakpoint: 1439px;
+$desktop-breakpoint: 1160px;
+$sm-desktop-breakpoint: 1024px;
+$tablet-breakpoint: 768px;
+$mobile-breakpoint: 424px;

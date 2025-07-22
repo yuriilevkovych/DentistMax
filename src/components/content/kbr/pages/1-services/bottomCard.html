@@ -1,0 +1,137 @@
+<script locals>
+  module.exports = {
+    bodyActions: [
+      {
+        text: 'Speichern',
+        variant: 'primary',
+        src: '/components/ui/button/index.html',
+      },
+    ],
+    servicesTable: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 80,
+          },
+          {
+            text: 'Zahn',
+            size: 100,
+          },
+          {
+            text: 'Leistung',
+            size: 100,
+          },
+          {
+            text: 'Beschreibung',
+            size: 'grow',
+          },
+
+          {
+            text: 'ANZ',
+            size: 100,
+          },
+
+          {
+            text: 'Summe (EUR)',
+            size: 120,
+          },
+
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'services-datum-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 100,
+            ops: {
+              id: 'services-zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            withDialog: 'dialogManageSearch',
+            size: 100,
+            ops: {
+              id: 'services-leistung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 'grow',
+            ops: {
+              id: 'services-beschreibung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 100,
+            ops: {
+              id: 'services-anz-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 120,
+            ops: {
+              id: 'services-eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'add',
+            // swap: 'remove, more-menu',
+          },
+        ],
+      },
+    },
+  };
+</script>
+
+<module src="/components/content/bottom-card-layout.html">
+  <module
+    activeLink="1"
+    navigations="## pagesRoutes.contentPageNavigation.kbr ##"
+    actions="##cardActions.resize##"
+    src="/components/ui/content-card/index.html"
+  >
+    <module class="row--100h" src="/components/ui/layout/row.html">
+      <module flex="column" size="grow" src="/components/ui/layout/column.html">
+        <module wrap="true" src="/components/ui/layout/row.html">
+          <module
+            size="grow"
+            tableData="##servicesTable##"
+            src="/components/ui/block/table-with-title.html"
+          ></module>
+        </module>
+        <module
+          bodyActions="##bodyActions##"
+          src="/components/ui/content-card/body-footer/index.html"
+        >
+          <module size="max-700" src="/components/ui/layout/column.html">
+            <module
+              id="inputId"
+              name="notizenInputName"
+              placeholder="Notizen"
+              src="/components/ui/forms/input/index.html"
+            ></module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</module>

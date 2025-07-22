@@ -1,0 +1,23 @@
+<script locals>
+  module.exports = {
+    hasTitle: !!locals.title,
+  };
+</script>
+
+<module size="##size##" src="/components/ui/layout/column.html">
+  <if condition="##hasTitle##">
+    <module src="/components/ui/layout/row.html">
+      <module size="grow" src="/components/ui/layout/column.html">
+        <h3 class="text center">##title##</h3>
+      </module>
+    </module>
+  </if>
+  <module src="/components/ui/layout/row.html">
+    <module size="grow" src="/components/ui/layout/column.html">
+      <module
+        tableData="##tableData##"
+        src="/components/ui/table/actions-table.html"
+      ></module>
+    </module>
+  </module>
+</module>

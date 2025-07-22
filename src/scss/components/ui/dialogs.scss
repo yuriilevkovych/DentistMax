@@ -1,0 +1,60 @@
+@import '../../config/vars';
+
+&.mdl-dialog {
+  max-width: 100%;
+  border-radius: 12px;
+  overflow-x: hidden;
+  color: $color2c333f;
+  background-color: transparent;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .dialog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: $colorBlue100;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .dialog__header-title {
+    padding-right: 16px;
+    color: $colorWhite;
+  }
+
+  .dialog__header-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background-color: #e7effa;
+    border-radius: 6px;
+    transition: $transition;
+    outline: none;
+    border: none;
+
+    &:hover {
+      background-color: $colorInkUltraDark;
+    }
+  }
+
+  .dialog__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 24px 8px 8px;
+    background-color: $colorWhite;
+  }
+
+  .dialog__actions {
+    padding: 8px 8px 24px;
+    background-color: $colorWhite;
+  }
+}

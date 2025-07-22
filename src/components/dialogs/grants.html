@@ -1,0 +1,127 @@
+<script locals>
+  module.exports = {
+    config: {
+      eingabeartSelect: {
+        title: 'Ziffer/Kurzel',
+        tooltip: { text: 'Eingabeart' },
+        options: [
+          { value: '0', text: 'Ziffer/Kurzel' },
+          { value: '1', text: 'Value 1' },
+          { value: '2', text: 'Value 2' },
+        ],
+      },
+      bereichWahlenSelect: {
+        title: 'Bereich wählen',
+        options: [
+          { value: '0', text: 'Bereich wählen' },
+          { value: '1', text: 'Value 1' },
+          { value: '2', text: 'Value 2' },
+        ],
+      },
+      sucheInput: {
+        id: 'SucheInputDialog',
+        placeholder: 'Suche',
+        name: 'SucheInputDialog',
+        value: '*',
+        disabled: 'true',
+        tooltip: { text: 'Suche' },
+      },
+      bezeichnungInput: {
+        id: 'BezeichnungInputDialog',
+        placeholder: 'Bezeichnung',
+        name: 'BezeichnungInputDialog',
+      },
+    },
+  };
+</script>
+
+<dialog class="mdl-dialog mdl-dialog--with-buttons dialogManageSearch redesign">
+  <form action="" method="post" class="dialogForm">
+    <div class="dialog__header">
+      <h4 class="dialog__header-title text">Festzuschüsse</h4>
+      <button
+        type="button"
+        class="dialog__header-action btn-close"
+        data-close-dialog
+      >
+        <img
+          src="/img/icons/24/close-icon.svg"
+          width="24"
+          height="24"
+          alt="cross icon"
+        />
+      </button>
+    </div>
+    <div class="dialog__body">
+      <module src="/components/ui/layout/row.html">
+        <module size="col-3" src="/components/ui/layout/column.html">
+          <module
+            ##getConfig(config.eingabeartSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module>
+        </module>
+        <module size="col-3" src="/components/ui/layout/column.html">
+          <module
+            ##getConfig(config.bereichWahlenSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module>
+        </module>
+        <module size="col-3" src="/components/ui/layout/column.html">
+          <module
+            ##getConfig(config.sucheInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <p class="text center text--medium pt-8">Auswahlmoglichkeit</p>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <module
+            scrollable="true"
+            selectable="true"
+            tableData="##data.grantsTableData##"
+            src="/components/ui/table/actions-table.html"
+          ></module>
+        </module>
+      </module>
+      <module class="row--top-auto" src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.bezeichnungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+    </div>
+    <div class="dialog__actions">
+      <module flex="end" src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <module
+            variant="outline"
+            text="Hilfe"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+        <module src="/components/ui/layout/column.html">
+          <module
+            buttonClasses="btn-close"
+            text="OK"
+            variant="primary"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+        <module src="/components/ui/layout/column.html">
+          <module
+            variant="outline"
+            text="Abbruch"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+      </module>
+    </div>
+  </form>
+</dialog>

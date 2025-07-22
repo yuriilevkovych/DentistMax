@@ -1,0 +1,271 @@
+<script>
+  $(document).ready(function () {
+    // Open menu
+    $(document).on('click', '[data-open-menu]', function () {
+      if ($(this).closest('[data-menu-parent]').hasClass('is-open-menu')) {
+        $('[data-menu-parent]').removeClass('is-open-menu');
+      }
+
+      $('[data-menu-parent]').removeClass('is-open-menu');
+      $(this).closest('[data-menu-parent]').addClass('is-open-menu');
+    });
+
+    $(document).on('click', '[data-close-menu]', function () {
+      $(this).closest('[data-menu-parent]').removeClass('is-open-menu');
+    });
+
+    // Close menu on click outside
+    $(document).on('click', function (e) {
+      if (!$(e.target).closest('[data-menu-parent]').length) {
+        $('[data-menu-parent]').removeClass('is-open-menu');
+      }
+    });
+
+    $('input[data-type="date"]').on('focus', function () {
+      $(this).attr('type', 'date');
+    });
+
+    $('input[data-type="date"]').on('blur', function () {
+      if ($(this).val()) {
+        return;
+      }
+
+      $(this).attr('type', 'text');
+    });
+
+    $('.js-resize').on('click', function () {
+      $(this).closest('[data-resize-container]').toggleClass('resized');
+      $(this).closest('[data-resize-container]')[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+      });
+    });
+
+    function removeRow() {
+      $(this).closest('[data-row]').remove();
+    }
+
+    $(document).on('click', '.js-remove-row', removeRow);
+
+    const removeButtonHtml = `<div class="table__col table__col--actions"><button type="button" class="table__action-button js-remove-row"><img src="/img/icons/16/cross-icon.svg" width="16" height="16" alt="cross icon" /></button></div>`;
+    const moreMenuHtml = `<div class="table__col table__col--actions"><div data-menu-parent class="more-menu-container"><button data-open-menu type="button" class="table__action-button"><img src="/img/icons/16/more-icon.svg" width="16" height="16" alt="more menu icon" /></button><ul class="more-menu"><li class="more-menu__item edit"><button data-close-menu type="button" class="more-menu__button js-edit-row">Edit</button></li><li class="more-menu__item done"><button data-close-menu type="button" class="more-menu__button js-done-edit-row">Done</button></li></ul></div></div>`;
+    const editDoneHtml =
+      '<div class="table__col table__col--actions"><button type="button" class="table__action-button edit js-edit-row"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button type="button" class="table__action-button done js-done-edit-row"><i class="fa fa-check-square-o" aria-hidden="true"></i></button></div>';
+    const swapConfig = {
+      remove: removeButtonHtml,
+      'more-menu': moreMenuHtml,
+      'edit/done': editDoneHtml,
+    };
+
+    $(document).on('click', '.js-add-row', function addNewRow() {
+      const thisRow = $(this).closest('[data-row]');
+      const clonedRow = thisRow.clone();
+      const swapAttrs = $(this).attr('data-swap').split(', ');
+      const tableBody = $(this).closest('.table__body');
+      const tableBodyInner = tableBody.find('.table__body-inner');
+      const appendTo = tableBodyInner.length ? tableBodyInner : tableBody;
+      clonedRow
+        .addClass('show-input editing')
+        .find('.table__col--empty-actions')
+        .remove();
+      clonedRow
+        .find('.table__col.table__col--actions')
+        .replaceWith(swapAttrs.map((attr) => swapConfig[attr]).join(''));
+      if (tableBodyInner.length) {
+        appendTo.append(clonedRow);
+        tableBodyInner.scrollTop(tableBodyInner[0].scrollHeight);
+      } else {
+        clonedRow.insertBefore(thisRow);
+      }
+
+      const rowIndex = thisRow.data('row');
+
+      thisRow
+        .attr('data-row', rowIndex + 1)
+        .data('row', rowIndex + 1)
+        .find('input')
+        .each(function () {
+          const newId = $(this)
+            .attr('id')
+            .replace(/-\d+$/, `-${rowIndex + 1}`);
+          const newName = $(this)
+            .attr('name')
+            .replace(/-\d+$/, `-${rowIndex + 1}`);
+          $(this).attr('id', newId);
+          $(this).attr('name', newName);
+        });
+    });
+
+    $(document).on(
+      'input',
+      '.table--selectable .table__head .checkbox__input',
+      function () {
+        const isChecked = $(this).is(':checked');
+
+        const rows = $(this)
+          .closest('[data-table]')
+          .find('.table__body .table__row:not(.table__row--actions)');
+
+        rows.find('.checkbox__input').prop('checked', isChecked);
+
+        if (isChecked) {
+          rows.addClass('selected');
+        } else {
+          rows.removeClass('selected');
+        }
+      }
+    );
+
+    $(document).on(
+      'click',
+      '.table--selectable .table__body .table__row',
+      function (e) {
+        const checkbox = $(this).find('.checkbox__input');
+        const isChecked = checkbox.is(':checked');
+
+        if (
+          ($(this).hasClass('table__row--actions') &&
+            !$(e.target).closest('.checkbox').length) ||
+          $(e.target).closest('.table__col--actions').length
+        ) {
+          return;
+        }
+
+        if (isChecked) {
+          checkbox.prop('checked', false);
+          $(this).removeClass('selected');
+        } else {
+          checkbox.prop('checked', true);
+          $(this).addClass('selected');
+        }
+      }
+    );
+
+    // $(document).on('click', '.js-add-row', function addNewRow() {
+    //   const clonedRow = $(this).closest('[data-row]').clone();
+    //   const rowIndex = $(this).closest('[data-row]').data('row');
+    //   clonedRow.attr('data-row', rowIndex + 1);
+    //   clonedRow.find('input').each(function () {
+    //     const newId = $(this)
+    //       .attr('id')
+    //       .replace(/-\d+$/, `-${rowIndex + 1}`);
+    //     const newName = $(this)
+    //       .attr('name')
+    //       .replace(/-\d+$/, `-${rowIndex + 1}`);
+    //     $(this).attr('id', newId);
+    //     $(this).attr('name', newName);
+    //   });
+    //
+    //   const swapAttrs = $(this).attr('data-swap').split(', ');
+    //   const tableBody = $(this).closest('.table__body');
+    //   const tableBodyInner = tableBody.find('.table__body-inner');
+    //   const appendTo = tableBodyInner.length ? tableBodyInner : tableBody;
+    //   tableBody.append(clonedRow);
+    //   $(this)
+    //     .closest('[data-row]')
+    //     .addClass('show-input editing')
+    //     .find('.table__col--empty-actions')
+    //     .remove();
+    //   $(this)
+    //     .parent()
+    //     .replaceWith(swapAttrs.map((attr) => swapConfig[attr]).join(''));
+    // });
+
+    $(document).on('click', '.js-done-edit-row', function addNewRow() {
+      $(this)
+        .closest('[data-row]')
+        .removeClass('editing table__row--actions show-input')
+        .find('.table__input')
+        .replaceWith(function () {
+          const value = $(this).val();
+          const type = $(this).attr('type');
+
+          if (type === 'text') {
+            return `<span>${value}</span>`;
+          }
+
+          return `<span>${value}</span>`;
+        });
+    });
+
+    $(document).on('click', '.js-edit-row', function addNewRow() {
+      const $inputs = $(this)
+        .closest('[data-table]')
+        .find('.table__row--actions:last-child .table__col');
+
+      const index = $(this).closest('[data-row]').data('row');
+
+      $(this)
+        .closest('[data-row]')
+        .addClass('editing table__row--actions show-input')
+        .find('.table__col span')
+        .replaceWith(function (i, value) {
+          const clonedInput = $inputs.eq(i).find('.table__input').clone();
+
+          return clonedInput
+            .attr('id', `${clonedInput.attr('data-id')}-${index}`)
+            .attr('name', `${clonedInput.attr('data-id')}-${index}`)
+            .val(value);
+        });
+    });
+
+    const isNumber = (value) => {
+      return !isNaN(value) && !isNaN(parseFloat(value));
+    };
+
+    $('.js-calculate-fields input').on('input', function () {
+      const inputs = $(this).closest('.js-calculate-fields').find('input');
+
+      if (isNumber($(inputs[0]).val()) && isNumber($(inputs[1]).val())) {
+        const value1 = parseFloat($(inputs[0]).val());
+        const value2 = parseFloat($(inputs[1]).val());
+        $(inputs[2]).val(value1 * value2);
+      } else {
+        $(inputs[2]).val(0);
+        return;
+      }
+    });
+
+    $('.js-select-change-block select').on('change', function () {
+      const val = $(this).val();
+
+      $(this).closest('.content-card').find('[data-block]').addClass('hidden');
+      $(this)
+        .closest('.content-card')
+        .find(`[data-block="${val}"]`)
+        .removeClass('hidden');
+    });
+
+    $('.js-checkbox-show-next input').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      const nextBlock = $(this).closest('.js-checkbox-show-next').next();
+
+      if (isChecked) {
+        nextBlock.removeClass('hidden');
+      } else {
+        nextBlock.addClass('hidden');
+      }
+    });
+
+    $(document).on('click', '[data-dialog-target]', function () {
+      const dialogTarget = `DIALOG.${$(this).data('dialog-target')}`;
+      const dialogPosition = $(this).data('dialog-position');
+      let w;
+      let h;
+
+      if (dialogPosition) {
+        const el = $(dialogPosition);
+        $(window).scrollTop(0);
+        w = el.outerWidth();
+        h = $(window).outerHeight() - el.offset().top - 20;
+        $(dialogTarget).css({
+          top: `${el.offset().top + 4}px`,
+          left: `${el.offset().left}px`,
+          margin: 0,
+        });
+      }
+
+      initDialog('OPEN', dialogTarget, w, h);
+    });
+  });
+</script>

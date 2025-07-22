@@ -1,0 +1,653 @@
+<script locals>
+  var config = {
+    idInput: {
+      id: 'idInput',
+      name: 'idInput',
+      type: 'number',
+      placeholder: 'ID',
+      value: '1',
+      disabled: true,
+    },
+    antragsnummerInput: {
+      id: 'antragsnummerInput',
+      name: 'antragsnummerInput',
+      type: 'number',
+      placeholder: 'Antragsnummer',
+      value: '2',
+      disabled: true,
+    },
+    uberweiserInput: {
+      id: 'uberweiserInput',
+      placeholder: 'Überweiser',
+      name: 'uberweiserInput',
+    },
+    bezeichnungInput: {
+      id: 'BezeichnungInput',
+      placeholder: 'Bezeichnung',
+      name: 'BezeichnungInput',
+    },
+    planartSelect: {
+      name: 'planartSelect',
+      title: 'Planart',
+      options: [
+        { value: '0', text: 'Planart' },
+        { value: 'kassenplan', text: 'Kassenplan' },
+        { value: 'wiederherstellung', text: 'Wiederherstellung' },
+        { value: 'privatplan', text: 'Privatplan' },
+        { value: 'unfallplan', text: 'Unfallplan' },
+        {
+          value: 'heilfuersorge-polizei',
+          text: 'Heilfürsorge Polizei',
+        },
+        {
+          value: 'heilfuersorge-landespolizei',
+          text: 'Heilfürsorge Landespolizei (mit Festzuschuss)',
+        },
+        { value: 'bundeswehr', text: 'Bundeswehr' },
+        { value: 'zahnersatz-2004', text: 'Zahnersatz 2004' },
+      ],
+    },
+    abrechnungsstatusSelect: {
+      name: 'abrechnungsstatusSelect',
+      title: 'Abrechnungsstatus',
+      options: [
+        { value: '0', text: 'Abrechnungsstatus' },
+        { value: '1', text: '+ Anspruchsnachweis vorhanden (zur Abrechnung)' },
+        {
+          value: '2',
+          text: '- Kein Anspruchsnachweis (nicht abrechnen/löschen)',
+        },
+        {
+          value: '3',
+          text: '0 Nur Vorabprüfung (kein Protokollzugriff)',
+        },
+      ],
+    },
+
+    therapieschrittSelect: {
+      name: 'therapieschrittSelect',
+      title: 'Therapieschritt',
+      options: [
+        { value: '0', text: 'Therapieschritt' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    vonSelect: {
+      name: 'vonSelect',
+      title: 'Von',
+      options: [
+        { value: '0', text: 'Von' },
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+      ],
+    },
+    unfallCheckbox: {
+      label: 'Unfall',
+      for: 'unfallCheckbox',
+      name: 'unfallCheckbox',
+      value: 1,
+    },
+    versorgungsleidenCheckbox: {
+      label: 'Versorgungsleiden',
+      for: 'versorgungsleidenCheckbox',
+      name: 'versorgungsleidenCheckbox',
+      value: 1,
+    },
+    direktabrechnungCheckbox: {
+      label: 'Direktabrechnung',
+      for: 'direktabrechnungCheckbox',
+      name: 'direktabrechnungCheckbox',
+      value: 1,
+    },
+    nemCheckbox: {
+      label: 'NEM',
+      for: 'nemCheckbox',
+      name: 'nemCheckbox',
+      value: 1,
+    },
+    immediatversorgungOKCheckbox: {
+      label: 'Immediatversorgung OK',
+      for: 'immediatversorgungOKCheckbox',
+      name: 'immediatversorgungOKCheckbox',
+      value: 1,
+    },
+    interimsversorgungOKCheckbox: {
+      label: 'Interimsversorgung OK',
+      for: 'interimsversorgungOKCheckbox',
+      name: 'interimsversorgungOKCheckbox',
+      value: 1,
+    },
+    unbrProtheseOKCheckbox: {
+      label: 'Unbr. Prothese OK',
+      for: 'unbrProtheseOKCheckbox',
+      name: 'unbrProtheseOKCheckbox',
+      value: 1,
+    },
+    alterOKInput: {
+      id: 'alterOKInput',
+      name: 'alterOKInput',
+      placeholder: 'Alter OK (ca. in Jahren)',
+    },
+    immediatversorgungUKCheckbox: {
+      label: 'Immediatversorgung UK',
+      for: 'immediatversorgungUKCheckbox',
+      name: 'immediatversorgungUKCheckbox',
+      value: 1,
+    },
+    interimsversorgungUKCheckbox: {
+      label: 'Interimsversorgung UK',
+      for: 'interimsversorgungUKCheckbox',
+      name: 'interimsversorgungUKCheckbox',
+      value: 1,
+    },
+    unbrProtheseUKCheckbox: {
+      label: 'Unbr. Prothese UK',
+      for: 'unbrProtheseUKCheckbox',
+      name: 'unbrProtheseUKCheckbox',
+      value: 1,
+    },
+    alterUKInput: {
+      id: 'alterUKInput',
+      name: 'alterUKInput',
+      placeholder: 'Alter UK (ca. in Jahren)',
+    },
+    immediatversorgungCheckbox: {
+      label: 'Immediatversorgung',
+      for: 'immediatversorgungCheckbox',
+      name: 'immediatversorgungCheckbox',
+      value: 1,
+    },
+    UPBKCheckbox: {
+      label: 'Unbr. Prothese, Brücke, Krone',
+      for: 'UPBKCheckbox',
+      name: 'UPBKCheckbox',
+      value: 1,
+    },
+    alterCaInJahrenInput: {
+      id: 'alterCaInJahrenInput',
+      name: 'AlterCaInJahrenInput',
+      placeholder: 'Alter (ca. In Jahren)',
+    },
+    statusSelect: {
+      name: 'statusSelect',
+      title: 'Status',
+      options: [
+        { value: '0', text: 'Status' },
+        { value: 'zum-gutachter', text: 'zum Gutachter' },
+        { value: 'bewilligt', text: 'bewilligt' },
+        { value: 'wird-abgerechnet', text: 'wird abgerechnet' },
+        { value: 'wurde-abgerechnet', text: 'wurde abgerechnet' },
+        { value: 'abgelehnt-kasse', text: 'abgelehnt Kasse' },
+        { value: 'abgelehnt-patient', text: 'abgelehnt Patient' },
+        { value: 'alternativer-plan', text: 'alternativer Plan' },
+      ],
+    },
+    erstelltInput: {
+      id: 'erstelltInput',
+      name: 'erstelltInput',
+      // type: 'date',
+      placeholder: 'Erstellt am',
+      'data-type': 'date',
+    },
+    genehmigtInput: {
+      id: 'genehmigtInput',
+      name: 'genehmigtInput',
+      // type: 'date',
+      placeholder: 'Genehmigt am',
+      'data-type': 'date',
+    },
+    genehmigungInput: {
+      id: 'genehmigungInput',
+      name: 'genehmigungInput',
+      type: 'date',
+      placeholder: 'Genehmigung gültig bis',
+      tooltip: { text: 'Genehmigung gültig bis' },
+      disabled: true,
+      value: '2024-10-10',
+    },
+    eingegliedertInput: {
+      id: 'eingegliedertInput',
+      name: 'eingegliedertInput',
+      // type: 'date',
+      'data-type': 'date',
+      placeholder: 'Eingegliedert am',
+    },
+    kasseabgerechnetInput: {
+      id: 'kasseabgerechnetInput',
+      name: 'kasseabgerechnetInput',
+      placeholder: 'Kasse abgerechnet',
+      tooltip: { text: 'Kasse abgerechnet' },
+      type: 'date',
+      disabled: true,
+      value: '2024-10-10',
+    },
+    privatabgerechnetInput: {
+      id: 'privatabgerechnetInput',
+      name: 'privatabgerechnetInput',
+      placeholder: 'Privat abgerechnet',
+      tooltip: { text: 'Privat abgerechnet' },
+      type: 'date',
+      disabled: true,
+      value: '2024-10-10',
+    },
+    teilabrechnungCheckbox: {
+      label: 'Teilabrechnung',
+      for: 'teilabrechnungCheckbox',
+      name: 'teilabrechnungCheckbox',
+      value: 1,
+    },
+    behandlerSelect: {
+      name: 'behandlerSelect',
+      title: 'Behandler',
+      options: [
+        { value: '0', text: 'Behandler' },
+        { value: 'name-1', text: 'Name 1' },
+        { value: 'name-2', text: 'Name 2' },
+        { value: 'name-3', text: 'Name 3' },
+        { value: 'name-4', text: 'Name 4' },
+      ],
+    },
+    versorgungsartSelect: {
+      name: 'versorgungsartSelect',
+      title: 'Versorgungsart',
+      options: [
+        { value: '0', text: 'Versorgungsart' },
+        { value: 'regelversorgung', text: 'Regelversorgung' },
+        { value: 'gleichartige-versorgung', text: 'Gleichartige Versorgung' },
+        { value: 'andersartige-versorgung', text: 'Andersartige Versorgung' },
+        { value: 'direktabrechnung', text: 'Direktabrechnung' },
+      ],
+    },
+    zuschussSelect: {
+      name: 'zuschussSelect',
+      title: 'Zuschuss',
+      options: [
+        { value: '0', text: 'Zuschuss' },
+        { value: '60%', text: '60%' },
+        { value: '70%', text: '70%' },
+        { value: '75%', text: '75%' },
+        { value: '100%', text: '100%' },
+      ],
+    },
+    punktwertInput: {
+      id: 'punktwertInput',
+      name: 'punktwertInput',
+      placeholder: 'Punktwert',
+    },
+    hartefallCheckbox: {
+      label: 'Härtefall',
+      for: 'hartefallCheckbox',
+      name: 'hartefallCheckbox',
+      value: 1,
+    },
+    fremdlaborSelect: {
+      name: 'fremdlaborSelect',
+      title: 'Fremdlabor',
+      options: [
+        { value: '0', text: 'Fremdlabor' },
+        { value: 'Labor 1', text: 'Labor 1' },
+        { value: 'Labor 2', text: 'Labor 2' },
+        { value: 'Labor 3', text: 'Labor 3' },
+      ],
+    },
+    herstellungsortLandInput: {
+      id: 'herstellungsortLandInput',
+      placeholder: 'Herstellungsort-/Land',
+      name: 'herstellungsortLandInput',
+    },
+    geschatzteLaborkostenInput: {
+      id: 'geschatzteLaborkostenInput',
+      name: 'geschatzteLaborkostenInput',
+      placeholder: 'Geschätzte Laborkosten',
+      currency: 'euro',
+      value: '12.45',
+    },
+    versandkostenInput: {
+      id: 'versandkostenInput',
+      name: 'versandkostenInput',
+      placeholder: 'Versandkosten (€)',
+      currency: 'euro',
+    },
+    gutachterlichBefurwortetCheckbox: {
+      label: 'Gutachterlich befürwortet',
+      for: 'gutachterlichBefurwortetCheckbox',
+      name: 'gutachterlichBefurwortetCheckbox',
+      value: 1,
+    },
+    gutachtenvomInput: {
+      id: 'gutachtenvomInput',
+      name: 'gutachtenvomInput',
+      placeholder: 'Gutachten vom',
+    },
+    KZVMitteilungInput: {
+      id: 'KZVMitteilungInput',
+      name: 'KZVMitteilungInput',
+      placeholder: 'KZV Mitteilung',
+    },
+    notizenInput: {
+      id: 'notizenInput',
+      name: 'notizenInput',
+      placeholder: 'Notizen',
+    },
+  };
+
+  module.exports = {
+    config: config,
+  };
+</script>
+
+<div class="row row--wrap row--lg">
+  <div data-resize-container class="column column--lg column--setting-card">
+    <module
+      actions="##cardActions.resize##"
+      headerTitle="Heil- und Kostenplan Zahnersatz"
+      src="/components/ui/content-card/index.html"
+    >
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <h2 class="text text--medium">Angaben zum Antrag</h2>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="45" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.idInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="125" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.antragsnummerInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="100" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.uberweiserInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="110" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.bezeichnungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="170" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.planartSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="170" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.abrechnungsstatusSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="145" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.therapieschrittSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="75" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.vonSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.unfallCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.versorgungsleidenCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.direktabrechnungCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.nemCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.immediatversorgungOKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.interimsversorgungOKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.unbrProtheseOKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.alterOKInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.immediatversorgungUKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.interimsversorgungUKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.unbrProtheseUKCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.alterUKInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <!--      <module src="/components/ui/layout/row.html">-->
+      <!--        <module src="/components/ui/layout/column.html"-->
+      <!--          ><module-->
+      <!--            ##getConfig(config.immediatversorgungCheckbox)##-->
+      <!--            src="/components/ui/forms/checkbox/index.html"-->
+      <!--          ></module-->
+      <!--        ></module>-->
+      <!--        <module src="/components/ui/layout/column.html"-->
+      <!--          ><module-->
+      <!--            ##getConfig(config.UPBKCheckbox)##-->
+      <!--            src="/components/ui/forms/checkbox/index.html"-->
+      <!--          ></module-->
+      <!--        ></module>-->
+      <!--        <module size="grow" src="/components/ui/layout/column.html"-->
+      <!--          ><module-->
+      <!--            ##getConfig(config.alterCaInJahrenInput)##-->
+      <!--            src="/components/ui/forms/input/index.html"-->
+      <!--          ></module-->
+      <!--        ></module>-->
+      <!--      </module>-->
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <h2 class="text text--medium">Antrags- und Abrechnungsdaten</h2>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.statusSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.erstelltInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.genehmigtInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="quarter" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.genehmigungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.eingegliedertInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.kasseabgerechnetInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.privatabgerechnetInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.teilabrechnungCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.behandlerSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.versorgungsartSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.zuschussSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.punktwertInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.hartefallCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <h2 class="text text--medium">Angaben zum Labor</h2>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.fremdlaborSelect)##
+            src="/components/ui/forms/select/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.herstellungsortLandInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="100" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.geschatzteLaborkostenInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.versandkostenInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.gutachterlichBefurwortetCheckbox)##
+            src="/components/ui/forms/checkbox/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.gutachtenvomInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.KZVMitteilungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.notizenInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+    </module>
+  </div>
+  <module src="/components/content/ze/common/tooth-calendar.html"></module>
+</div>

@@ -1,0 +1,31 @@
+<script locals>
+  module.exports = {
+    title: !!locals.headerTitle,
+  };
+</script>
+
+<div class="content-card {{## navigations ## ? 'content-card--with-nav' : ''}}">
+  <div class="content-card__header">
+    <if condition="{{ title }}">
+      <h2 class="content-card__title text">{{ headerTitle }}</h2>
+    </if>
+
+    <if condition="## navigations ##">
+      <module
+        activeLink="## activeLink ##"
+        navigations="## navigations ##"
+        src="/components/ui/content-card/navigation/index.html"
+      ></module>
+    </if>
+
+    <if condition="## actions ##">
+      <module
+        actions="## actions ##"
+        src="/components/ui/content-card/actions/index.html"
+      ></module>
+    </if>
+  </div>
+  <div class="content-card__body">
+    <content></content>
+  </div>
+</div>

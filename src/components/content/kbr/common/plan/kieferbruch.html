@@ -1,0 +1,296 @@
+<script locals>
+  var config = {
+    unfallAmInput: {
+      id: 'unfallAmInput',
+      name: 'unfallAmInput',
+      type: 'date',
+      placeholder: 'Unfall am',
+      tooltip: { text: 'Unfall am' },
+      disabled: true,
+      value: '2024-12-18',
+    },
+    unfallortInput: {
+      id: 'unfallortInput',
+      placeholder: 'Unfallort',
+      name: 'unfallortInput',
+    },
+    unfallursacheInput: {
+      id: 'unfallursacheInput',
+      placeholder: 'Unfallursache',
+      name: 'unfallursacheInput',
+    },
+    artDerVerletzungInput: {
+      id: 'artDerVerletzungInput',
+      placeholder: 'Art der Verletzung',
+      name: 'artDerVerletzungInput',
+    },
+    vorgeseheneBehandlungInput: {
+      id: 'vorgeseheneBehandlungInput',
+      placeholder: 'Vorgesehene Behandlung',
+      name: 'vorgeseheneBehandlungInput',
+    },
+    bemaPositionInput1: {
+      id: 'bemaPositionInput12',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput12',
+    },
+    bemaPositionInput2: {
+      id: 'bemaPositionInput22',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput22',
+    },
+    bemaPositionInput3: {
+      id: 'bemaPositionInput32',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput32',
+    },
+    bemaPositionInput4: {
+      id: 'bemaPositionInput42',
+      placeholder: 'BEMA-Position',
+      name: 'bemaPositionInput42',
+    },
+    interdentalraumeInput: {
+      id: 'interdentalraumeInput2',
+      placeholder: 'Interdentalräume',
+      name: 'interdentalraumeInput2',
+    },
+    stationareBehandlungCheckbox: {
+      label: 'Stationäre Behandlung',
+      for: 'stationareBehandlungCheckbox',
+      name: 'stationareBehandlungCheckbox',
+      value: 1,
+    },
+    datumInput: {
+      id: 'datumInput',
+      name: 'datumInput',
+      type: 'date',
+      placeholder: 'datum',
+      disabled: true,
+      value: '2025-04-09',
+    },
+    voraussichtlicheDauerInput: {
+      id: 'voraussichtlicheDauerInput',
+      placeholder: 'Voraussichtliche Dauer',
+      name: 'voraussichtlicheDauerInput',
+    },
+    nameDesKrankenhausesInput: {
+      id: 'nameDesKrankenhausesInput',
+      placeholder: 'Name des Krankenhauses',
+      name: 'nameDesKrankenhausesInput',
+    },
+    strabeInput: {
+      id: 'strabeInput',
+      placeholder: 'Straße',
+      name: 'strabeInput',
+    },
+    hausNrInput: {
+      id: 'hausNrInput',
+      placeholder: 'Haus-Nr.',
+      name: 'hausNrInput',
+    },
+    ortInput: {
+      id: 'ortInput',
+      placeholder: 'Ort',
+      name: 'ortInput',
+    },
+    PLZInput: {
+      id: 'PLZInput',
+      placeholder: 'PLZ',
+      name: 'PLZInput',
+    },
+    datumUnterschriftInput: {
+      id: 'datumUnterschriftInput',
+      name: 'datumUnterschriftInput',
+      type: 'date',
+      placeholder: 'Datum Unterschrift',
+      tooltip: { text: 'Datum Unterschrift' },
+      disabled: true,
+      value: '2025-04-09',
+    },
+    genehmigungsdatumInput: {
+      id: 'genehmigungsdatumInput',
+      placeholder: 'Genehmigungsdatum',
+      name: 'genehmigungsdatumInput',
+    },
+  };
+
+  module.exports = {
+    config: config,
+  };
+</script>
+
+<module src="/components/ui/layout/row.html">
+  <module size="col-3" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.unfallAmInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+  <module size="col-3" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.unfallortInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+  <module size="col-3" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.unfallursacheInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+</module>
+<module src="/components/ui/layout/row.html">
+  <module size="half" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.artDerVerletzungInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+  <module size="half" src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.vorgeseheneBehandlungInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module
+  ></module>
+</module>
+<module wrap="true" src="/components/ui/layout/row.html">
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K1 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput1)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K2 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput2)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K3 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput3)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module src="/components/ui/layout/column.html">
+    <module align="center" src="/components/ui/layout/row.html">
+      <module shrink="true" src="/components/ui/layout/column.html">
+        <p class="text text--medium text--sm text--uppercase">K4 ANZAHL</p>
+      </module>
+      <module size="max-120" src="/components/ui/layout/column.html">
+        <module
+          ##getConfig(config.bemaPositionInput4)##
+          src="/components/ui/forms/input/index.html"
+        ></module> </module></module
+  ></module>
+  <module src="/components/ui/layout/column.html"></module>
+  <module size="grow" src="/components/ui/layout/column.html">
+    <module
+      ##getConfig(config.interdentalraumeInput)##
+      src="/components/ui/forms/input/index.html"
+    ></module>
+  </module>
+</module>
+
+<module class="js-checkbox-show-next" src="/components/ui/layout/row.html">
+  <module src="/components/ui/layout/column.html"
+    ><module
+      ##getConfig(config.stationareBehandlungCheckbox)##
+      src="/components/ui/forms/checkbox/index.html"
+    ></module
+  ></module>
+</module>
+<div class="hidden">
+  <module align="center" src="/components/ui/layout/row.html">
+    <module size="grow" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.datumInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+    <module shrink="true" src="/components/ui/layout/column.html">
+      <span class="text text--medium">Bis</span>
+    </module>
+    <module size="grow" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.voraussichtlicheDauerInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module src="/components/ui/layout/column.html">
+      <h2 class="text text--medium">Angaben zum Krankenhauses</h2>
+    </module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="grow" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.nameDesKrankenhausesInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+    <module size="grow" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.strabeInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+    <module size="max-90" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.hausNrInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+    <module src="/components/ui/layout/column.html"></module>
+    <module size="max-160" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.ortInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+    <module size="max-160" src="/components/ui/layout/column.html">
+      <module
+        ##getConfig(config.PLZInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module>
+    </module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module src="/components/ui/layout/column.html">
+      <span class="text text--medium">&nbsp;</span>
+    </module>
+  </module>
+  <module src="/components/ui/layout/row.html">
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.datumUnterschriftInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+    <module size="half" src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.genehmigungsdatumInput)##
+        src="/components/ui/forms/input/index.html"
+      ></module
+    ></module>
+  </module>
+</div>

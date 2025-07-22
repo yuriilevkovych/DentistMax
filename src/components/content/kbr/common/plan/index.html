@@ -1,0 +1,38 @@
+<script locals>
+  var config = {
+    changeBlockSelect: {
+      name: 'changeBlockSelect',
+      title: 'Kiefergelenkserkrankung',
+      options: [
+        { value: 'kiefergelenkserkrankung', text: 'Kiefergelenkserkrankung' },
+        { value: 'kieferbruch', text: 'Kieferbruch' },
+      ],
+    },
+  };
+
+  module.exports = {
+    config: config,
+  };
+</script>
+
+<module headerTitle="Plan" src="/components/ui/content-card/index.html">
+  <module src="/components/ui/layout/row.html">
+    <module
+      class="js-select-change-block"
+      size="grow"
+      src="/components/ui/layout/column.html"
+      ><module
+        ##getConfig(config.changeBlockSelect)##
+        src="/components/ui/forms/select/index.html"
+      ></module
+    ></module>
+  </module>
+  <div data-block="kiefergelenkserkrankung">
+    <module
+      src="/components/content/kbr/common/plan/kiefergelenkserkrankung.html"
+    ></module>
+  </div>
+  <div class="hidden" data-block="kieferbruch">
+    <module src="/components/content/kbr/common/plan/kieferbruch.html"></module>
+  </div>
+</module>

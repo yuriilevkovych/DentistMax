@@ -1,0 +1,29 @@
+<script locals>
+  module.exports = {
+    getClasses: function () {
+      let classes = 'row';
+
+      if (locals.class) {
+        classes += ` ${locals.class}`;
+      }
+
+      if (locals.flex) {
+        classes += ` row--flex-${locals.flex}`;
+      }
+
+      if (locals.align) {
+        classes += ` row--align-${locals.align}`;
+      }
+
+      if (locals.wrap) {
+        classes += ' row--wrap';
+      }
+
+      return classes;
+    },
+  };
+</script>
+
+<div class="{{getClasses()}}">
+  <content></content>
+</div>
