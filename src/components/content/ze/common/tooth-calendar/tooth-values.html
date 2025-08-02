@@ -1,0 +1,32 @@
+<script locals>
+  module.exports = {
+    whiteValues: [
+      '', 'a', 'ab', 'aw', 'abw', 'b', 'bw', 'e', 'ew', 'f', 'ix', 'k', 'kw', 'pkw', 'pw', 'r', 'rw', 't', 'tw', 't2w', 'ur', 'ww', 'x', ')(', 'sb', 'sbw', 'se', 'sew', 'sk', 'skw', 'so', 'sow', 'st', 'stw',
+    ],
+    blueValues: [
+      '', 'A', 'AB', 'K', 'PK', 'T', 'T2', 'R', 'B', 'SB', 'SE', 'SK', 'ST', 'SO', 'E', 'M', 'V', 'H', 'O', 'PRV',
+    ],
+  };
+</script>
+
+<div class="tooth-values active {{values}}">
+  <if condition="{{values === 'white'}}">
+    <each loop="item in whiteValues">
+      <div class="tooth-value">
+        <button data-value="{{item}}" class="tooth-value__button {{!item ? 'empty' : ''}}" type="button">
+          {{item}}
+        </button>
+      </div>
+    </each>
+  </if>
+  <if condition="{{values === 'blue'}}">
+    <each loop="item in blueValues">
+      <div class="tooth-value">
+        <button data-value="{{item}}" class="tooth-value__button {{!item ? 'empty' : ''}}" type="button">
+          {{item}}
+        </button>
+      </div>
+    </each>
+  </if>
+</div>
+

@@ -2,6 +2,7 @@
 
 form,
 .form {
+  position: relative;
   // field
   .field {
     &.has-error {
@@ -59,7 +60,8 @@ form,
   }
 
   // input select
-  .form__input {
+  .form__input:not(.selectize-control, .selectize-dropdown),
+  .selectize-input {
     display: inline-block;
     width: 100%;
     height: 30px;
@@ -84,26 +86,6 @@ form,
       font-weight: 400;
     }
 
-    &--with-currency {
-      text-indent: 12px;
-
-      &:placeholder-shown {
-        text-indent: 0;
-
-        & + .currency {
-          display: none;
-        }
-      }
-
-      &:focus {
-        text-indent: 12px;
-
-        & + .currency {
-          display: block;
-        }
-      }
-    }
-
     &[disabled] {
       opacity: 0.5;
 
@@ -111,6 +93,109 @@ form,
         border-color: $colorGrey50;
         background-color: $colorGrey20;
       }
+    }
+  }
+
+  .form__input--with-currency {
+    text-indent: 12px;
+
+    &:placeholder-shown {
+      text-indent: 0;
+
+      & + .currency {
+        display: none;
+      }
+    }
+
+    &:focus {
+      text-indent: 12px;
+
+      & + .currency {
+        display: block;
+      }
+    }
+  }
+
+  .selectize-control.form__input {
+    line-height: 0;
+    .selectize-input {
+      border-color: $colorGrey50;
+      background-color: $colorGrey20 !important;
+
+      &:hover {
+        border-color: $colorBlue40;
+        background-color: $colorBlue20 !important;
+      }
+
+      &.input-active {
+        border-color: $colorGrey50;
+        background-color: $colorGrey20 !important;
+
+        &:hover {
+          border-color: $colorBlue40;
+          background-color: $colorBlue20  !important;
+        }
+      }
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .selectize-dropdown {
+    margin-top: 8px;
+
+    .selectize-dropdown-content {
+      padding: 8px;
+      background: $colorWhite;
+      box-shadow: 0 32px 48px 0 rgba(33, 39, 43, 0.15);
+      border: 1px solid $colorGrey50;
+      border-radius: 8px;
+    }
+
+    .option {
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 16px;
+      line-height: 20px;
+      color: $colorInkLight;
+      margin-bottom: 4px;
+
+      &:hover {
+        background: $colorBlue20;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .highlight {
+      background-color: $colorInkUltraDark;
+      color: $colorWhite;
+    }
+  }
+
+  .selectize-input input {
+    color: $colorInkUltraDark;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+
+    &:not(.has-items) {
+      position: relative;
+      opacity: 1;
+      left: 0;
+    }
+
+
+    &::placeholder {
+      color: $colorInkLight;
+      font-weight: 400;
     }
   }
 

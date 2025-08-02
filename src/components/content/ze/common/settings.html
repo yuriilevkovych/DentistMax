@@ -44,7 +44,7 @@
           text: 'Heilfürsorge Landespolizei (mit Festzuschuss)',
         },
         { value: 'bundeswehr', text: 'Bundeswehr' },
-        { value: 'zahnersatz-2004', text: 'Zahnersatz 2004' },
+        // { value: 'zahnersatz-2004', text: 'Zahnersatz 2004' },
       ],
     },
     abrechnungsstatusSelect: {
@@ -366,7 +366,7 @@
             src="/components/ui/forms/input/index.html"
           ></module
         ></module>
-        <module size="100" src="/components/ui/layout/column.html"
+        <module size="170" src="/components/ui/layout/column.html"
           ><module
             ##getConfig(config.uberweiserInput)##
             src="/components/ui/forms/input/index.html"
@@ -384,12 +384,12 @@
             src="/components/ui/forms/select/index.html"
           ></module
         ></module>
-        <module size="170" src="/components/ui/layout/column.html"
-          ><module
-            ##getConfig(config.abrechnungsstatusSelect)##
-            src="/components/ui/forms/select/index.html"
-          ></module
-        ></module>
+<!--        <module size="170" src="/components/ui/layout/column.html"-->
+<!--          ><module-->
+<!--            ##getConfig(config.abrechnungsstatusSelect)##-->
+<!--            src="/components/ui/forms/select/index.html"-->
+<!--          ></module-->
+<!--        ></module>-->
       </module>
       <module src="/components/ui/layout/row.html">
         <module size="145" src="/components/ui/layout/column.html"
@@ -416,12 +416,12 @@
             src="/components/ui/forms/checkbox/index.html"
           ></module
         ></module>
-        <module src="/components/ui/layout/column.html"
-          ><module
-            ##getConfig(config.direktabrechnungCheckbox)##
-            src="/components/ui/forms/checkbox/index.html"
-          ></module
-        ></module>
+<!--        <module src="/components/ui/layout/column.html"-->
+<!--          ><module-->
+<!--            ##getConfig(config.direktabrechnungCheckbox)##-->
+<!--            src="/components/ui/forms/checkbox/index.html"-->
+<!--          ></module-->
+<!--        ></module>-->
         <module src="/components/ui/layout/column.html"
           ><module
             ##getConfig(config.nemCheckbox)##

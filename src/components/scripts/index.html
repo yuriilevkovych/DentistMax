@@ -141,36 +141,6 @@
       }
     );
 
-    // $(document).on('click', '.js-add-row', function addNewRow() {
-    //   const clonedRow = $(this).closest('[data-row]').clone();
-    //   const rowIndex = $(this).closest('[data-row]').data('row');
-    //   clonedRow.attr('data-row', rowIndex + 1);
-    //   clonedRow.find('input').each(function () {
-    //     const newId = $(this)
-    //       .attr('id')
-    //       .replace(/-\d+$/, `-${rowIndex + 1}`);
-    //     const newName = $(this)
-    //       .attr('name')
-    //       .replace(/-\d+$/, `-${rowIndex + 1}`);
-    //     $(this).attr('id', newId);
-    //     $(this).attr('name', newName);
-    //   });
-    //
-    //   const swapAttrs = $(this).attr('data-swap').split(', ');
-    //   const tableBody = $(this).closest('.table__body');
-    //   const tableBodyInner = tableBody.find('.table__body-inner');
-    //   const appendTo = tableBodyInner.length ? tableBodyInner : tableBody;
-    //   tableBody.append(clonedRow);
-    //   $(this)
-    //     .closest('[data-row]')
-    //     .addClass('show-input editing')
-    //     .find('.table__col--empty-actions')
-    //     .remove();
-    //   $(this)
-    //     .parent()
-    //     .replaceWith(swapAttrs.map((attr) => swapConfig[attr]).join(''));
-    // });
-
     $(document).on('click', '.js-done-edit-row', function addNewRow() {
       $(this)
         .closest('[data-row]')
@@ -267,5 +237,35 @@
 
       initDialog('OPEN', dialogTarget, w, h);
     });
+
+    $('#uberweiserInput').selectize({
+        maxItems: 1,
+        maxOptions: 30,
+        valueField: 'id',
+        labelField: 'name',
+        searchField: ['name'],
+        load: function( query , callback ) {
+          console.log( 'LOAD' , query );
+          var self = this;
+          if ( !query.length ) return callback();
+          $.ajax({
+            url: './',
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            data: {
+              'do': encodeURIComponent(query)
+            },
+            error: function() {
+              callback([{ "id": 1, "name": "Adam Beispiel" },{ "id": 2, "name": "Eva Beispiel" },{ "id": 3, "name": "John Beispiel" }]);
+            },
+            success: function(res) {
+              self.clearOptions();
+              callback( res );
+            }
+          });
+        },
+    });
+
   });
 </script>

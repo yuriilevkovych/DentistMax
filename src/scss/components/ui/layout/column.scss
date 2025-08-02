@@ -13,6 +13,20 @@
 
   &--setting-card {
     max-width: 790px;
+
+    @include media-max(1800px) {
+      max-width: 100%;
+
+      .small-menu & {
+        max-width: 790px;
+      }
+    }
+
+    @include media-max(1650px) {
+      .small-menu & {
+        max-width: 100%;
+      }
+    }
   }
 
   $sizes: 45, 75, 80, 90, 100, 110, 120, 125, 130, 145, 160, 170, 180, 200, 240,
