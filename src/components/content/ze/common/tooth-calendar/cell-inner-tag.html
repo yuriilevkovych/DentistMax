@@ -1,0 +1,12 @@
+<script locals>
+  module.exports = {
+    tag: locals.tag || '',
+  };
+</script>
+
+<if condition="tag === 'input'">
+  <input id="id" name="name" readonly class="calendar__cell-inner" value="{{value}}" />
+</if>
+<else>
+  <p class="calendar__cell-inner"><content></content></p>
+</else>

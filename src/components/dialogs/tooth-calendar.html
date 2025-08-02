@@ -1,0 +1,95 @@
+<script locals>
+  module.exports = {
+    config: {
+      bezeichnungInput: {
+        id: 'BezeichnungInputDialog',
+        placeholder: 'Bezeichnung',
+        name: 'BezeichnungInputDialog',
+      },
+    },
+  };
+</script>
+
+<dialog class="mdl-dialog mdl-dialog--with-buttons dialogToothCalendar redesign">
+  <form action="" method="post" class="dialogForm">
+    <div class="dialog__header">
+      <h4 class="dialog__header-title text">Befund</h4>
+      <button
+        type="button"
+        class="dialog__header-action btn-close"
+        data-close-dialog
+      >
+        <img
+          src="/img/icons/24/close-icon.svg"
+          width="24"
+          height="24"
+          alt="cross icon"
+        />
+      </button>
+    </div>
+    <div class="dialog__body">
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <module
+            values="blue"
+            src="/components/content/ze/common/tooth-calendar/tooth-values.html"
+          >
+          </module>
+        </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <module
+            values="white"
+            src="/components/content/ze/common/tooth-calendar/tooth-values.html"
+          >
+        </module>
+      </module>
+      </module>
+      <module src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html">
+          <module
+            tag="input"
+            src="/components/content/ze/common/tooth-calendar/index.html"
+          >
+          </module>
+        </module>
+      </module>
+
+      <module class="row--top-auto" src="/components/ui/layout/row.html">
+        <module size="grow" src="/components/ui/layout/column.html"
+          ><module
+            ##getConfig(config.bezeichnungInput)##
+            src="/components/ui/forms/input/index.html"
+          ></module
+        ></module>
+      </module>
+    </div>
+    <div class="dialog__actions">
+      <module flex="end" src="/components/ui/layout/row.html">
+        <module src="/components/ui/layout/column.html">
+          <module
+            variant="outline"
+            text="Hilfe"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+        <module src="/components/ui/layout/column.html">
+          <module
+            buttonClasses="btn-close"
+            text="OK"
+            variant="primary"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+        <module src="/components/ui/layout/column.html">
+          <module
+            variant="outline"
+            text="Abbruch"
+            src="/components/ui/button/index.html"
+          ></module>
+        </module>
+      </module>
+    </div>
+  </form>
+</dialog>

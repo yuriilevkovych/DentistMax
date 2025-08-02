@@ -1,0 +1,336 @@
+<script locals>
+  module.exports = {
+    tag: locals.tag || '',
+  };
+</script>
+
+<div class="tooth-calendar">
+  <div class="calendar__section">
+    <div class="calendar__description">
+      <div class="calendar__row">
+        <div class="calendar__cell calendar__cell--empty">
+          <div class="calendar__cell-inner"></div>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell">
+          <p class="calendar__cell-inner">TP</p>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell">
+          <p class="calendar__cell-inner">R</p>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell">
+            <p class="calendar__cell-inner">B</p>
+        </div>
+      </div>
+    </div>
+    <div class="calendar__content">
+      <div class="calendar__sector">
+        <div class="calendar__row calendar__row--info">
+          <each loop="item in [18,17,16,15,14,13,12,11]">
+            <div class="calendar__cell">
+              <p class="calendar__cell-inner">{{item}}</p>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row calendar__row--blue">
+          <each
+            loop="item in [
+                {text: 'f', status:'filled'},
+                {text: ''},
+                {text: 'x', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'ww', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+      </div>
+      <div class="calendar__sector">
+        <div class="calendar__row calendar__row--info">
+          <each loop="item in [21,22,23,24,25,26,27,28]">
+            <div class="calendar__cell">
+              <p class="calendar__cell-inner">{{item}}</p>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row calendar__row--blue">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'F', status:'filled'},
+                {text: ''},
+                {text: 'F', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calendar__section">
+    <div class="calendar__description">
+      <div class="calendar__row">
+        <div class="calendar__cell">
+          <p class="calendar__cell-inner">B</p>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell">
+          <p class="calendar__cell-inner">R</p>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell">
+          <p class="calendar__cell-inner">TR</p>
+        </div>
+      </div>
+      <div class="calendar__row">
+        <div class="calendar__cell calendar__cell--empty">
+          <p class="calendar__cell-inner"></p>
+        </div>
+      </div>
+    </div>
+    <div class="calendar__content">
+      <div class="calendar__sector">
+        <div class="calendar__row calendar__row--blue">
+          <each
+            loop="item in [
+                {text: 'f', status:'filled'},
+                {text: ''},
+                {text: 'x', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'ww', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: ''}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: 'K', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'KV', status:'filled'},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row calendar__row--info">
+          <each loop="item in [48,47,46,45,44,43,42,41]">
+            <div class="calendar__cell">
+              <p class="calendar__cell-inner">{{item}}</p>
+            </div>
+          </each>
+        </div>
+      </div>
+      <div class="calendar__sector">
+        <div class="calendar__row calendar__row--blue">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'F', status:'filled'},
+                {text: ''},
+                {text: 'F', status:'filled'}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row">
+          <each
+            loop="item in [
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: ''},
+                {text: 'KV', status:'filled'},
+                {text: 'B', status:'filled'},
+                {text: 'K', status:'filled'},
+                {text: ''}
+                ]"
+          >
+            <div class="calendar__cell ##item.status ? item.status : ''##">
+              <module tag="{{tag}}" value="{{item.text}}" src="/components/content/ze/common/tooth-calendar/cell-inner-tag.html">
+                {{item.text}}
+              </module>
+            </div>
+          </each>
+        </div>
+        <div class="calendar__row calendar__row--info">
+          <each loop="item in [31,32,33,34,35,36,37,38]">
+            <div class="calendar__cell">
+              <p class="calendar__cell-inner">{{item}}</p>
+            </div>
+          </each>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
