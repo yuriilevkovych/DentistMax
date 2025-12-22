@@ -1,0 +1,190 @@
+<script locals>
+  module.exports = {
+    table: {
+      head: {
+        cols: [
+          {
+            text: 'Datum',
+            size: 80,
+          },
+          {
+            text: 'Zahn',
+            size: 60,
+          },
+          {
+            text: 'Leistung',
+            size: 80,
+          },
+          {
+            text: 'Beschreibung',
+            size: 'grow',
+          },
+          {
+            text: 'Bemerk',
+            size: 80,
+          },
+          {
+            text: 'Begrundung',
+            size: 120,
+          },
+          {
+            text: 'Material',
+            size: 120,
+          },
+          {
+            text: 'ANZ',
+            size: 60,
+          },
+          {
+            text: 'Fakt',
+            size: 80,
+          },
+          {
+            text: 'EUR',
+            size: 80,
+          },
+          {
+            text: 'BEH',
+            size: 80,
+          },
+          {
+            text: 'ASS',
+            size: 80,
+          },
+          {
+            text: 'Plan',
+            size: 80,
+          },
+          {
+            text: 'Typ',
+            size: 80,
+          },
+          {
+            type: 'action',
+          },
+          {
+            type: 'action',
+          },
+        ],
+      },
+      body: {
+        rows: [],
+      },
+      action: {
+        cols: [
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'datum-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'zahn-input',
+            },
+          },
+          {
+            type: 'input',
+            withDialog: 'dialogManageSearch',
+            size: 80,
+            ops: {
+              id: 'leistung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 'grow',
+            ops: {
+              id: 'beschreibung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'bemerk-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 120,
+            ops: {
+              id: 'begrundung-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 120,
+            ops: {
+              id: 'material-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 60,
+            ops: {
+              id: 'anz-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'fakt-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'eur-input',
+              disabled: true,
+              value: '93,71',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'beh-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'ass-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'plan-input',
+            },
+          },
+          {
+            type: 'input',
+            size: 80,
+            ops: {
+              id: 'typ-input',
+            },
+          },
+          {
+            type: 'add',
+            swap: 'remove, more-menu',
+          },
+        ],
+      },
+    },
+  };
+</script>
+
+<module
+  size="grow"
+  tableData="##table##"
+  src="/components/ui/block/table-with-title.html"
+></module>

@@ -26,7 +26,7 @@ export const contentNavigation = [
       },
       {
         name: 'kch',
-        route: '#',
+        route: '/pages/kch/1-history.html',
       },
     ],
   },

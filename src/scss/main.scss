@@ -133,6 +133,30 @@
     -moz-appearance: textfield;
   }
 
+  .info-block {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #00A2F41A;
+    color: #3A4348;
+  }
+
+  .info-block__title {
+    max-width: 224px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 14px;
+    color: inherit;
+  }
+
+  .info-block__text {
+    font-size: 12px;
+    line-height: 14px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
   @import './components/ui/index';
 }
 
